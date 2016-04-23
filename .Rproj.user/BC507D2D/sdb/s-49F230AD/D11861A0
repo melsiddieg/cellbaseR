@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "t1 <- CellbaseQuery()\nt1\nsp <- cbSpecies(t1)\nc1 <- cbClinical(object = t1,genes = c(\"BRCA1\",\"TET1\"))\nc3 <- cbClinical(object = t1,genes = c(\"TET1\",\"TP73\"),region = \"17:39333020-40863486\")\nct <- cellbaseData(c3)\nr1 <- cbRegion(object = t1,ids = \"17:39333020-40863486\",resource = \"clinical\")\nr1\nh1 <- cbClinical(object = t1,phenotype = c(\"hypertension\",\"diabetes\"))\nh1\nh2 <- cellbaseData(h1)\n",
+    "created" : 1460744195479.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1449258097",
+    "id" : "D11861A0",
+    "lastKnownWriteTime" : 1460764533,
+    "last_content_update" : 1460764533,
+    "path" : "~/R/Cellbase/Testing.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
