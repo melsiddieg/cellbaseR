@@ -1,1 +1,68 @@
+<<<<<<< HEAD
 inst/doc
+=======
+
+build
+
+node_modules
+bower_components
+private
+
+# General
+*.Rbuildignore
+*.jar
+*.war
+*.o
+*.lib
+*.a
+*.so
+*.so.*
+*.out
+*.log
+*.Rproj
+*.RData
+*.Rhistory
+sonar-project.properties
+
+# Maven
+target/
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+
+
+# Eclipse
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# Python
+*.pyc
+.Rproj.user
+>>>>>>> c669312e65d0efedd77b50d5425093308831c7ba
