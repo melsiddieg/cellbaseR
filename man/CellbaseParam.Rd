@@ -2,19 +2,20 @@
 % Please edit documentation in R/cellbase_classes.R
 \name{CellbaseParam}
 \alias{CellbaseParam}
-\title{A constructor function for CellbaseParam
-use the CellbaseParam object to control what results are returned from the CellbaseQuery methods}
+\title{A constructor function for CellbaseParam}
 \usage{
 CellbaseParam(genome = character(), gene = character(),
   region = character(), rs = character(), so = character(),
   phenotype = character())
 }
 \arguments{
-\item{genome}{A character denoting the genome build to query,eg, GRCh37(default),or GRCh38}
+\item{genome}{A character denoting the genome build to query,eg, GRCh37
+(default),or GRCh38}
 
 \item{gene}{A charcter vector denoting the gene/s to be queried}
 
-\item{region}{A charcter vector denoting the region/s to be queried must be in the form 1:100000-1500000 not chr1:100000-1500000}
+\item{region}{A charcter vector denoting the region/s to be queried must be 
+in the form 1:100000-1500000 not chr1:100000-1500000}
 
 \item{rs}{A charcter vector denoting the rs ids to be queried}
 
@@ -24,7 +25,10 @@ CellbaseParam(genome = character(), gene = character(),
 }
 \description{
 A constructor function for CellbaseParam
-use the CellbaseParam object to control what results are returned from the CellbaseQuery methods
+}
+\details{
+use the CellbaseParam object to control what results are returned from the 
+CellbaseQuery methods
 }
 \examples{
 library(cellbaseR)
@@ -33,6 +37,6 @@ print(cbParam)
 }
 \seealso{
 for more information about the cellbase webservices see 
-\url{https://github.com/opencb/cellbase/wiki}
+\url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }
 
