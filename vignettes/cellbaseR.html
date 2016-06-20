@@ -10,9 +10,9 @@
 
 <meta name="author" content="Mohammed Omar Elsiddieg Abdallah" />
 
-<meta name="date" content="2016-04-19" />
+<meta name="date" content="2016-06-19" />
 
-<title>cellbaseR</title>
+<title>Simplifying Genomic Annotations in R</title>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -49,81 +49,263 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <div id="header">
-<h1 class="title">cellbaseR</h1>
+<h1 class="title">Simplifying Genomic Annotations in R</h1>
 <h4 class="author"><em>Mohammed Omar Elsiddieg Abdallah</em></h4>
-<h4 class="date"><em>19 April 2016</em></h4>
+<h4 class="date"><em>19 June 2016</em></h4>
 </div>
+<h4 class="package">Package version: <span style="font-weight: normal">BiocStyle 2.1.7</span></h4>
 
 <h1>Contents</h1>
 <div id="TOC">
 <ul>
-<li><a href="#the-cellbasequery-class"><span class="toc-section-number">0.1</span> The CellbaseQuery class</a></li>
-<li><a href="#the-cellbasequery-methods"><span class="toc-section-number">0.2</span> The CellbaseQuery Methods</a></li>
+<li><a href="#introduction-to-cellbaser"><span class="toc-section-number">1</span> Introduction to CellbaseR</a></li>
+<li><a href="#cellbaser-classes-and-methods"><span class="toc-section-number">2</span> CellbaseR Classes and Methods</a><ul>
+<li><a href="#the-cellbaser-class"><span class="toc-section-number">2.1</span> The CellbaseR class</a></li>
+<li><a href="#the-cellbaser-methods"><span class="toc-section-number">2.2</span> The CellbaseR Methods</a><ul>
+<li><a href="#cbgeneclient"><span class="toc-section-number">2.2.1</span> cbGeneClient</a></li>
+<li><a href="#cbregionclient"><span class="toc-section-number">2.2.2</span> cbRegionClient</a></li>
+<li><a href="#cbvraiantclient"><span class="toc-section-number">2.2.3</span> cbVraiantClient</a></li>
+<li><a href="#cbclinical"><span class="toc-section-number">2.2.4</span> cbClinical</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#cellbaser-utilities"><span class="toc-section-number">3</span> CellbaseR utilities</a><ul>
+<li><a href="#creategenemodel"><span class="toc-section-number">3.1</span> CreateGeneModel</a></li>
+<li><a href="#cbannotatevcf"><span class="toc-section-number">3.2</span> cbAnnotateVcf</a></li>
+</ul></li>
 </ul>
 </div>
 
-<p>Loading the library</p>
-<pre class="r"><code>library(cellbaseR)</code></pre>
-<div id="the-cellbasequery-class" class="section level2">
-<h2><span class="header-section-number">0.1</span> The CellbaseQuery class</h2>
-<p>Defining the CellbaseQuery object holding the config to connect to cellbase data</p>
-<pre class="r"><code>cb &lt;- cellbaseR::CellbaseQuery()
-cb</code></pre>
-<pre><code>## An object of class CellbaseQuery
-## | it holds the configuration for querying the Cellbase databases
-## | to get more information about the available species run cbSpecies()
-## | to change the default species from human use CellbaseQuery(species='')</code></pre>
-<p>This create a CellbaseQuery object which by default connect to the human cellbase database and GRCh37 genome assembly, you can see the avaiable species and data for each species by running the cbSpecies method passing the CellbaseQuery object you just created</p>
-<pre class="r"><code>sp &lt;- cbSpecies(object = cb) # This will give you a list of dataframes corresponding
-# to avaiable groups
-# See the available groups
-names(sp)
-# Get the information about the vertberates group
-vertebrates &lt;- (sp[[&quot;vertebrates&quot;]])
-head(vertebrates)
-# Later will see How to change the default species from human to your species of interest</code></pre>
+<div id="introduction-to-cellbaser" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction to CellbaseR</h1>
+<p>This R package makes use of the exhaustive RESTful Web service API that has been implemented for the Cellabase database. It enable researchers to query and obtain a wealth of biological information from a single database saving a lot of time. Another benefit is that researchers can easily make queries about different biological topics and link all this information together as all information is integrated.</p>
 </div>
-<div id="the-cellbasequery-methods" class="section level2">
-<h2><span class="header-section-number">0.2</span> The CellbaseQuery Methods</h2>
+<div id="cellbaser-classes-and-methods" class="section level1">
+<h1><span class="header-section-number">2</span> CellbaseR Classes and Methods</h1>
+<div id="the-cellbaser-class" class="section level2">
+<h2><span class="header-section-number">2.1</span> The CellbaseR class</h2>
+<p>This is an S4 class that holds the basic configuration for connecting to the Cellbase web services. Let us start by loading the library.</p>
+<pre class="r"><code># to get the default CellbaseR object (human data, from genome GRCh37)
+library(cellbaseR)
+# A default cellbaseR object is created as follows
+cb &lt;- CellBaseR()
+# to change the default species from human to mouse for example
+mm &lt;-CellBaseR(species = &quot;mmsculus&quot;) </code></pre>
+<p>You can see the avaiable species and their corresonding data by running the cbSpecies method passing the CellbBseR object you just created</p>
+<pre class="r"><code>library(cellbaseR)
+cb &lt;- CellBaseR()
+sp &lt;- cbSpeciesClient(object = cb)
+# This will give you a CellbaseResult object
+# to get the dataframe of all available species
+sp &lt;- cbData(sp)
+str(sp,1)</code></pre>
+<pre><code>## 'data.frame':    48 obs. of  4 variables:
+##  $ id            : chr  &quot;hsapiens&quot; &quot;mmusculus&quot; &quot;drerio&quot; &quot;rnorvegicus&quot; ...
+##  $ scientificName: chr  &quot;Homo sapiens&quot; &quot;Mus musculus&quot; &quot;Danio rerio&quot; &quot;Rattus norvegicus&quot; ...
+##  $ assemblies    :List of 48
+##  $ data          :List of 48</code></pre>
+</div>
+<div id="the-cellbaser-methods" class="section level2">
+<h2><span class="header-section-number">2.2</span> The CellbaseR Methods</h2>
 <p>In addition to the cbSpecies you have seen already, The cellbaseR package provide many methods to query the cellbase webservices, they include:</p>
 <ul>
-<li>cbGene<br />
+<li>cbGeneClient<br />
 </li>
-<li>cbSnp<br />
+<li>cbSnpClient<br />
 </li>
-<li>cbProtein<br />
+<li>cbProteinClient<br />
 </li>
-<li>cbTranscript<br />
+<li>cbTranscriptClient</li>
+<li>cbRegionClient</li>
+<li>cbVariantClient<br />
 </li>
-<li>cbRegion<br />
+<li>cbXrefClient<br />
 </li>
-<li>cbVariant<br />
-</li>
-<li>cbXref<br />
-</li>
-<li>cbClinical</li>
+<li>cbClinicalClient</li>
 </ul>
-<p>In all cases the user is expected to provide the ids for the query and the resource to be queried, in addition to the CellbaseQuery object they created.For example, a query through the cbGene will look something like this</p>
-<pre class="r"><code>cb &lt;- CellbaseQuery()
+<p>In all cases the user is expected to provide the ids for the query and the resource to be queried, in addition to the CellbaseQuery object they created. For example, a query through the cbGene will look something like this</p>
+<div id="cbgeneclient" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> cbGeneClient</h3>
+<pre class="r"><code>library(cellbaseR)
+cb &lt;- CellBaseR()
 genes &lt;- c(&quot;TP73&quot;,&quot;TET1&quot;)
 
-res &lt;- cbGene(object = cb, ids = genes, resource = &quot;transcript&quot;)
+res &lt;- cbGeneClient(object = cb, ids = genes, resource = &quot;info&quot;)
 # to get the resulting data.frame run cellbaseData()
-res &lt;- cellbaseData(object = res)
-names(res)
-# as you can see the res dataframe also contains an exons column 
+res &lt;- cbData(object = res)
+str(res,2)</code></pre>
+<pre><code>## 'data.frame':    2 obs. of  12 variables:
+##  $ id         : chr  &quot;ENSG00000078900&quot; &quot;ENSG00000138336&quot;
+##  $ name       : chr  &quot;TP73&quot; &quot;TET1&quot;
+##  $ biotype    : chr  &quot;protein_coding&quot; &quot;protein_coding&quot;
+##  $ status     : chr  &quot;KNOWN&quot; &quot;KNOWN&quot;
+##  $ chromosome : chr  &quot;1&quot; &quot;10&quot;
+##  $ start      : int  3569084 70320413
+##  $ end        : int  3652765 70454239
+##  $ strand     : chr  &quot;+&quot; &quot;+&quot;
+##  $ source     : chr  &quot;Ensembl&quot; &quot;Ensembl&quot;
+##  $ description: chr  &quot;tumor protein p73 [Source:HGNC Symbol;Acc:HGNC:12003]&quot; &quot;tet methylcytosine dioxygenase 1 [Source:HGNC Symbol;Acc:HGNC:29484]&quot;
+##  $ transcripts:List of 2
+##   ..$ :'data.frame': 14 obs. of  20 variables:
+##   ..$ :'data.frame': 1 obs. of  20 variables:
+##  $ annotation :'data.frame': 2 obs. of  2 variables:
+##   ..$ expression:List of 2
+##   ..$ diseases  :List of 2</code></pre>
+<pre class="r"><code># as you can see the res dataframe also contains a transcriots column 
 # which is in fact a list column of nested dataframes, to get the
-# exons data.frame for first transcript
-TET1_transcripts &lt;- res$exons[[1]]
-names(TET1_transcripts)</code></pre>
-<p>making a query through cbRegion to get all the clinically relevant variants in a specific region</p>
-<pre class="r"><code>res &lt;- cbRegion(object = cb,ids = &quot;17:1000000-1100000&quot;,resource = &quot;clinical&quot;)
-# to get the data 
-res &lt;- cellbaseData(res)</code></pre>
+# trasnscripts data.frame for first gene
+TET1_transcripts &lt;- res$transcripts[[1]]
+str(TET1_transcripts,1)</code></pre>
+<pre><code>## 'data.frame':    14 obs. of  20 variables:
+##  $ id                : chr  &quot;ENST00000378295&quot; &quot;ENST00000604074&quot; &quot;ENST00000354437&quot; &quot;ENST00000357733&quot; ...
+##  $ name              : chr  &quot;TP73-001&quot; &quot;TP73-006&quot; &quot;TP73-002&quot; &quot;TP73-202&quot; ...
+##  $ biotype           : chr  &quot;protein_coding&quot; &quot;protein_coding&quot; &quot;protein_coding&quot; &quot;protein_coding&quot; ...
+##  $ status            : chr  &quot;KNOWN&quot; &quot;KNOWN&quot; &quot;KNOWN&quot; &quot;KNOWN&quot; ...
+##  $ chromosome        : chr  &quot;1&quot; &quot;1&quot; &quot;1&quot; &quot;1&quot; ...
+##  $ start             : int  3569084 3569084 3569129 3569129 3569129 3598930 3598930 3607236 3607236 3607236 ...
+##  $ end               : int  3652765 3652765 3649856 3650467 3650467 3649643 3649643 3649856 3649856 3652765 ...
+##  $ strand            : chr  &quot;+&quot; &quot;+&quot; &quot;+&quot; &quot;+&quot; ...
+##  $ genomicCodingStart: int  3598930 3598930 3598930 3598930 3598930 3598930 3598930 3607470 3607470 3607470 ...
+##  $ genomicCodingEnd  : int  3649643 3649326 3649326 3649643 3649643 3649643 3649643 3649326 3648119 3649643 ...
+##  $ cdnaCodingStart   : int  156 156 111 111 111 1 1 235 235 235 ...
+##  $ cdnaCodingEnd     : int  2066 1367 1610 1778 1733 1668 1623 1587 1515 1998 ...
+##  $ cdsLength         : int  1910 1211 1499 1667 1622 1667 1622 1352 1280 1763 ...
+##  $ proteinID         : chr  &quot;ENSP00000367545&quot; &quot;ENSP00000475143&quot; &quot;ENSP00000346423&quot; &quot;ENSP00000350366&quot; ...
+##  $ proteinSequence   : chr  &quot;MAQSTATSPDGGTTFEHLWSSLEPDSTYFDLPQSSRGNNEVVGGTDSSMDVFHLEGMTTSVMAQFNLLSSTMDQMSSRAASASPYTPEHAASVPTHSPYAQPSSTFDTMSPAPVIPSNTDYPGPHHF&quot;| __truncated__ &quot;MAQSTATSPDGGTTFEHLWSSLEPDSTYFDLPQSSRGNNEVVGGTDSSMDVFHLEGMTTSVMAQFNLLSSTMDQMSSRAASASPYTPEHAASVPTHSPYAQPSSTFDTMSPAPVIPSNTDYPGPHHF&quot;| __truncated__ &quot;MAQSTATSPDGGTTFEHLWSSLEPDSTYFDLPQSSRGNNEVVGGTDSSMDVFHLEGMTTSVMAQFNLLSSTMDQMSSRAASASPYTPEHAASVPTHSPYAQPSSTFDTMSPAPVIPSNTDYPGPHHF&quot;| __truncated__ &quot;MAQSTATSPDGGTTFEHLWSSLEPDSTYFDLPQSSRGNNEVVGGTDSSMDVFHLEGMTTSVMAQFNLLSSTMDQMSSRAASASPYTPEHAASVPTHSPYAQPSSTFDTMSPAPVIPSNTDYPGPHHF&quot;| __truncated__ ...
+##  $ cDnaSequence      : chr  &quot;TGCCTCCCCGCCCGCGCACCCGCCCGGAGGCTCGCGCGCCCGCGAAGGGGACGCAGCGAAACCGGGGCCCGCGCCAGGCCAGCCGGGACGGACGCCGATGCCCGGGGCTGCGACGGCTGCAGAGCGA&quot;| __truncated__ &quot;TGCCTCCCCGCCCGCGCACCCGCCCGGAGGCTCGCGCGCCCGCGAAGGGGACGCAGCGAAACCGGGGCCCGCGCCAGGCCAGCCGGGACGGACGCCGATGCCCGGGGCTGCGACGGCTGCAGAGCGA&quot;| __truncated__ &quot;AGGGGACGCAGCGAAACCGGGGCCCGCGCCAGGCCAGCCGGGACGGACGCCGATGCCCGGGGCTGCGACGGCTGCAGAGCGAGCTGCCCTCGGAGGCCGGCGTGGGGAAGATGGCCCAGTCCACCGC&quot;| __truncated__ &quot;AGGGGACGCAGCGAAACCGGGGCCCGCGCCAGGCCAGCCGGGACGGACGCCGATGCCCGGGGCTGCGACGGCTGCAGAGCGAGCTGCCCTCGGAGGCCGGCGTGGGGAAGATGGCCCAGTCCACCGC&quot;| __truncated__ ...
+##  $ xrefs             :List of 14
+##  $ tfbs              :List of 14
+##  $ exons             :List of 14
+##  $ annotationFlags   :List of 14</code></pre>
+</div>
+<div id="cbregionclient" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> cbRegionClient</h3>
+<pre class="r"><code># making a query through cbRegion to get all the clinically relevant variants 
+# in a specific region
+library(cellbaseR)
+cb &lt;- CellBaseR()
+res &lt;- cbRegionClient(object=cb,ids=&quot;17:1000000-1100000&quot;,
+resource=&quot;clinical&quot;)
+# to get all conservation data in this region
+res &lt;- cbRegionClient(object=cb,ids=&quot;17:1000000-1100000&quot;,
+resource=&quot;conservation&quot;)
+#likewise to get all the regulatory data for the same region
+res &lt;- cbRegionClient(object=cb,ids=&quot;17:1000000-1100000&quot;, resource=&quot;regulatory&quot;)
+res &lt;- cbData(res)
+str(res,1)</code></pre>
+<pre><code>## 'data.frame':    959 obs. of  13 variables:
+##  $ chromosome  : chr  &quot;17&quot; &quot;17&quot; &quot;17&quot; &quot;17&quot; ...
+##  $ source      : chr  &quot;ccat_histone&quot; &quot;ccat_histone&quot; &quot;SWEmbl_R0005_IDR&quot; &quot;ccat_histone&quot; ...
+##  $ featureType : chr  &quot;H3K36_trimethylation_site&quot; &quot;H3K36_trimethylation_site&quot; &quot;H3K27_acylation_site&quot; &quot;H3K36_trimethylation_site&quot; ...
+##  $ start       : int  1000780 1000860 1000735 1000780 1000820 999880 1000260 1000900 1001500 1001840 ...
+##  $ end         : int  1001300 1001120 1002110 1002200 1001340 1000680 1000500 1001200 1002240 1002160 ...
+##  $ score       : chr  &quot;.&quot; &quot;.&quot; &quot;.&quot; &quot;.&quot; ...
+##  $ strand      : chr  &quot;.&quot; &quot;.&quot; &quot;.&quot; &quot;.&quot; ...
+##  $ frame       : chr  &quot;.&quot; &quot;.&quot; &quot;.&quot; &quot;.&quot; ...
+##  $ name        : chr  &quot;H3K36me3&quot; &quot;H3K36me3&quot; &quot;H3K27ac&quot; &quot;H3K36me3&quot; ...
+##  $ featureClass: chr  &quot;Histone&quot; &quot;Histone&quot; &quot;Histone&quot; &quot;Histone&quot; ...
+##  $ alias       : chr  &quot;HSMM_H3K36me3_ENCODE_Broad_ccat_histone&quot; &quot;HeLa-S3_H3K36me3_ENCODE_Broad_ccat_histone&quot; &quot;Monocytes-CD14+_H3K27ac_ENCODE_Broad_SWEmbl_R0005_IDR&quot; &quot;A549_H3K36me3_ENCODE_Broad_ccat_histone&quot; ...
+##  $ cellTypes   :List of 959
+##   .. [list output truncated]
+##  $ matrix      : chr  NA NA NA NA ...</code></pre>
+</div>
+<div id="cbvraiantclient" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> cbVraiantClient</h3>
 <p>Getting annotation for a specific variant</p>
-<pre class="r"><code>res2 &lt;- cbVariant(object =cb,ids = &quot;1:169549811:A:G&quot;,resource = &quot;annotation&quot;)
+<pre class="r"><code>library(cellbaseR)
+cb &lt;- CellBaseR()
+res2 &lt;- cbVariantClient(object=cb, ids=&quot;1:169549811:A:G&quot;, resource=&quot;annotation&quot;)
 # to get the data 
-res2 &lt;- cellbaseR::cellbaseData(res2)</code></pre>
+res2 &lt;- cbData(res2)
+str(res2, 1)</code></pre>
+<p>A very powerfull feature of cellbaseR is ability to fetch a wealth of clinical data, as well as abiliy to fiter these data by gene, phenotype, rs, etc…</p>
+</div>
+<div id="cbclinical" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> cbClinical</h3>
+<pre class="r"><code>library(cellbaseR)
+cb &lt;- CellBaseR()
+# First we have to specify aour filters, we do that by creating an object of
+# class CellbaseParam
+cbparam &lt;- CellBaseParam(gene=&quot;TET1&quot;, genome=&quot;GRCh38&quot;)
+cbparam</code></pre>
+<pre><code>## An object of class CellBaseParam
+## use this object to control what results are returned from the
+##     CellBaseR methods</code></pre>
+<pre class="r"><code># Note that cbClinical does NOT require any Ids to be passed, only the filters
+# and of course the CellbaseQuery object
+res &lt;- cbClinicalClient(object=cb,filters=cbparam)
+res</code></pre>
+<pre><code>## An object of class CellBaseResponse
+##  containing 12 rows and 35 columns.
+##  to get the annotated dataframe use cbData()</code></pre>
+<pre class="r"><code>res &lt;- cbData(res)
+str(res,1)</code></pre>
+<pre><code>## 'data.frame':    12 obs. of  35 variables:
+##  $ chromosome                  : chr  &quot;10&quot; &quot;10&quot; &quot;10&quot; &quot;10&quot; ...
+##  $ start                       : int  70446203 70446178 70451227 70333081 70406255 70450816 70406413 70426853 70450697 70406107 ...
+##  $ end                         : int  70446203 70446178 70451227 70333081 70406255 70450816 70406413 70426853 70450697 70406107 ...
+##  $ reference                   : chr  &quot;G&quot; &quot;T&quot; &quot;G&quot; &quot;T&quot; ...
+##  $ alternate                   : chr  &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;G&quot; ...
+##  $ source                      : chr  &quot;cosmic&quot; &quot;cosmic&quot; &quot;cosmic&quot; &quot;cosmic&quot; ...
+##  $ geneName                    : chr  &quot;TET1&quot; &quot;TET1&quot; &quot;TET1&quot; &quot;TET1&quot; ...
+##  $ mutationGRCh37Strand        : chr  &quot;+&quot; &quot;+&quot; &quot;+&quot; &quot;+&quot; ...
+##  $ primarySite                 : chr  &quot;lung&quot; &quot;ovary&quot; &quot;ovary&quot; &quot;prostate&quot; ...
+##  $ mutationAA                  : chr  &quot;p.D1715N&quot; &quot;p.H1706Q&quot; &quot;p.A2023T&quot; &quot;p.F329V&quot; ...
+##  $ tumourOrigin                : chr  &quot;primary&quot; &quot;primary&quot; &quot;primary&quot; &quot;primary&quot; ...
+##  $ histologySubtype            : chr  &quot;adenocarcinoma&quot; &quot;serous_carcinoma&quot; &quot;serous_carcinoma&quot; &quot;NS&quot; ...
+##  $ accessionNumber             : chr  &quot;ENST00000373644&quot; &quot;ENST00000373644&quot; &quot;ENST00000373644&quot; &quot;ENST00000373644&quot; ...
+##  $ mutationID                  : chr  &quot;COSM94115&quot; &quot;COSM76709&quot; &quot;COSM72946&quot; &quot;COSM94112&quot; ...
+##  $ mutationCDS                 : chr  &quot;c.5143G&gt;A&quot; &quot;c.5118T&gt;A&quot; &quot;c.6067G&gt;A&quot; &quot;c.985T&gt;G&quot; ...
+##  $ sampleName                  : chr  &quot;94699&quot; &quot;TCGA-24-0966-01&quot; &quot;TCGA-13-0899-01&quot; &quot;111995&quot; ...
+##  $ primaryHistology            : chr  &quot;carcinoma&quot; &quot;carcinoma&quot; &quot;carcinoma&quot; &quot;carcinoma&quot; ...
+##  $ mutationGRCh37GenomePosition: chr  &quot;10:70446203-70446203&quot; &quot;10:70446178-70446178&quot; &quot;10:70451227-70451227&quot; &quot;10:70333081-70333081&quot; ...
+##  $ mutationDescription         : chr  &quot;Substitution - Missense&quot; &quot;Substitution - Missense&quot; &quot;Substitution - Missense&quot; &quot;Substitution - Missense&quot; ...
+##  $ genomeWideScreen            : chr  &quot;n&quot; &quot;y&quot; &quot;y&quot; &quot;n&quot; ...
+##  $ idTumour                    : chr  &quot;1443016&quot; &quot;1398672&quot; &quot;1398733&quot; &quot;1443190&quot; ...
+##  $ idSample                    : chr  &quot;1520641&quot; &quot;1474973&quot; &quot;1475034&quot; &quot;1520815&quot; ...
+##  $ mutationSomaticStatus       : chr  &quot;Confirmed somatic variant&quot; &quot;Confirmed somatic variant&quot; &quot;Confirmed somatic variant&quot; &quot;Confirmed somatic variant&quot; ...
+##  $ siteSubtype                 : chr  &quot;NS&quot; &quot;NS&quot; &quot;NS&quot; &quot;NS&quot; ...
+##  $ geneCDSLength               : int  6411 6411 6411 6411 6411 6411 6411 6411 6411 6411 ...
+##  $ hgncId                      : chr  &quot;29484&quot; &quot;29484&quot; &quot;29484&quot; &quot;29484&quot; ...
+##  $ pubmedPMID                  : chr  &quot;20668451&quot; &quot;21720365&quot; &quot;21720365&quot; &quot;20668451&quot; ...
+##  $ sampleSource                : chr  &quot;NS&quot; &quot;NS&quot; &quot;NS&quot; &quot;NS&quot; ...
+##  $ snp                         : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ fathmmPrediction            : chr  &quot;PATHOGENIC&quot; &quot;NEUTRAL&quot; &quot;PATHOGENIC&quot; &quot;NEUTRAL&quot; ...
+##  $ _geneIds                    :List of 12
+##  $ _phenotypes                 :List of 12
+##  $ mutationZygosity            : chr  NA &quot;het&quot; &quot;het&quot; NA ...
+##  $ age                         : num  NA 78 60 NA 73 NA NA 69 NA 39 ...
+##  $ idStudy                     : int  NA 331 331 NA 331 NA NA 331 NA 331 ...</code></pre>
+</div>
+</div>
+</div>
+<div id="cellbaser-utilities" class="section level1">
+<h1><span class="header-section-number">3</span> CellbaseR utilities</h1>
+<div id="creategenemodel" class="section level2">
+<h2><span class="header-section-number">3.1</span> CreateGeneModel</h2>
+<p>A usefull utility for fast building of gene models, compatible with Gviz package for genomic visualization</p>
+<pre class="r"><code>library(cellbaseR)
+cb &lt;- CellBaseR()
+test &lt;- createGeneModel(object = cb, region = &quot;17:1500000-1550000&quot;)
+library(Gviz)
+testTrack &lt;- GeneRegionTrack(test)
+plotTracks(testTrack, transcriptAnnotation='symbol')
+# then you can use this track in conjunction with any other tracks
+ideoTrack &lt;- IdeogramTrack(genome = &quot;hg19&quot;, chromosome = &quot;chr17&quot;)
+axisTrack &lt;- GenomeAxisTrack()
+from &lt;- min(test$start)-5000
+to &lt;- max(test$end)+5000
+plotTracks(list(ideoTrack,axisTrack,testTrack),from = from, to = to, transcriptAnnotation='symbol')</code></pre>
+</div>
+<div id="cbannotatevcf" class="section level2">
+<h2><span class="header-section-number">3.2</span> cbAnnotateVcf</h2>
+<p>This utility allows users to annoate genomic variants from small to medium-sized vcf files directly from the cellbase server, with a wealth of genomic annotations including riche clinical annotations like clinvar, gwas, and cosmic data, as well as conservation and functional scores like phast and cadd scores, without the need to download any files.</p>
+<pre class="r"><code>library(cellbaseR)
+cb &lt;- CellBaseR()
+fl &lt;- system.file(&quot;extdata&quot;, &quot;chr22.vcf.gz&quot;, package=&quot;VariantAnnotation&quot;)
+res &lt;- cbAnnotateVcf(object=cb, file=fl)
+res &lt;- cbData(res)
+res</code></pre>
+</div>
 </div>
 
 
