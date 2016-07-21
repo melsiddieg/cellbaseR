@@ -22,13 +22,14 @@ standardGeneric("cbSnpClient"))
 
 ################################################################################
 
-########################################################################################################################
+################################################################################
 setGeneric("cbVariantClient", function(object,ids,resource,filters=NULL, ...)
 standardGeneric("cbVariantClient"))
 
 ########################################################################################################################
 
-setGeneric("cbGet", function(object, category, subcategory, ids, resource, filters=NULL,...)
+setGeneric("cbGet", function(object, category, subcategory, ids, resource, 
+                             filters=NULL,...)
 standardGeneric("cbGet"))
 
 ########################################################################################################################

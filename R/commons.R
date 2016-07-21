@@ -327,6 +327,7 @@ createGeneModel <- function(object, region=NULL){
 #' @param  resource A charcter when specified will get all the parametrs for
 #' that specific resource
 #' @examples 
+#' cb <-CellBaseR()
 #' cbHelp(cb, category="feature", subcategory="gene")
 #' @export
 cbHelp <- function(object, category, subcategory, resource=NULL){
