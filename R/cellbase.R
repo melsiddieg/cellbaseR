@@ -19,4 +19,5 @@
 #' @import RCurl
 #' @import pbapply
 #' @import data.table
+#' @import BiocParallel
 "_PACKAGE"
