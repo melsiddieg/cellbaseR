@@ -1,3 +1,5 @@
+utils::globalVariables(c("k", "transcripts", "exons"))
+
 #' A convience fubction to directly annotate variants from a vcf file
 #' 
 #' This is a function to annotate variants from a vcf file
@@ -11,7 +13,6 @@
 #' server
 #' @param ... any extra arguments
 #' @return a dataframe
-
 Annovcf <- function(object, file, batch_size, num_threads){
   num_cores <-parallel::detectCores()-2
   registerDoParallel(num_cores) 

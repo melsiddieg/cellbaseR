@@ -25,4 +25,7 @@
 #' @importFrom Gviz GeneRegionTrack
 #' @import Rsamtools
 #' @import foreach 
+#' @import parallel
+#' @import doParallel
+#' @import doMC
 "_PACKAGE"
