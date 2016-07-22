@@ -27,8 +27,9 @@ Imports:
     Rsamtools,
     BiocParallel,
     Gviz,
-    foreach
-Enhances: parallel, doMC, doParallel
+    foreach,
+    utils,
+    parallel, doMC, doParallel
 RoxygenNote: 5.0.1.9000
 biocViews: Annotation
 Lazy: TRUE

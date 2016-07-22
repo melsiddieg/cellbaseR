@@ -1,3 +1,4 @@
+utils::globalVariables(c("name", "j"))
 ################################################################################
 # we need to adjust the output for the protein and Genomesequence methods
 #
