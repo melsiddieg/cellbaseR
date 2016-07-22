@@ -1,7 +1,8 @@
 language: r
 r: bioc-devel
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev libcurl-dev
+  - sudo apt-get  update
+  - sudo apt-get install libcurl4-openssl-dev libxml2-dev
+
 
 

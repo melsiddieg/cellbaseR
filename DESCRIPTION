@@ -19,7 +19,8 @@ Imports: tidyr,
     R.utils,
     Rsamtools,
     BiocParallel,
-    Gviz
+    Gviz,
+    foreach
 Enhances: parallel, doMC, doParallel
 RoxygenNote: 5.0.1.9000
 biocViews: Annotation
