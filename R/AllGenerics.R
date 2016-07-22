@@ -1,4 +1,5 @@
 # CellBaseR methods
+#'@include commons.R
 ################################################################################
 ################################################################################
 setGeneric("cbClinicalClient", function(object, filters,...)
@@ -22,14 +23,13 @@ standardGeneric("cbSnpClient"))
 
 ################################################################################
 
-################################################################################
+########################################################################################################################
 setGeneric("cbVariantClient", function(object,ids,resource,filters=NULL, ...)
 standardGeneric("cbVariantClient"))
 
 ########################################################################################################################
 
-setGeneric("cbGet", function(object, category, subcategory, ids, resource, 
-                             filters=NULL,...)
+setGeneric("cbGet", function(object, category, subcategory, ids, resource, filters=NULL,...)
 standardGeneric("cbGet"))
 
 ########################################################################################################################
@@ -73,7 +73,6 @@ standardGeneric("cbChromosomeInfoClient"))
 #' @return an object of class CellBaseResponse which holds a dataframe with the
 #'  results of the query
 #' @examples
-#'    library(cellbaseR)
 #'    cb <- CellBaseR()
 #'    res <- cbSpeciesClient(object=cb)
 setGeneric("cbSpeciesClient", function(object) 

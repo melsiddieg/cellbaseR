@@ -162,9 +162,9 @@ This utility allows users to annoate genomic variants from small to medium-sized
 library(cellbaseR)
 cb <- CellBaseR()
 fl <- system.file("extdata", "chr22.vcf.gz", package="VariantAnnotation")
-# res <- cbAnnotateVcf(object=cb, file=fl)
-# res <- cbData(res)
-# res
+res <- cbAnnotateVcf(object=cb, file=fl)
+res <- cbData(res)
+res
 
 ```
 

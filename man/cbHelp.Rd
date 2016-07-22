@@ -20,7 +20,7 @@ that specific resource}
 This is a convience function to get help on cellbase methods
 }
 \examples{
-cb <-CellBaseR()
+cb <- CellBaseR()
 cbHelp(cb, category="feature", subcategory="gene")
 }
 

@@ -11,9 +11,6 @@
 #' @param filters a object of class CellBaseParam specifying additional filters for the query
 #' @param ... any extra arguments
 #' @return an object of class CellBaseResponse which holds a dataframe with the results of the query
-#' @examples
-#'    library(cellbaseR)
-#'    cb <- CellBaseR()
 #' @export
 setMethod("cbSnpClient", "CellBaseR", definition = function(object, ids, resource, filters=NULL,...) {
     host <- object@host
