@@ -15,7 +15,7 @@
 #' are parsed into R data.frames and other common R data strctures so users can 
 #' readily get into downstream anaysis.
 #' @import methods
-#' @import jsonlite
+#' @import  jsonlite 
 #' @import RCurl
 #' @import pbapply
 #' @import data.table

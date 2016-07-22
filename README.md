@@ -20,9 +20,6 @@ Releases notes are available at [GitHub releases](https://github.com/opencb/cell
 
 Roadmap is available at [GitHub milestones](https://github.com/opencb/cellbase/milestones). You can report bugs or request new features at [GitHub issue tracking](https://github.com/opencb/cellbase/issues).
 
-### Versioning
-CellBase is versioned following the rules from [Semantic versioning](http://semver.org/).
-
 ### Maintainers
 We recommend to contact CellBase developers by writing to OpenCB mailing list opencb@googlegroups.com. The main developers and maintainers are:
 * Ignacio Medina (im411@cam.ac.uk) (_Founder and Project Leader_)
