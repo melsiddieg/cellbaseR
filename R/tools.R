@@ -10,6 +10,7 @@
 #' @param num_threads integer number of asynchronus batches to be sent to the 
 #' server
 #' @param ... any extra arguments
+#' @return a dataframe
 
 Annovcf <- function(object, file, batch_size, num_threads){
   num_cores <-parallel::detectCores()-2
