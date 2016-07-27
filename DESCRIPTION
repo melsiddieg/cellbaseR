@@ -20,6 +20,7 @@ Depends:
 Imports: 
     methods,
     jsonlite,
+    httr,
     data.table,
     pbapply,
     tidyr,
