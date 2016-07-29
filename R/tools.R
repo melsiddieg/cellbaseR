@@ -44,7 +44,6 @@ Annovcf <- function(object, file, batch_size, num_threads){
   i <- 1
   container <- list()
   while(i<=num){
-    # content <- getURIAsynchronous(grp[[i]],perform = Inf)#  alist of responses
     resp <- pblapply(grp[[i]], function(x)GET(x, add_headers(`Accept-Encoding` = "gzip, deflate")))
     content <- pblapply(resp, function(x) content(x, as="text", encoding = "utf-8"))
     js <- bplapply(content, function(x)fromJSON(x),BPPARAM = p)

@@ -135,25 +135,14 @@ createURL <- function(file=NULL, host=host, version=version, meta=meta,
     }
   return(grls)
 }
-## A function to make the API calls
-# callREST <- function(grls,async=FALSE,num_threads=num_threads)
-# {
-#   content <- list()
-#   if(is.null(file)){
-#     content <- getURI(grls)
-#   } else{
-#           content <- pbsapply(grls, function(x)getURI(x))
-#     
-#   }
-#   
-#   return(content)
-# }
+
 
 callREST2 <- function(grls,async=FALSE,num_threads=num_threads)
 {
   content <- list()
   if(is.null(file)){
-    content <- getURI(grls)
+    resp <- GET(grls, add_headers(`Accept-Encoding` = "gzip, deflate"))
+    content <- content(resp, as="text", encoding = "utf-8")
   }else{
     # resp <- pbsapply(grls, function(x)GET(x, add_headers(`Accept-Encoding` = "gzip, deflate")))
     resp <- GET(grls, add_headers(`Accept-Encoding` = "gzip, deflate"))
