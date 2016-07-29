@@ -15,11 +15,11 @@ Description:
     information is integrated.
 License: Apache License (== 2.0)
 Depends:
-    R(>= 3.3),
-    RCurl
+    R(>= 3.3)
 Imports: 
     methods,
     jsonlite,
+    httr,
     data.table,
     pbapply,
     tidyr,

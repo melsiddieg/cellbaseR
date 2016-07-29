@@ -4,7 +4,7 @@ utils::globalVariables(c("name", "j"))
 #
 fetchCellbase <- function(file=NULL,host=host, version=version, meta=meta, 
     species=species, categ, subcateg,ids, resource,filters=NULL, 
-    batch_size=NULL,num_threads=NULL,...){
+    batch_size=NULL, num_threads=NULL,...){
   # Get the parametrs
   if(species=="hsapiens/"){
     batch_size <- batch_size
@@ -42,7 +42,7 @@ fetchCellbase <- function(file=NULL,host=host, version=version, meta=meta,
                       categ=categ, subcateg=subcateg, 
                       ids=ids, resource=resource,...)
     cat("\ngetting the data....\n")
-    content <- callREST(grls = grls,async=TRUE,num_threads)
+    content <- callREST2(grls = grls,async=FALSE,num_threads)
     cat("\nparsing the data....\n")
     res_list <- parseResponse(content=content,parallel=TRUE, 
     num_threads=num_threads)
@@ -61,7 +61,7 @@ fetchCellbase <- function(file=NULL,host=host, version=version, meta=meta,
                           species=species, categ=categ, subcateg=subcateg, ids=ids, 
         resource=resource,filters=filters,skip = skip)
         skip=skip+1000
-        content <- callREST(grls = grls)
+        content <- callREST2(grls = grls)
         res_list <- parseResponse(content=content)
         num_results <- res_list$num_results
         cell <- res_list$result
@@ -135,25 +135,24 @@ createURL <- function(file=NULL, host=host, version=version, meta=meta,
     }
   return(grls)
 }
-## A function to make the API calls
-callREST <- function(grls,async=FALSE,num_threads=num_threads)
-    {
-    content <- list()
-    if(is.null(file)){
-    content <- getURI(grls)
-    } else{
-          if (requireNamespace("pbapply", quietly = TRUE)){
-            content <- pbapply::pbsapply(grls, function(x)getURI(x))
-            
-          }
 
-    }
 
+callREST2 <- function(grls,async=FALSE,num_threads=num_threads)
+{
+  content <- list()
+  if(is.null(file)){
+    resp <- GET(grls, add_headers(`Accept-Encoding` = "gzip, deflate"))
+    content <- content(resp, as="text", encoding = "utf-8")
+  }else{
+    # resp <- pbsapply(grls, function(x)GET(x, add_headers(`Accept-Encoding` = "gzip, deflate")))
+    resp <- GET(grls, add_headers(`Accept-Encoding` = "gzip, deflate"))
+    content <- content(resp, as="text", encoding = "utf-8")
+  }
   return(content)
 }
 ## A function to parse the json data into R dataframes
-parseResponse <- function(content,parallel=FALSE,num_threads=num_threads){
-        if(parallel==TRUE){
+parseResponse <- function(content, parallel=TRUE, num_threads=num_threads){
+        if(parallel==FALSE){
     num_cores <-detectCores()/2
     registerDoMC(num_cores)
     
@@ -165,10 +164,9 @@ parseResponse <- function(content,parallel=FALSE,num_threads=num_threads){
     ind <- sapply(res, function(x)length(x)!=1)
     res <- res[ind]
     ds <- mclapply(res, function(x)rbind.pages(x), mc.cores=num_cores)
-    if(requireNamespace("pbapply", quietly = TRUE)){
-      ds <- pbapply::pblapply(res, function(x)rbind.pages(x))
+    ds <- pblapply(res, function(x)rbind.pages(x))
       
-    }
+  
     ## Important to get correct merging of dataframe
     names(ds) <- NULL
     ds <- rbind.pages(ds)

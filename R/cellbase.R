@@ -16,7 +16,6 @@
 #' readily get into downstream anaysis.
 #' @import methods
 #' @import  jsonlite 
-#' @import RCurl
 #' @import pbapply
 #' @import data.table
 #' @import BiocParallel
@@ -28,4 +27,5 @@
 #' @import parallel
 #' @import doParallel
 #' @import doMC
+#' @import httr
 "_PACKAGE"
