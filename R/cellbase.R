@@ -16,7 +16,6 @@
 #' readily get into downstream anaysis.
 #' @import methods
 #' @import  jsonlite 
-#' @import RCurl
 #' @import pbapply
 #' @import data.table
 #' @import BiocParallel
