@@ -26,6 +26,5 @@
 #' @import foreach 
 #' @import parallel
 #' @import doParallel
-#' @import doMC
 #' @import httr
 "_PACKAGE"

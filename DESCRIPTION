@@ -29,7 +29,7 @@ Imports:
     Gviz,
     foreach,
     utils,
-    parallel, doMC, doParallel
+    parallel, doParallel
 RoxygenNote: 5.0.1.9000
 biocViews: Annotation
 Lazy: TRUE
