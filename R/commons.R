@@ -151,27 +151,25 @@ callREST2 <- function(grls,async=FALSE,num_threads=num_threads)
   return(content)
 }
 ## A function to parse the json data into R dataframes
-parseResponse <- function(content, parallel=TRUE, num_threads=num_threads){
-        if(parallel==FALSE){
-    num_cores <-detectCores()/2
-    registerDoMC(num_cores)
-    
+parseResponse <- function(content, parallel=FALSE, num_threads=num_threads){
+        if(parallel==TRUE){
+    # num_cores <-detectCores()/2
+    # registerDoMC(num_cores)
     # 
-    # ## Extracting the content in parallel
-    js <- mclapply(content, function(x)fromJSON(x), mc.cores=num_cores)
-    res <- mclapply(js, function(x)x$response$result, mc.cores=num_cores)
-    names(res) <- NULL
-    ind <- sapply(res, function(x)length(x)!=1)
-    res <- res[ind]
-    ds <- mclapply(res, function(x)rbind.pages(x), mc.cores=num_cores)
-    ds <- pblapply(res, function(x)rbind.pages(x))
-      
-  
-    ## Important to get correct merging of dataframe
-    names(ds) <- NULL
-    ds <- rbind.pages(ds)
-    nums <- NULL
-     }else{
+    # # ## Extracting the content in parallel
+    # js <- mclapply(content, function(x)fromJSON(x), mc.cores=num_cores)
+    # res <- mclapply(js, function(x)x$response$result, mc.cores=num_cores)
+    # names(res) <- NULL
+    # ind <- sapply(res, function(x)length(x)!=1)
+    # res <- res[ind]
+    # ds <- mclapply(res, function(x)rbind.pages(x), mc.cores=num_cores)
+    # ds <- pblapply(res, function(x)rbind.pages(x))
+    # 
+    # ## Important to get correct merging of dataframe
+    # names(ds) <- NULL
+    # ds <- rbind.pages(ds)
+    # nums <- NULL
+     } else{
     js <- lapply(content, function(x)fromJSON(x))
     ares <- lapply(js, function(x)x$response$result)
     
