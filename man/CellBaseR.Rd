@@ -5,7 +5,7 @@
 \title{A constructor function for CellBaseR object}
 \usage{
 CellBaseR(host = NULL, version = NULL, species = NULL,
-  batch_size = NULL, num_threads = NULL)
+  batch_size = NULL, num_threads = NULL, api = NULL, tags = NULL)
 }
 \arguments{
 \item{host}{A character the default host url for cellbase webservices,

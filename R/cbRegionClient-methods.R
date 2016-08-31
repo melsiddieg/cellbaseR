@@ -16,16 +16,15 @@
 #'    res <- cbRegionClient(object=cb, ids="17:1000000-1200000", resource="gene")
 #' @export
 setMethod("cbRegionClient", "CellBaseR", definition = function(object, ids, resource, filters=NULL,...) {
-    host <- object@host
-    species <- object@species
-    version <- object@version
+  
     categ <- "genomic"
     subcateg<- "region"
     ids <- ids
     resource <- resource
     
-    result <- fetchCellbase(file=NULL,host=host, version=version, meta=NULL, species=species, categ=categ, subcateg=subcateg,
-                            ids=ids, resource=resource, filters=NULL,...)
+    result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ,
+                            subcateg=subcateg, ids=ids, resource=resource, 
+                            filters=NULL,...)
     data <- CellBaseResponse(cbData=result)
     return(data)
 })

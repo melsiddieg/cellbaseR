@@ -16,15 +16,12 @@
 #'    res <- cbVariantClient(object=cb, ids="19:45411941:T:C", resource="annotation")
 #' @export
 setMethod("cbVariantClient", "CellBaseR", definition = function(object, ids, resource, filters=NULL,...) {
-    host <- object@host
-    species <- object@species
-    version <- object@version
     categ <- "genomic"
     subcateg<- "variant"
     ids <- ids
     resource <- resource
-    result <- fetchCellbase(file=NULL, host=host, version=version, meta=NULL, 
-                            species=species, categ=categ,  subcateg=subcateg,
+    result <- fetchCellbase(object=object, file=NULL, meta=NULL, 
+                            categ=categ,  subcateg=subcateg,
                             ids=ids, resource=resource, filters=NULL,...)
 
     data <- CellBaseResponse(cbData=result)

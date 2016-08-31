@@ -15,14 +15,12 @@
 #'    res <- cbProteinClient(object=cb, ids="O15350", resource="info")
 #' @export
 setMethod("cbProteinClient", "CellBaseR", definition = function(object, ids, resource, filters=NULL,...) {
-    host <- object@host
-    species <- object@species
-    version <- object@version
+
     categ <- "feature"
     subcateg<- "protein"
     ids <- ids
     resource <- resource
-    result <- fetchCellbase(file=NULL,host=host, version=version, meta=NULL, species=species, categ=categ, 
+    result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ, 
                             subcateg=subcateg, ids=ids, resource=resource, filters=NULL,...)
     data <- CellBaseResponse(cbData=result)
     return(data)

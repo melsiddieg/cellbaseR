@@ -18,12 +18,14 @@
 #' queries will be sent to the server in batches. This slot indicates the size 
 #' of these batches. Default 200
 #' @slot num_threads the number of threads. Default 8
+#' @slot  api a list representing metadata about the object
+#' @slot tags a list representing the avaiable categoried
 #' @export
 setClass("CellBaseR", 
          slots = c(host="character", version="character", species="character", 
-                   batch_size="numeric", num_threads="numeric"),
+                   batch_size="numeric", num_threads="numeric", api="list", tags="list"),
          prototype = prototype(host="http://bioinfodev.hpc.cam.ac.uk/cellbase-dev-v4.0/webservices/rest/",
-                               version = "v4/",species="hsapiens/", batch_size=200, num_threads=8)
+                               version = "v4/",species="hsapiens/", batch_size=200, num_threads=8, api=list())
 )
 
 ################################################################################
