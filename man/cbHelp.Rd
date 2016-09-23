@@ -4,12 +4,10 @@
 \alias{cbHelp}
 \title{A function to get help about cellbase queries}
 \usage{
-cbHelp(object, category, subcategory, resource = NULL)
+cbHelp(object, subcategory, resource = NULL)
 }
 \arguments{
 \item{object}{a cellBase class object}
-
-\item{category}{a character the category to be queried}
 
 \item{subcategory}{a character the subcategory to be queried}
 
@@ -24,6 +22,6 @@ This is a convience function to get help on cellbase methods
 }
 \examples{
 cb <- CellBaseR()
-cbHelp(cb, category="feature", subcategory="gene")
+cbHelp(cb, subcategory="gene")
 }
 

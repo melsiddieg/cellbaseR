@@ -32,5 +32,9 @@ queries will be sent to the server in batches. This slot indicates the size
 of these batches. Default 200}
 
 \item{\code{num_threads}}{the number of threads. Default 8}
+
+\item{\code{api}}{a list representing metadata about the object}
+
+\item{\code{tags}}{a list representing the avaiable categoried}
 }}
 

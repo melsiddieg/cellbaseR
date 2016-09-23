@@ -2,9 +2,26 @@ utils::globalVariables(c("name", "j", "registerDoMC"))
 ################################################################################
 # we need to adjust the output for the protein and Genomesequence methods
 #
-fetchCellbase <- function(file=NULL,host=host, version=version, meta=meta, 
+fetchCellbase <- function(object=object, file=NULL, meta=meta, 
     species=species, categ, subcateg,ids, resource,filters=NULL, 
     batch_size=NULL, num_threads=NULL,...){
+  host <- object@host
+  species <- object@species
+  version <- object@version
+  # Checlks
+  # CATEGORIES <- c("feature", "genomic", "regulation")
+  # if(!(categ %in% CATEGORIES)){
+  #   stop("Error Unknown category")
+  # } 
+  # SUBCATEGORIES <- tolower(unlist(object@tags[[1]]))
+  # if(!(subcateg %in% SUBCATEGORIES)){
+  #   stop("Error Unknown subcategory")
+  # } 
+  # RESOURCES <- cbHelp(object, subcategory=subcateg)
+  # if(!(resource %in% RESOURCES)){
+  #   stop("Error Unknown resource")
+  # } 
+  
   # Get the parametrs
   if(species=="hsapiens/"){
     batch_size <- batch_size
@@ -35,6 +52,8 @@ fetchCellbase <- function(file=NULL,host=host, version=version, meta=meta,
     cat("\nreading the file....\n")
     ids <- readIds(file,batch_size = batch_size,num_threads = num_threads)
   }
+
+ 
 # in case a vcf file has been specified
   if(!is.null(file)){
     container=list()
@@ -48,7 +67,7 @@ fetchCellbase <- function(file=NULL,host=host, version=version, meta=meta,
     num_threads=num_threads)
     ds <- res_list$result
     cat("Done!")
-
+  
 # in case of all other methods except for annotateVcf
   }else{
     i=1
@@ -151,27 +170,10 @@ callREST2 <- function(grls,async=FALSE,num_threads=num_threads)
   return(content)
 }
 ## A function to parse the json data into R dataframes
-parseResponse <- function(content, parallel=TRUE, num_threads=num_threads){
-        if(parallel==FALSE){
-    num_cores <-detectCores()/2
-    registerDoMC(num_cores)
-    
-    # 
-    # ## Extracting the content in parallel
-    js <- mclapply(content, function(x)fromJSON(x), mc.cores=num_cores)
-    res <- mclapply(js, function(x)x$response$result, mc.cores=num_cores)
-    names(res) <- NULL
-    ind <- sapply(res, function(x)length(x)!=1)
-    res <- res[ind]
-    ds <- mclapply(res, function(x)rbind.pages(x), mc.cores=num_cores)
-    ds <- pblapply(res, function(x)rbind.pages(x))
-      
-  
-    ## Important to get correct merging of dataframe
-    names(ds) <- NULL
-    ds <- rbind.pages(ds)
-    nums <- NULL
-     }else{
+parseResponse <- function(content, parallel=FALSE, num_threads=num_threads){
+        if(parallel==TRUE){
+
+     } else{
     js <- lapply(content, function(x)fromJSON(x))
     ares <- lapply(js, function(x)x$response$result)
     
@@ -200,22 +202,27 @@ parseResponse <- function(content, parallel=TRUE, num_threads=num_threads){
 #' 
 #' This is a convience function to get help on cellbase methods
 #' @param object a cellBase class object
-#' @param category a character the category to be queried
 #' @param subcategory a character the subcategory to be queried
 #' @param  resource A charcter when specified will get all the parametrs for
 #' that specific resource
 #' @return documentation about avaiable resources or required parameters
 #' @examples 
 #' cb <- CellBaseR()
-#' cbHelp(cb, category="feature", subcategory="gene")
+#' cbHelp(cb, subcategory="gene")
 #' @export
-cbHelp <- function(object, category, subcategory, resource=NULL){
-  host <- object@host
-  cbDocsUrl <- paste0(host, "swagger.json")
-  Data <- fromJSON(cbDocsUrl)
-  tags <- Data$tags
-  paths <- Data$paths
-  getList <- lapply(paths, function(x)x$get)
+cbHelp <- function(object, subcategory, resource=NULL){
+  getList <- object@api
+  tags <- object@tags
+  category <- switch (subcategory,
+                      gene= "feature",
+                      protein= "feature",
+                      tf="regulation",
+                      variation="feature",
+                      variant="genomic",
+                      clinical="feature",
+                      transcript="feature",
+                      id="feature")
+  
   ## filtered
   parts <- Filter(Negate(function(x) is.null(unlist(x))), getList)
   cbGetParams <- lapply(parts, function(x)x$parameters)
@@ -238,3 +245,17 @@ cbHelp <- function(object, category, subcategory, resource=NULL){
   res
 }
 #
+cbCheck <- function(object, category, subcategory, resource){
+  CATEGORIES <- c("feature", "genomic", "regulation")
+  if(!(category %in% CATEGORIES)){
+    stop("Error Unknown category")
+  } 
+  SUBCATEGORIES <- tolower(unlist(object@tags[[1]]))
+  if(!(subcategory %in% SUBCATEGORIES)){
+    stop("Error Unknown subcategory")
+  } 
+  RESOURCES <- cbHelp(object, subcategory)
+  if(!(resource %in% RESOURCES)){
+    stop("Error Unknown resource")
+  } 
+}

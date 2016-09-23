@@ -16,14 +16,12 @@
 #'    res <- cbTranscriptClient(object=cb, ids="ENST00000373644", resource="info")
 #' @export
 setMethod("cbTranscriptClient", "CellBaseR", definition = function(object, ids, resource, filters=NULL,...) {
-    host <- object@host
-    species <- object@species
-    version <- object@version
+
     categ <- "feature"
     subcateg<- "transcript"
     ids <- ids
     resource <- resource
-    result <- fetchCellbase(file=NULL, host=host, version=version, meta=NULL, species=species, categ=categ, subcateg=subcateg,
+    result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ, subcateg=subcateg,
                             ids=ids, resource=resource, filters=NULL,...)
     data <- CellBaseResponse(cbData=result)
     return(data)

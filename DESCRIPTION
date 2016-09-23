@@ -6,17 +6,16 @@ Title: Querying annotation data from the high performance Cellbase web
 Version: 0.99.0
 Author: Mohammed OE Abdallah
 Maintainer: Mohammed OE Abdallah <melsiddieg@gmail.com>
-Description: 
-    This R package makes use of the exhaustive RESTful Web service API that has been
-    implemented for the Cellabase database. It enable researchers to query and 
-    obtain a wealth of biological information from a single database saving a lot 
-    of time. Another benefit is that researchers can easily make  queries about 
-    different biological topics and link all this information together as all 
-    information is integrated.
+Description: This R package makes use of the exhaustive RESTful Web service
+    API that has been implemented for the Cellabase database. It enable researchers
+    to query and obtain a wealth of biological information from a single database
+    saving a lot of time. Another benefit is that researchers can easily make
+    queries about different biological topics and link all this information together
+    as all information is integrated.
 License: Apache License (== 2.0)
 Depends:
     R(>= 3.2)
-Imports: 
+Imports:
     methods,
     jsonlite,
     httr,
@@ -29,7 +28,8 @@ Imports:
     Gviz,
     foreach,
     utils,
-    parallel, doParallel
+    parallel,
+    doParallel
 RoxygenNote: 5.0.1.9000
 biocViews: Annotation
 Lazy: TRUE
@@ -45,10 +45,10 @@ Collate:
     'cbData-methods.R'
     'cbGeneClient-methods.R'
     'cbGet-methods.R'
+    'cbMetaClient-methods.R'
     'cbProteinClient-methods.R'
     'cbRegionClient-methods.R'
     'cbSnpClient-methods.R'
-    'cbSpeciesClient-methods.R'
     'cbTfbsClient-methods.R'
     'cbTranscriptClient-methods.R'
     'cbVariantClient-methods.R'

@@ -16,14 +16,11 @@
 #'    res <- cbTfbsClient(object=cb, ids="PAX1", resource="gene")
 #' @export
 setMethod("cbTfbsClient", "CellBaseR",    definition = function(object, ids, resource, filters=NULL,...) {
-    host <- object@host
-    species <- object@species
-    version <- object@version
     categ <- "regulation"
     subcateg<- "tf"
     ids <- ids
     resource <- resource
-    result <- fetchCellbase(file=NULL,host=host, version=version, meta=NULL, species=species, categ=categ, subcateg=subcateg,
+    result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ, subcateg=subcateg,
                             ids=ids, resource=resource, filters=NULL,...)
     data <- CellBaseResponse(cbData=result)
     return(data)

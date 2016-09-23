@@ -15,9 +15,7 @@
 #' @export
 ########################################################################################################################
 setMethod("cbClinicalClient", "CellBaseR", definition = function(object, filters=NULL,...) {
-    host <- object@host
-    species <- object@species
-    version <- object@version
+   
     categ <- "feature"
     subcateg<- "clinical"
     ids <- NULL
@@ -28,7 +26,7 @@ setMethod("cbClinicalClient", "CellBaseR", definition = function(object, filters
     phenotype=filters@phenotype, include=filters@include,
     exclude=filters@exclude, limit=filters@limit)
     filters <- paste(filters, collapse = "&")
-    result <- fetchCellbase(file=NULL,host=host, version=version, meta=NULL, species=species, categ=categ, 
+    result <- fetchCellbase(object=object,file=NULL, meta=NULL, categ=categ, 
                             subcateg=subcateg,ids=ids,resource=resource, filters=filters,...)
     data <- CellBaseResponse(cbData=result)
     return(data)

@@ -19,13 +19,15 @@
 #' @param  batch_size intger if multiple queries are raised by a single method call, e.g. getting annotation info for several genes,
 #' queries will be sent to the server in batches. This slot indicates the size of each batch, e.g. 200
 #' @param num_threads integer number of asynchronus batches to be sent to the server
+#' @param api the CellBase api 
+#' @param tags available CellBase categories
 #' @return An object of class CellBaseR
 #' @examples
 #'    cb <- CellBaseR()
 #'    print(cb)
 #' @export
 CellBaseR <- function(host=NULL, version=NULL, species=NULL, 
-                      batch_size=NULL, num_threads=NULL ){
+                      batch_size=NULL, num_threads=NULL, api=NULL, tags=NULL ){
     if(!is.null(host)){
       host <- paste0(host, "/")
     }else {
@@ -55,7 +57,13 @@ CellBaseR <- function(host=NULL, version=NULL, species=NULL,
    }else{
      num_threads <- 8L
    }
+  # Get the API list
+  cbDocsUrl <- paste0(host, "swagger.json")
+  Datp <- fromJSON(cbDocsUrl)
+  tags <- Datp$tags
+  paths <- Datp$paths
+  api <- lapply(paths, function(x)x$get)
   
     new("CellBaseR", host=host, version=version,species=species,
-        batch_size=batch_size, num_threads=num_threads )
+        batch_size=batch_size, num_threads=num_threads, api=api, tags=tags )
 }

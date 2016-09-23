@@ -62,24 +62,12 @@ setGeneric("cbChromosomeInfoClient", function(object,ids,resource,filters=NULL, 
 standardGeneric("cbChromosomeInfoClient"))
 
 ################################################################################
-#' A method for getting the avaiable species from the cellbase web services
-#'
-#' This method is for getting species data from the cellbase web services.
-#' @details Please, for details on possible values for the 
-#' parameters  and  additional filters of this function refer to 
-#' https://github.com/opencb/cellbase/wiki and the RESTful 
-#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
-#' @param object an object of class CellBaseR
-#' @return an object of class CellBaseResponse which holds a dataframe with the
-#'  results of the query
-#' @examples
-#'    cb <- CellBaseR()
-#'    res <- cbSpeciesClient(object=cb)
-setGeneric("cbSpeciesClient", function(object) 
-standardGeneric("cbSpeciesClient"))
+
+setGeneric("cbMetaClient", function(object, resource) 
+standardGeneric("cbMetaClient"))
 
 ################################################################################
-setGeneric("cbAnnotateVcf", function(object,file, ...)
+setGeneric("cbAnnotateVcf", function(object, file, ...)
 standardGeneric("cbAnnotateVcf"))
 
 

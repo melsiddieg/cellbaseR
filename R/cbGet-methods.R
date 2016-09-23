@@ -19,9 +19,6 @@
 setMethod("cbGet", "CellBaseR", definition = function(object, category, 
                                                       subcategory, ids, resource
                                                       ,filters=NULL,...) {
-  host <- object@host
-  species <- object@species
-  version <- object@version
   categ <- category
   subcateg<- subcategory
   ids <- ids
@@ -33,7 +30,7 @@ setMethod("cbGet", "CellBaseR", definition = function(object, category,
     filters <- paste(filters, collapse = "&")
   }
   # TODO: filters are not enabled
-  result <- fetchCellbase(file=NULL, host=host, version=version, meta = NULL, species=species, categ=categ, 
+  result <- fetchCellbase(object=object, file=NULL, meta = NULL, categ=categ, 
                           subcateg=subcateg, ids=ids, resource=resource , filters=NULL,...)
   data <- CellBaseResponse(cbData=result)
   return(data)
