@@ -38,7 +38,6 @@ data based on the GRCh37 genome assembly. Please, visit
 https://github.com/opencb/cellbase/wiki and
 bioinfodev.hpc.cam.ac.uk/cellbase/webservices/ for more details on
 following parameters.
-run cbSpeciesClient to see avaiable species and their corresponding data
 }
 \examples{
    cb <- CellBaseR()
