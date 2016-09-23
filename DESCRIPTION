@@ -6,6 +6,7 @@ Title: Querying annotation data from the high performance Cellbase web
 Version: 0.99.1
 Author: Mohammed OE Abdallah
 Maintainer: Mohammed OE Abdallah <melsiddieg@gmail.com>
+URL: https://github.com/melsiddieg/cellbaseR
 Description: This R package makes use of the exhaustive RESTful Web service
     API that has been implemented for the Cellabase database. It enable researchers
     to query and obtain a wealth of biological information from a single database
