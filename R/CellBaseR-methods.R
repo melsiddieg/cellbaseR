@@ -11,7 +11,6 @@
 #' https://github.com/opencb/cellbase/wiki and
 #' bioinfodev.hpc.cam.ac.uk/cellbase/webservices/ for more details on
 #' following parameters.
-#' run cbSpeciesClient to see avaiable species and their corresponding data
 #' @import methods
 #' @param  host A character the default host url for cellbase webservices,
 #' e.g. "http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"
