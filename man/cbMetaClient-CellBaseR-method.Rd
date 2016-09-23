@@ -2,6 +2,7 @@
 % Please edit documentation in R/cbMetaClient-methods.R
 \docType{methods}
 \name{cbMetaClient,CellBaseR-method}
+\alias{cbMetaClient}
 \alias{cbMetaClient,CellBaseR-method}
 \title{A method for getting the avaiable metadata from the cellbase web services}
 \usage{

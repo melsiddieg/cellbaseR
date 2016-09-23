@@ -6,6 +6,7 @@
 #' parameters  and  additional filters of this function refer to 
 #' https://github.com/opencb/cellbase/wiki and the RESTful 
 #' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+#' @aliases cbMetaClient
 #' @param object an object of class CellBaseR
 #' @param resource the resource you want to query it metadata
 #' @return an object of class CellBaseResponse which holds a dataframe with the

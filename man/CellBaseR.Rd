@@ -19,6 +19,10 @@ e.g. "http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"}
 queries will be sent to the server in batches. This slot indicates the size of each batch, e.g. 200}
 
 \item{num_threads}{integer number of asynchronus batches to be sent to the server}
+
+\item{api}{the CellBase api}
+
+\item{tags}{available CellBase categories}
 }
 \value{
 An object of class CellBaseR

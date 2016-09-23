@@ -13,8 +13,6 @@ cbHelp(object, subcategory, resource = NULL)
 
 \item{resource}{A charcter when specified will get all the parametrs for
 that specific resource}
-
-\item{category}{a character the category to be queried}
 }
 \value{
 documentation about avaiable resources or required parameters

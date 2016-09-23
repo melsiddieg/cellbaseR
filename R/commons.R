@@ -202,7 +202,6 @@ parseResponse <- function(content, parallel=FALSE, num_threads=num_threads){
 #' 
 #' This is a convience function to get help on cellbase methods
 #' @param object a cellBase class object
-#' @param category a character the category to be queried
 #' @param subcategory a character the subcategory to be queried
 #' @param  resource A charcter when specified will get all the parametrs for
 #' that specific resource
