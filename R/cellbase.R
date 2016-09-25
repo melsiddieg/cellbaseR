@@ -27,4 +27,5 @@
 #' @import parallel
 #' @import doParallel
 #' @import httr
+#' @import utils
 "_PACKAGE"

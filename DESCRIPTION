@@ -15,7 +15,7 @@ Description: This R package makes use of the exhaustive RESTful Web service
     as all information is integrated.
 License: Apache License (== 2.0)
 Depends:
-    R(>= 3.2)
+    R(>= 3.3)
 Imports:
     methods,
     jsonlite,
