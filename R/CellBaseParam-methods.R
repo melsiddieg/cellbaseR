@@ -13,6 +13,7 @@
 #' @param include A character vector denoting the fields to be returned
 #' @param exclude A character vector denoting the fields to be excluded
 #' @param limit A number limiting the number of results to be returned
+#' @return an object of class CellBaseParam
 #' @examples
 #' cbParam <- CellBaseParam(genome="GRCh38",gene=c("TP73","TET1"))
 #' print(cbParam)
