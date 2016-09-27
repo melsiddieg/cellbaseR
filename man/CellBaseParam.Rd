@@ -30,6 +30,9 @@ in the form 1:100000-1500000 not chr1:100000-1500000}
 
 \item{limit}{A number limiting the number of results to be returned}
 }
+\value{
+an object of class CellBaseParam
+}
 \description{
 use the CellBaseParam object to control what results are returned from the
 CellBaseR methods
