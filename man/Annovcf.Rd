@@ -4,7 +4,7 @@
 \alias{Annovcf}
 \title{A convience fubction to directly annotate variants from a vcf file}
 \usage{
-Annovcf(object, file, batch_size, num_threads)
+Annovcf(object, file, batch_size, num_threads, BPPARAM = bpparam())
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
