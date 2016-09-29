@@ -7,7 +7,8 @@
 \title{This method is a convience method to annotate a vcf files. This methods is ideal for annotating small to medium sized 
 vcf files.}
 \usage{
-\S4method{cbAnnotateVcf}{CellBaseR}(object, file, batch_size, num_threads, ...)
+\S4method{cbAnnotateVcf}{CellBaseR}(object, file, batch_size, num_threads,
+  BPPARAM = bpparam(), ...)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -19,7 +20,9 @@ queries will be sent to the server in batches. This slot indicates the size of e
 
 \item{num_threads}{integer number of asynchronus batches to be sent to the server}
 
-\item{...}{any extra arguments}
+\item{BPPARAM}{a BiocParallel class object}
+
+\item{...}{any extra argument}
 }
 \value{
 an object of class CellBaseResponse which holds a dataframe with the results of the query

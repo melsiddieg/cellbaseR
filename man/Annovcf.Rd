@@ -4,7 +4,7 @@
 \alias{Annovcf}
 \title{A convience fubction to directly annotate variants from a vcf file}
 \usage{
-Annovcf(object, file, batch_size, num_threads)
+Annovcf(object, file, batch_size, num_threads, BPPARAM = bpparam())
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -18,6 +18,8 @@ queries will be sent to the server in batches. This slot indicates the size
 
 \item{num_threads}{integer number of asynchronus batches to be sent to the 
 server}
+
+\item{BPPARAM}{a BiocParallel class object}
 
 \item{...}{any extra arguments}
 }

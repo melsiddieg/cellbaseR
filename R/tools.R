@@ -11,12 +11,13 @@ utils::globalVariables(c("k", "transcripts", "exons"))
 #'  of each batch, e.g. 200
 #' @param num_threads integer number of asynchronus batches to be sent to the 
 #' server
+#' @param BPPARAM a BiocParallel class object 
 #' @param ... any extra arguments
 #' @return a dataframe
-Annovcf <- function(object, file, batch_size, num_threads){
+Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
   num_cores <-parallel::detectCores()-2
   registerDoParallel(num_cores) 
-  p <- DoparParam()
+  p <- bpparam()
   host <- object@host
   species <- object@species
   version <- object@version
@@ -38,7 +39,7 @@ Annovcf <- function(object, file, batch_size, num_threads){
   grp <- foreach(i=1:length(prp))%do%{
     paste(prp[[i]])
   }
-  
+
   # get the data and parse in chuncks
   num <- length(prp)
   i <- 1
@@ -52,19 +53,19 @@ Annovcf <- function(object, file, batch_size, num_threads){
     ind <- sapply(res, function(x)length(x)!=1)
     res <- res[ind]
     ds <- bplapply(res, function(x)rbind.pages(x), BPPARAM = p)
-    container[[i]] <- ds 
+    container[[i]] <- ds
     i=i+1
   }
-  
-  
+
+
   final <- foreach(k=1:length(container),.options.multicore=list(preschedule=TRUE),
                             .combine=function(...)rbind.pages(list(...)),
                             .packages='jsonlite',.multicombine=TRUE) %dopar% {
                               rbind.pages(container[[k]])
                             }
-  
+
   return(final)
-  
+
 }
 
 
