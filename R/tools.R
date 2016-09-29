@@ -11,6 +11,7 @@ utils::globalVariables(c("k", "transcripts", "exons"))
 #'  of each batch, e.g. 200
 #' @param num_threads integer number of asynchronus batches to be sent to the 
 #' server
+#' @param BPPARAM a BiocParallel class object 
 #' @param ... any extra arguments
 #' @return a dataframe
 Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){

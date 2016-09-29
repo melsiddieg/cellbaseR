@@ -19,6 +19,8 @@ queries will be sent to the server in batches. This slot indicates the size
 \item{num_threads}{integer number of asynchronus batches to be sent to the 
 server}
 
+\item{BPPARAM}{a BiocParallel class object}
+
 \item{...}{any extra arguments}
 }
 \value{
