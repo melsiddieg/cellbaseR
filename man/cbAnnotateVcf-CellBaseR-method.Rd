@@ -4,8 +4,7 @@
 \name{cbAnnotateVcf,CellBaseR-method}
 \alias{cbAnnotateVcf}
 \alias{cbAnnotateVcf,CellBaseR-method}
-\title{This method is a convience method to annotate a vcf files. This methods is ideal for annotating small to medium sized 
-vcf files.}
+\title{cbAnnotateVcf}
 \usage{
 \S4method{cbAnnotateVcf}{CellBaseR}(object, file, batch_size, num_threads,
   BPPARAM = bpparam(), ...)

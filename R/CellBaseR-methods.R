@@ -1,6 +1,6 @@
 ### CellbaseR constructor function
 #' @aliases CellBaseR
-#' @title  A constructor function for CellBaseR object
+#' @title  CellBaseR
 #' 
 #' @description  This is a constructor function for CellBaseR object
 #' @details

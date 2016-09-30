@@ -1,4 +1,6 @@
 ########################################################################################################################
+#' cbAnnotateVcf
+#' 
 #' This method is a convience method to annotate a vcf files. This methods is ideal for annotating small to medium sized 
 #' vcf files.
 #' @include AllClasses.R AllGenerics.R

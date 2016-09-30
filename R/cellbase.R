@@ -21,7 +21,6 @@
 #' @import BiocParallel
 #' @importFrom tidyr unnest
 #' @importFrom R.utils countLines
-#' @importFrom Gviz GeneRegionTrack
 #' @import Rsamtools
 #' @import foreach 
 #' @import parallel
