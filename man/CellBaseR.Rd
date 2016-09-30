@@ -2,7 +2,7 @@
 % Please edit documentation in R/CellBaseR-methods.R
 \name{CellBaseR}
 \alias{CellBaseR}
-\title{A constructor function for CellBaseR object}
+\title{CellBaseR}
 \usage{
 CellBaseR(host = NULL, version = NULL, species = NULL,
   batch_size = NULL, num_threads = NULL, api = NULL, tags = NULL)
