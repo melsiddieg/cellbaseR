@@ -3,3 +3,5 @@ inst/doc
 .Rhistory
 Bioc_Sub.Rproj
 *.Rproj
+.RData
+
