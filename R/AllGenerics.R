@@ -2,73 +2,73 @@
 #'@include commons.R
 ################################################################################
 ################################################################################
-setGeneric("cbClinicalClient", function(object, filters,...)
-standardGeneric("cbClinicalClient"))
+setGeneric("getClinical", function(object, filters,...)
+standardGeneric("getClinical"))
 
 
-setGeneric("cbGeneClient", function(object,ids,resource,filters=NULL, ...)
-standardGeneric("cbGeneClient"))
-
-################################################################################
-
-################################################################################
-setGeneric("cbRegionClient", function(object,ids,resource,filters, ...)
-standardGeneric("cbRegionClient"))
+setGeneric("getGene", function(object,ids,resource,filters=NULL, ...)
+standardGeneric("getGene"))
 
 ################################################################################
 
 ################################################################################
-setGeneric("cbSnpClient", function(object,ids,resource,filters=NULL, ...)
-standardGeneric("cbSnpClient"))
+setGeneric("getRegion", function(object,ids,resource,filters, ...)
+standardGeneric("getRegion"))
+
+################################################################################
+
+################################################################################
+setGeneric("getSnp", function(object,ids,resource,filters=NULL, ...)
+standardGeneric("getSnp"))
 
 ################################################################################
 
 ########################################################################################################################
-setGeneric("cbVariantClient", function(object,ids,resource,filters=NULL, ...)
-standardGeneric("cbVariantClient"))
+setGeneric("getVariant", function(object,ids,resource,filters=NULL, ...)
+standardGeneric("getVariant"))
 
 ########################################################################################################################
 
-setGeneric("cbGet", function(object, category, subcategory, ids, resource, filters=NULL,...)
-standardGeneric("cbGet"))
-
-########################################################################################################################
-
-########################################################################################################################
-setGeneric("cbTfbsClient", function(object,ids,resource,filters=NULL, ...)
-standardGeneric("cbTfbsClient"))
+setGeneric("getCellBase", function(object, category, subcategory, ids, resource, filters=NULL,...)
+standardGeneric("getCellBase"))
 
 ########################################################################################################################
 
 ########################################################################################################################
-setGeneric("cbTranscriptClient", function(object,ids,resource,filters=NULL, ...)
-standardGeneric("cbTranscriptClient"))
+setGeneric("getTfbs", function(object,ids,resource,filters=NULL, ...)
+standardGeneric("getTfbs"))
 
 ########################################################################################################################
 
 ########################################################################################################################
-setGeneric("cbXrefClient", function(object,ids,resource,filters=NULL, ...)
-standardGeneric("cbXrefClient"))
+setGeneric("getTranscript", function(object,ids,resource,filters=NULL, ...)
+standardGeneric("getTranscript"))
 
 ########################################################################################################################
 
 ########################################################################################################################
-setGeneric("cbProteinClient", function(object,ids,resource,filters=NULL, ...)
-standardGeneric("cbProteinClient"))
+setGeneric("getXref", function(object,ids,resource,filters=NULL, ...)
+standardGeneric("getXref"))
+
+########################################################################################################################
+
+########################################################################################################################
+setGeneric("getProtein", function(object,ids,resource,filters=NULL, ...)
+standardGeneric("getProtein"))
 
 ########################################################################################################################
 ################################################################################
-setGeneric("cbChromosomeInfoClient", function(object,ids,resource,filters=NULL, ...)
-standardGeneric("cbChromosomeInfoClient"))
+setGeneric("getChromosomeInfo", function(object,ids,resource,filters=NULL, ...)
+standardGeneric("getChromosomeInfo"))
 
 ################################################################################
 
-setGeneric("cbMetaClient", function(object, resource) 
-standardGeneric("cbMetaClient"))
+setGeneric("getMeta", function(object, resource) 
+standardGeneric("getMeta"))
 
 ################################################################################
-setGeneric("cbAnnotateVcf", function(object, file, ...)
-standardGeneric("cbAnnotateVcf"))
+setGeneric("AnnotateVcf", function(object, file, ...)
+standardGeneric("AnnotateVcf"))
 
 
 
