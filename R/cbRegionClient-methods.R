@@ -25,6 +25,5 @@ setMethod("cbRegionClient", "CellBaseR", definition = function(object, ids, reso
     result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ,
                             subcateg=subcateg, ids=ids, resource=resource, 
                             filters=NULL,...)
-    data <- CellBaseResponse(cbData=result)
-    return(data)
+    return(result)
 })

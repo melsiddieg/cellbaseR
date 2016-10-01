@@ -14,7 +14,7 @@
 \item{resource}{the resource you want to query it metadata}
 }
 \value{
-an object of class CellBaseResponse which holds a dataframe with the
+a dataframe with the
  results of the query
 }
 \description{

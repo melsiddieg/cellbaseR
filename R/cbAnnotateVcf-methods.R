@@ -21,6 +21,5 @@ setMethod("cbAnnotateVcf", "CellBaseR", definition = function(object, file,
                                                               ...){
     result <- Annovcf(object=object, file=file, batch_size, num_threads, 
                       BPPARAM=bpparam(), ...)
-    data <- CellBaseResponse(cbData=result)
     return(data)
 })
