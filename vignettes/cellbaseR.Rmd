@@ -46,7 +46,6 @@ cb <- CellBaseR()
 sp <- cbMetaClient(object = cb, resource = "species")
 # This will give you a CellbaseResult object
 # to get the dataframe of all available species
-sp <- cbData(sp)
 str(sp,1)
 
 ```
@@ -76,7 +75,6 @@ genes <- c("TP73","TET1")
 
 res <- cbGeneClient(object = cb, ids = genes, resource = "info")
 # to get the resulting data.frame run cellbaseData()
-res <- cbData(object = res)
 str(res,2)
 # as you can see the res dataframe also contains a transcriots column 
 # which is in fact a list column of nested dataframes, to get the
@@ -99,7 +97,6 @@ res <- cbRegionClient(object=cb,ids="17:1000000-1100000",
 resource="conservation")
 #likewise to get all the regulatory data for the same region
 res <- cbRegionClient(object=cb,ids="17:1000000-1100000", resource="regulatory")
-res <- cbData(res)
 str(res,1)
 ```
 ### cbVraiantClient 
@@ -129,7 +126,6 @@ cbparam
 # and of course the CellbaseQuery object
 res <- cbClinicalClient(object=cb,filters=cbparam)
 res
-res <- cbData(res)
 str(res,1)
 
 ```
@@ -163,7 +159,6 @@ library(cellbaseR)
 cb <- CellBaseR()
 fl <- system.file("extdata", "chr22.vcf.gz", package="VariantAnnotation")
 res <- cbAnnotateVcf(object=cb, file=fl)
-res <- cbData(res)
 res
 
 ```

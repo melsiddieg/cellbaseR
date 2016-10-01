@@ -9,7 +9,7 @@
 #' @aliases cbMetaClient
 #' @param object an object of class CellBaseR
 #' @param resource the resource you want to query it metadata
-#' @return an object of class CellBaseResponse which holds a dataframe with the
+#' @return a dataframe with the
 #'  results of the query
 #' @examples
 #'    cb <- CellBaseR()
@@ -26,7 +26,6 @@ setMethod("cbMetaClient", "CellBaseR",    definition = function(object, resource
     result <- fetchCellbase(object=object, file=NULL, meta=meta, categ=categ, subcateg=subcateg,
                             ids=ids, resource=resource, filters=NULL)
     data <- lapply(result, function(x)as.data.frame(x))
-    data <- rbind.pages(data)
-    data <- CellBaseResponse(cbData=data)
-    return(data)
+    result <- rbind.pages(data)
+    return(result)
 })

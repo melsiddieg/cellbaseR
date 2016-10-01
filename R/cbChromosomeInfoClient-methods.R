@@ -25,6 +25,5 @@ setMethod("cbChromosomeInfoClient", "CellBaseR",
     categ=categ, subcateg=subcateg, ids=ids, resource=resource 
     , filters=NULL,...)
     data <- result[[1]][[1]]
-    data <- CellBaseResponse(cbData=data)
-    return(data)
+    return(result)
 })

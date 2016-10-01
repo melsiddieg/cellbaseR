@@ -43,7 +43,6 @@ Collate:
     'cbAnnotateVcf-methods.R'
     'cbChromosomeInfoClient-methods.R'
     'cbClinicalClient-methods.R'
-    'cbData-methods.R'
     'cbGeneClient-methods.R'
     'cbGet-methods.R'
     'cbMetaClient-methods.R'

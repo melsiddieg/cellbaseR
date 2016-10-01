@@ -28,17 +28,6 @@ setClass("CellBaseR",
                                version = "v4/",species="hsapiens/", batch_size=200, num_threads=8, api=list())
 )
 
-################################################################################
-#' The CellBaseResponse class defintion
-#'  
-#' This class holds the response data from CellBaseR Methods
-#' @details This class stores a response of CellBaseR query methods. An object 
-#' of class CellBaseResponse is automatically generated when you call any of 
-#' CellbaseR methods.
-#' @slot cbData an R dataframe which contains the result field within the 
-#' response object returned by CellBase web services.
-#' @export
-CellBaseResponse <-setClass("CellBaseResponse", slots=c(cbData="data.frame"))
 
 ###############################################################################
 #' This Class defines a CellBaseParam object

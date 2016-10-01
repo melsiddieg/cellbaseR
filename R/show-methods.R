@@ -18,13 +18,4 @@ setMethod("show",signature = "CellBaseParam",definition = function(object){
       methods\n")
 })
 
-# The show method for CellBaseResponse class
-#
-# @param object an object of class CellBaseResponse
-setMethod("show",signature = "CellBaseResponse", definition = function(object){
-  cat("An object of class ", class(object), "\n", sep = "")
-  cat(" containing ", nrow(object@cbData), " rows and ",
-      ncol(object@cbData), " columns.\n", sep = "")
-  cat(" to get the annotated dataframe use cbData()")
-})
 

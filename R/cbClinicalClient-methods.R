@@ -27,7 +27,8 @@ setMethod("cbClinicalClient", "CellBaseR", definition = function(object, filters
     exclude=filters@exclude, limit=filters@limit)
     filters <- paste(filters, collapse = "&")
     result <- fetchCellbase(object=object,file=NULL, meta=NULL, categ=categ, 
-                            subcateg=subcateg,ids=ids,resource=resource, filters=filters,...)
-    data <- CellBaseResponse(cbData=result)
-    return(data)
+                            subcateg=subcateg,ids=ids,resource=resource, 
+                            filters=filters,...)
+    
+    return(result)
 })

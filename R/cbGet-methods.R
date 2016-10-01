@@ -32,6 +32,6 @@ setMethod("cbGet", "CellBaseR", definition = function(object, category,
   # TODO: filters are not enabled
   result <- fetchCellbase(object=object, file=NULL, meta = NULL, categ=categ, 
                           subcateg=subcateg, ids=ids, resource=resource , filters=NULL,...)
-  data <- CellBaseResponse(cbData=result)
-  return(data)
+  
+  return(result)
 })

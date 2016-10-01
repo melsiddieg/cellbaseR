@@ -71,9 +71,5 @@ setGeneric("cbAnnotateVcf", function(object, file, ...)
 standardGeneric("cbAnnotateVcf"))
 
 
-# CellBaseResponse methods
 
-################################################################################
-setGeneric("cbData", function(object)
-standardGeneric("cbData"))
 
