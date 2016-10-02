@@ -13,9 +13,9 @@
 #' @param filters a object of class CellBaseParam specifying additional filters for the query
 #' @param ... any extra arguments
 #' @return a dataframe with the results of the query
-# @examples
-# cb <- CellBaseR()
-# res <- getSnp(object=cb, ids="rs6025", resource="info")
+#' @examples
+#' cb <- CellBaseR()
+#' res <- getSnp(object=cb, ids="rs6025", resource="info")
 #' @export
 setMethod("getSnp", "CellBaseR", definition = function(object, ids, resource, filters=NULL,...) {
     categ <- "feature"

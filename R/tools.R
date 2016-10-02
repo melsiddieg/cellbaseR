@@ -13,7 +13,12 @@ utils::globalVariables(c("k", "transcripts", "exons"))
 #' server
 #' @param BPPARAM a BiocParallel class object 
 #' @param ... any extra arguments
-#' @return a dataframe
+# @examples 
+# library(cellbaseR)
+# cb <- CellBaseR()
+# fl <- system.file("extdata", "chr7-sub.vcf.gz", package="VariantAnnotation")
+# res <- AnnotateVcf(object=cb, file=fl)
+#' @return a dataframe with the annotated variants
 Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
   num_cores <-parallel::detectCores()-2
   registerDoParallel(num_cores) 
@@ -79,9 +84,9 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
 #' @param region a character 
 #' @return A geneModel
 #' @import data.table
-# @examples
-# cb <- CellBaseR()
-# test <- createGeneModel(object = cb, region = "17:1500000-1550000")
+#' @examples
+#' cb <- CellBaseR()
+#' test <- createGeneModel(object = cb, region = "17:1500000-1550000")
 #' @export
 createGeneModel <- function(object, region=NULL){
   if(!is.null(region)){
@@ -106,11 +111,6 @@ createGeneModel <- function(object, region=NULL){
     
     hope <- as.data.frame(hope)
     hope <- hope[!duplicated(hope),1:9]
-    chr <- paste0("chr",hope$chromosome[1])
-    from <- min(hope$start)-5000
-    to <- max(hope$end)+5000
-    hope <- Gviz::GeneRegionTrack(hope,from = from, to = to,
-                                  transcriptAnnotation='symbol')
     
   }
   hope

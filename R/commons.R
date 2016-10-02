@@ -160,7 +160,7 @@ callREST2 <- function(grls,async=FALSE,num_threads=num_threads)
 {
   content <- list()
   if(is.null(file)){
-    resp <- GET(grls, add_headers(`Accept-Encoding` = "gzip, deflate"))
+    resp <- GET(grls, add_headers(`Accept-Encoding` = "gzip, deflate"), timeout(2))
     content <- content(resp, as="text", encoding = "utf-8")
   }else{
     # resp <- pbsapply(grls, function(x)GET(x, add_headers(`Accept-Encoding` = "gzip, deflate")))
