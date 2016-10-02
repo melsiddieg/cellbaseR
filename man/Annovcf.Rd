@@ -24,7 +24,7 @@ server}
 \item{...}{any extra arguments}
 }
 \value{
-a dataframe
+a dataframe with the annotated variants
 }
 \description{
 This is a function to annotate variants from a vcf file
