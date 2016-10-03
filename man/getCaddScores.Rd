@@ -5,27 +5,17 @@
 \title{getCaddScores}
 \usage{
 getCaddScores(variant)
-
-getCaddScores(variant)
 }
 \arguments{
 \item{variant}{a charcter vector of genomic variants, eg 19:45411941:T:C}
-
-\item{variant}{a charcter vector of length < 200 of genomic variants,
-eg 19:45411941:T:C}
 }
 \value{
-a dataframe of the query result
-
 a dataframe of the query result
 }
 \description{
 A convienice method to fetch Cadd scores for specific variant/s
-
-A convienice method to fetch variant annotation for specific variant/s
 }
 \examples{
 res <- getCaddScores("19:45411941:T:C")
-res <- getVariantAnnotation("19:45411941:T:C")
 }
 

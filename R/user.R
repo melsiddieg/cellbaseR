@@ -133,7 +133,7 @@ getCaddScores <- function(variant){
 #' @examples 
 #' res <- getVariantAnnotation("19:45411941:T:C")
 #' @export
-getCaddScores <- function(variant){
+getVariantAnnotation <- function(variant){
   cb <- CellBaseR()
   res <- getVariant(object = cb, ids = variant, resource = "annotation")
   res
