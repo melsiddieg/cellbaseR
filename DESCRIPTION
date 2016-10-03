@@ -32,7 +32,9 @@ Imports:
     doParallel,
     Gviz
 Suggests:
-    VariantAnnotation
+    BiocStyle,
+    knitr,
+    rmarkdown
 RoxygenNote: 5.0.1.9000
 biocViews: Annotation
 Lazy: TRUE
@@ -58,8 +60,5 @@ Collate:
     'getXref-methods.R'
     'show-methods.R'
     'tools.R'
+    'user.R'
 VignetteBuilder: knitr
-Suggests:
-    BiocStyle,
-    knitr,
-    rmarkdown
