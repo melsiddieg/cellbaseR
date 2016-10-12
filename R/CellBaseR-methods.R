@@ -31,7 +31,7 @@ CellBaseR <- function(host=NULL, version=NULL, species=NULL,
     if(!is.null(host)){
       host <- paste0(host, "/")
     }else {
-      host <-"http://bioinfodev.hpc.cam.ac.uk/cellbase-dev-v4.0/webservices/rest/"
+      host <-"http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"
     }
   
     if(!is.null(species)){

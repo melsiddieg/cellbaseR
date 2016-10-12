@@ -24,7 +24,7 @@
 setClass("CellBaseR", 
          slots = c(host="character", version="character", species="character", 
                    batch_size="numeric", num_threads="numeric", api="list", tags="list"),
-         prototype = prototype(host="http://bioinfodev.hpc.cam.ac.uk/cellbase-dev-v4.0/webservices/rest/",
+         prototype = prototype(host="http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/webservices/rest/",
                                version = "v4/",species="hsapiens/", batch_size=200, num_threads=8, api=list())
 )
 
