@@ -27,5 +27,4 @@
 #' @import doParallel
 #' @import httr
 #' @import utils
-#' @importFrom Gviz GeneRegionTrack
 "_PACKAGE"

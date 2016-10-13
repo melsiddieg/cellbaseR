@@ -3,7 +3,7 @@ Type: Package
 Date: 2016-04-17
 Title: Querying annotation data from the high performance Cellbase web
     services
-Version: 0.99.14
+Version: 0.99.15
 Author: Mohammed OE Abdallah
 Maintainer: Mohammed OE Abdallah <melsiddieg@gmail.com>
 URL: https://github.com/melsiddieg/cellbaseR
@@ -29,12 +29,12 @@ Imports:
     foreach,
     utils,
     parallel,
-    doParallel,
-    Gviz
+    doParallel
 Suggests:
     BiocStyle,
     knitr,
-    rmarkdown
+    rmarkdown,
+    Gviz
 RoxygenNote: 5.0.1.9000
 biocViews: Annotation
 Lazy: TRUE
