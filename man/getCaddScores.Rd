@@ -4,10 +4,14 @@
 \alias{getCaddScores}
 \title{getCaddScores}
 \usage{
-getCaddScores(variant)
+getCaddScores(variant, object = NULL, filters = NULL)
 }
 \arguments{
 \item{variant}{a charcter vector of genomic variants, eg 19:45411941:T:C}
+
+\item{object}{an object of class CellBaseR}
+
+\item{filters}{an object of class CellBaseParam}
 }
 \value{
 a dataframe of the query result

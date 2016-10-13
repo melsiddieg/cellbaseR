@@ -4,10 +4,14 @@
 \alias{getSnpByGene}
 \title{getSnpByGene}
 \usage{
-getSnpByGene(gene)
+getSnpByGene(gene, object = NULL, filters = NULL)
 }
 \arguments{
 \item{gene}{a charcter vector of HUGO symbol (gene names)}
+
+\item{object}{an object of class CellBaseR}
+
+\item{filters}{an object of class CellBaseParam}
 }
 \value{
 a dataframe of the query result
@@ -16,6 +20,7 @@ a dataframe of the query result
 A convienice method to fetch known variants (snps) for specific gene/s
 }
 \examples{
-res <- getSnpByGene("TET1")
+filters <- CellBaseParam(limit = 10)
+res <- getSnpByGene("TET1", filters = filters)
 }
 

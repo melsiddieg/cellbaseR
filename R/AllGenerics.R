@@ -12,7 +12,7 @@ standardGeneric("getGene"))
 ################################################################################
 
 ################################################################################
-setGeneric("getRegion", function(object,ids,resource,filters, ...)
+setGeneric("getRegion", function(object,ids,resource,filters=NULL, ...)
 standardGeneric("getRegion"))
 
 ################################################################################

@@ -4,10 +4,14 @@
 \alias{getClinicalByRegion}
 \title{getClinicalByRegion}
 \usage{
-getClinicalByRegion(region)
+getClinicalByRegion(region, object = NULL, filters = NULL)
 }
 \arguments{
 \item{region}{a charcter vector of genomic regions, eg 17:1000000-1100000}
+
+\item{object}{an object of class CellBaseR}
+
+\item{filters}{an object of class CellBaseParam}
 }
 \value{
 a dataframe of the query result

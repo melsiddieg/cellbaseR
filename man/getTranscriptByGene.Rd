@@ -4,10 +4,14 @@
 \alias{getTranscriptByGene}
 \title{getTranscriptByGene}
 \usage{
-getTranscriptByGene(gene)
+getTranscriptByGene(gene, object = NULL, filters = NULL)
 }
 \arguments{
 \item{gene}{a charcter vector of HUGO symbol (gene names)}
+
+\item{object}{an object of class CellBaseR}
+
+\item{filters}{an object of class CellBaseParam}
 }
 \value{
 a dataframe of the query result

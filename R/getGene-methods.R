@@ -39,7 +39,7 @@ setMethod("getGene", "CellBaseR", definition = function(object, ids,
     # TODO: filters are not enabled
     result <- fetchCellbase(object=object,file=NULL, meta=NULL, 
                             categ=categ, subcateg=subcateg, 
-                            ids=ids,resource=resource,
-                            filters=NULL,...)
+                            ids=ids, resource=resource,
+                            filters=filters,...)
     return(result)
 })

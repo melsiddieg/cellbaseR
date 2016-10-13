@@ -4,10 +4,14 @@
 \alias{getProteinInfo}
 \title{getProteinInfo}
 \usage{
-getProteinInfo(protein)
+getProteinInfo(protein, object = NULL, filters = NULL)
 }
 \arguments{
 \item{protein}{a charcter vector of Uniprot Ids}
+
+\item{object}{an object of class CellBaseR}
+
+\item{filters}{an object of class CellBaseParam}
 }
 \value{
 a dataframe of the query result

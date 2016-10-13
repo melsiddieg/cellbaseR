@@ -17,15 +17,23 @@
 #'    cb <- CellBaseR()
 #'    res <- getRegion(object=cb, ids="17:1000000-1200000", resource="gene")
 #' @export
-setMethod("getRegion", "CellBaseR", definition = function(object, ids, resource, filters=NULL,...) {
+setMethod("getRegion", "CellBaseR", definition = function(object, ids, resource,
+                                                          filters=NULL,...) {
   
     categ <- "genomic"
     subcateg<- "region"
     ids <- ids
     resource <- resource
-    
+    if (!is.null(filters)){
+      filters <- c(genome=filters@genome, gene=filters@gene,
+                   region=filters@region, rs=filters@rs,so=filters@so,
+                   phenotype=filters@phenotype, limit=filters@limit, 
+                   include=filters@include, exclude=filters@exclude,
+                   limit=filters@limit)
+      filters <- paste(filters, collapse = "&")
+    }
     result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ,
                             subcateg=subcateg, ids=ids, resource=resource, 
-                            filters=NULL,...)
+                            filters=filters,...)
     return(result)
 })

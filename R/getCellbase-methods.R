@@ -39,7 +39,7 @@ setMethod("getCellBase", "CellBaseR", definition = function(object, category,
   # TODO: filters are not enabled
   result <- fetchCellbase(object=object, file=NULL, meta = NULL, categ=categ, 
                           subcateg=subcateg, ids=ids, resource=resource , 
-                          filters=NULL,...)
+                          filters=filters,...)
   
   return(result)
 })

@@ -22,7 +22,15 @@ setMethod("getTfbs", "CellBaseR",    definition = function(object, ids, resource
     subcateg<- "tf"
     ids <- ids
     resource <- resource
+    if (!is.null(filters)) {
+      filters <- c(genome=filters@genome, gene=filters@gene,
+                   region=filters@region, rs=filters@rs,so=filters@so,
+                   phenotype=filters@phenotype, limit=filters@limit, 
+                   include=filters@include, exclude=filters@exclude,
+                   limit=filters@limit)
+      filters <- paste(filters, collapse = "&")
+    }
     result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ, subcateg=subcateg,
-                            ids=ids, resource=resource, filters=NULL,...)
+                            ids=ids, resource=resource, filters=filters,...)
     return(result)
 })
