@@ -40,6 +40,20 @@ getGeneInfo <- function(gene){
   res
 }
 ##############################################################################
+#' getSnpByGene
+#' 
+#' A convienice method to fetch known variants (snps) for specific gene/s
+#' @param gene a charcter vector of HUGO symbol (gene names)
+#' @return a dataframe of the query result
+#' @examples 
+#' res <- getSnpByGene("TET1")
+#' @export
+getSnpByGene <- function(gene){
+  cb <- CellBaseR()
+  res <- getGene(object = cb, ids = gene, resource = "snp")
+  res
+}
+##############################################################################
 #' getProteinInfo
 #' 
 #' A convienice method to fetch annotations for specific protein/s
