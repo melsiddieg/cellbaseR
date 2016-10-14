@@ -11,12 +11,14 @@
 \arguments{
 \item{object}{an object of class CellBaseR}
 
-\item{ids}{a character vector of the ids to be queried, must be a valid transcription factor name, for example, 
+\item{ids}{a character vector of the ids to be queried, must be a valid 
+transcription factor name, for example, 
 Pdr1, and Oaf1}
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{filters}{a object of class CellBaseParam specifying additional filters for the query}
+\item{filters}{a object of class CellBaseParam specifying additional filters
+for the query}
 
 \item{...}{any extra arguments}
 }
@@ -24,10 +26,12 @@ Pdr1, and Oaf1}
 a dataframe with the results of the query
 }
 \description{
-A method to query transcription factors binding sites data from Cellbase web services.
+A method to query transcription factors binding sites data from Cellbase web
+ services.
 }
 \details{
-Please for details on possible values for the parameters  and  additional filters of this function refer to
+Please for details on possible values for the parameters  and
+  additional filters of this function refer to
 https://github.com/opencb/cellbase/wiki and the RESTful API documentation 
 http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }

@@ -18,8 +18,8 @@ A geneModel
 A convience functon to construct a genemodel
 }
 \details{
-This function takes cbResponse object and returns a geneRegionTrack
-model to be plotted by Gviz
+This function takes cbResponse object and returns a geneModel, 
+this geneModel can be then turned into a GeneRegion Track object by Gviz
 }
 \examples{
 cb <- CellBaseR()

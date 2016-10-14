@@ -11,23 +11,27 @@
 \arguments{
 \item{object}{an object of class CellBaseR}
 
-\item{ids}{a character vector of uniprot ids to be queried, should be one or more of uniprot ids, for example O15350.}
+\item{ids}{a character vector of uniprot ids to be queried, should be one
+or more of uniprot ids, for example O15350.}
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{filters}{a object of class CellBaseParam specifying additional filters for the query}
+\item{filters}{a object of class CellBaseParam specifying additional filters
+for the query}
 
 \item{...}{any extra arguments}
 }
 \value{
-an object of class CellBaseResponse which holds a dataframe with the results of the query
+an object of class CellBaseResponse which holds a dataframe with th
+e results of the query
 }
 \description{
 A method to query protein data from Cellbase web services.
 }
 \details{
 Please, for details on possible values for the 
-parameters  and  additional filters of this function refer to https://github.com/opencb/cellbase/wiki and the RESTful 
+parameters  and  additional filters of this function refer to
+ https://github.com/opencb/cellbase/wiki and the RESTful 
 http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }
 \examples{

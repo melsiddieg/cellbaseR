@@ -146,7 +146,11 @@ if(require("Gviz")){
 ```
 
 ## AnnotateVcf  
-This utility allows users to annoate genomic variants from small to medium-sized vcf files directly from the cellbase server, with a wealth of genomic annotations including riche clinical annotations like clinvar, gwas, and cosmic data, as well as conservation and functional scores like phast and cadd  scores, without the need to download any files.  
+This utility allows users to annoate genomic variants from small to medium-sized
+vcf files directly from the cellbase server, with a wealth of genomic 
+annotations including riche clinical annotations like clinvar, gwas, and cosmic
+data, as well as conservation and functional scores like phast and cadd  scores
+, without the need to download any files.  
 ```{r, message=FALSE, warning=FALSE, eval=FALSE}
 library(cellbaseR)
 cb <- CellBaseR()

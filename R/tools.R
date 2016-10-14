@@ -50,8 +50,10 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
   i <- 1
   container <- list()
   while(i<=num){
-    resp <- pblapply(grp[[i]], function(x)GET(x, add_headers(`Accept-Encoding` = "gzip, deflate")))
-    content <- pblapply(resp, function(x) content(x, as="text", encoding = "utf-8"))
+    resp <- pblapply(grp[[i]], function(x)GET(x, add_headers(`Accept-Encoding`
+                                                          = "gzip, deflate")))
+    content <- pblapply(resp, function(x) content(x, as="text",
+                                                  encoding = "utf-8"))
     js <- bplapply(content, function(x)fromJSON(x),BPPARAM = p)
     res <- bplapply(js, function(x)x$response$result, BPPARAM = p)
     names(res) <- NULL
@@ -63,10 +65,11 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
   }
 
 
-  final <- foreach(k=1:length(container),.options.multicore=list(preschedule=TRUE),
-                            .combine=function(...)rbind.pages(list(...)),
-                            .packages='jsonlite',.multicombine=TRUE) %dopar% {
-                              rbind.pages(container[[k]])
+  final <-foreach(k=1:length(container),
+                  .options.multicore=list(preschedule=TRUE),
+                  .combine=function(...)rbind.pages(list(...)),
+                  .packages='jsonlite',.multicombine=TRUE) %dopar% {
+                  rbind.pages(container[[k]])
                             }
 
   return(final)
@@ -78,8 +81,8 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
 # create GeneModel
 #' A convience functon to construct a genemodel
 #' 
-#' @details  This function takes cbResponse object and returns a geneRegionTrack
-#' model to be plotted by Gviz
+#' @details  This function takes cbResponse object and returns a geneModel, 
+#' this geneModel can be then turned into a GeneRegion Track object by Gviz
 #' @param object an object of class CellbaseResponse
 #' @param region a character 
 #' @return A geneModel
@@ -97,7 +100,8 @@ createGeneModel <- function(object, region=NULL){
     subcateg<- "region"
     ids <- region
     resource <- "gene"
-    data <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ, subcateg=subcateg,
+    data <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ, 
+                          subcateg=subcateg,
                           ids=ids, resource=resource, filters=NULL)
     rt4 <- data[,c(1,2,11)]
     rt4 <- as.data.table(rt4)

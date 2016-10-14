@@ -1,16 +1,20 @@
-########################################################################################################################
+###############################################################################
 #' getRegion
 #' 
-#'   A method to query features within a genomic region from Cellbase web services.
+#'   A method to query features within a genomic region from Cellbase web 
+#'   services.
 #' @details  Please, for details on possible values
-#' for the parameters  and  additional filters of this function refer to https://github.com/opencb/cellbase/wiki and the 
-#' RESTful API documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+#' for the parameters  and  additional filters of this function refer to 
+#' https://github.com/opencb/cellbase/wiki and the 
+#' RESTful API documentation http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 #' @aliases getRegion
 #' @param object an object of class CellBaseR
-#' @param ids a character vector of the regions to be queried, for example, "1:1000000-1200000' should always be in the
+#' @param ids a character vector of the regions to be queried, for example,
+#'  "1:1000000-1200000' should always be in the
 #' form 'chr:start-end'
 #' @param resource a character vector to specify the resource to be queried
-#' @param filters a object of class CellBaseParam specifying additional filters for the query
+#' @param filters a object of class CellBaseParam specifying additional filters
+#'  for the query
 #' @param ... any extra arguments
 #' @return a dataframe with the results of the query
 #' @examples

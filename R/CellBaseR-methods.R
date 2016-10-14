@@ -15,10 +15,12 @@
 #' @param  host A character the default host url for cellbase webservices,
 #' e.g. "http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"
 #' @param  version A character the cellbae API version, e.g. "V4"
-#' @param  species a character specifying the species to be queried, e.g. "hsapiens"
-#' @param  batch_size intger if multiple queries are raised by a single method call, e.g. getting annotation info for several genes,
-#' queries will be sent to the server in batches. This slot indicates the size of each batch, e.g. 200
-#' @param num_threads integer number of asynchronus batches to be sent to the server
+#' @param  species a character specifying the species to be queried, e.g. 
+#' "hsapiens"
+#' @param  batch_size intger if multiple queries are raised by a single method 
+#' call, e.g. getting annotation info for several genes, queries will be sent 
+#' to the server in batches.This slot indicates the size of each batch,e.g. 200
+#' @param num_threads integer number of  batches to be sent to the server
 #' @param api the CellBase api 
 #' @param tags available CellBase categories
 #' @return An object of class CellBaseR

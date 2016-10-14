@@ -1,5 +1,5 @@
 utils::globalVariables(c("name", "j", "registerDoMC"))
-################################################################################
+###############################################################################
 # we need to adjust the output for the protein and Genomesequence methods
 #
 fetchCellbase <- function(object=object, file=NULL, meta=meta, 
@@ -77,8 +77,9 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
     container=list()
     while(is.null(file)&all(unlist(num_results)==server_limit)){
         grls <- createURL(file=NULL, host=host, version=version, meta=meta, 
-                          species=species, categ=categ, subcateg=subcateg, ids=ids, 
-        resource=resource,filters=filters,skip = skip)
+                          species=species, categ=categ, subcateg=subcateg,
+                          ids=ids, resource=resource,filters=filters,
+                          skip = skip)
         skip=skip+1000
         content <- callREST2(grls = grls)
         res_list <- parseResponse(content=content)
@@ -90,7 +91,7 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
     if(class(container[[1]])=="data.frame"){
       ds <- rbind.pages(container)
     }else{
-      ds <- as.data.frame(container[[1]], stringsAsFactors=FALSE, names="result")
+      ds <- as.data.frame(container[[1]], stringsAsFactors=FALSE,names="result")
       
     }
     
@@ -160,10 +161,10 @@ callREST2 <- function(grls,async=FALSE,num_threads=num_threads)
 {
   content <- list()
   if(is.null(file)){
-    resp <- GET(grls, add_headers(`Accept-Encoding` = "gzip, deflate"), timeout(2))
+    resp <- GET(grls, add_headers(`Accept-Encoding` = "gzip, deflate"), 
+                timeout(2))
     content <- content(resp, as="text", encoding = "utf-8")
   }else{
-    # resp <- pbsapply(grls, function(x)GET(x, add_headers(`Accept-Encoding` = "gzip, deflate")))
     resp <- GET(grls, add_headers(`Accept-Encoding` = "gzip, deflate"))
     content <- content(resp, as="text", encoding = "utf-8")
   }
@@ -240,7 +241,8 @@ cbHelp <- function(object, subcategory, resource=NULL){
     index <- grep(patt2, names(parts))
     res <- parts[[index]]
     res <- res$parameters
-    res <- subset(res,!(name %in% c("version", "species")), select=c("name", "description","required", "type"))
+    res <- subset(res,!(name %in% c("version", "species")), 
+                  select=c("name", "description","required", "type"))
   }
   res
 }

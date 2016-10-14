@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 #' getMeta
 #' 
 #' A method for getting the avaiable metadata from the cellbase web services
@@ -25,7 +25,8 @@ setMethod("getMeta", "CellBaseR",    definition = function(object, resource){
     subcateg<- NULL
     ids <- NULL
     resource <- resource
-    result <- fetchCellbase(object=object, file=NULL, meta=meta, categ=categ, subcateg=subcateg,
+    result <- fetchCellbase(object=object, file=NULL, meta=meta, categ=categ,
+                            subcateg=subcateg,
                             ids=ids, resource=resource, filters=NULL)
     data <- lapply(result, function(x)as.data.frame(x))
     result <- rbind.pages(data)

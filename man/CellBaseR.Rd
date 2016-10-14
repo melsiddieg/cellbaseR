@@ -13,12 +13,14 @@ e.g. "http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"}
 
 \item{version}{A character the cellbae API version, e.g. "V4"}
 
-\item{species}{a character specifying the species to be queried, e.g. "hsapiens"}
+\item{species}{a character specifying the species to be queried, e.g. 
+"hsapiens"}
 
-\item{batch_size}{intger if multiple queries are raised by a single method call, e.g. getting annotation info for several genes,
-queries will be sent to the server in batches. This slot indicates the size of each batch, e.g. 200}
+\item{batch_size}{intger if multiple queries are raised by a single method 
+call, e.g. getting annotation info for several genes, queries will be sent 
+to the server in batches.This slot indicates the size of each batch,e.g. 200}
 
-\item{num_threads}{integer number of asynchronus batches to be sent to the server}
+\item{num_threads}{integer number of  batches to be sent to the server}
 
 \item{api}{the CellBase api}
 

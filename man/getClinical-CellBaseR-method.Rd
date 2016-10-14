@@ -11,19 +11,22 @@
 \arguments{
 \item{object}{an object of class CellBaseR}
 
-\item{filters}{a object of class CellBaseParam specifying the parameters limiting the CellBaseR}
+\item{filters}{a object of class CellBaseParam specifying the parameters
+limiting the CellBaseR}
 
 \item{...}{any extra arguments}
 }
 \value{
-an object of class CellBaseResponse which holds a dataframe with the results of the query
+an object of class CellBaseResponse which holds a dataframe with the
+ results of the query
 }
 \description{
 A method to query Clinical data from Cellbase web services.
 }
 \details{
 Please, for details on possible values for the parameters 
-and  additional filters of this function refer to https://github.com/opencb/cellbase/wiki and the RESTful API 
+and  additional filters of this function refer to 
+https://github.com/opencb/cellbase/wiki and the RESTful API 
 documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }
 \examples{

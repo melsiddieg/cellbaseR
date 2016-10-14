@@ -11,12 +11,14 @@
 \arguments{
 \item{object}{an object of class CellBaseR}
 
-\item{ids}{a character vector of the regions to be queried, for example, "1:1000000-1200000' should always be in the
+\item{ids}{a character vector of the regions to be queried, for example,
+ "1:1000000-1200000' should always be in the
 form 'chr:start-end'}
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{filters}{a object of class CellBaseParam specifying additional filters for the query}
+\item{filters}{a object of class CellBaseParam specifying additional filters
+for the query}
 
 \item{...}{any extra arguments}
 }
@@ -24,12 +26,14 @@ form 'chr:start-end'}
 a dataframe with the results of the query
 }
 \description{
-A method to query features within a genomic region from Cellbase web services.
+A method to query features within a genomic region from Cellbase web 
+  services.
 }
 \details{
 Please, for details on possible values
-for the parameters  and  additional filters of this function refer to https://github.com/opencb/cellbase/wiki and the 
-RESTful API documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+for the parameters  and  additional filters of this function refer to 
+https://github.com/opencb/cellbase/wiki and the 
+RESTful API documentation http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }
 \examples{
    cb <- CellBaseR()

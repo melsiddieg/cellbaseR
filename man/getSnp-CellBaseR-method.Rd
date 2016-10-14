@@ -16,7 +16,8 @@ for example 'rs6025'}
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{filters}{a object of class CellBaseParam specifying additional filters for the query}
+\item{filters}{a object of class CellBaseParam specifying additional filters
+for the query}
 
 \item{...}{any extra arguments}
 }
@@ -24,10 +25,12 @@ for example 'rs6025'}
 a dataframe with the results of the query
 }
 \description{
-A method to query genomic variation data from Cellbase web services from Cellbase web services.
+A method to query genomic variation data from Cellbase web services from 
+Cellbase web services.
 }
 \details{
-Please for details on possible values for the parameters  and  additional filters of this function refer to
+Please for details on possible values for the parameters  and  
+additional filters of this function refer to
 https://github.com/opencb/cellbase/wiki and the RESTful API documentation 
 http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }
