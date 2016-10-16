@@ -156,7 +156,7 @@ library(cellbaseR)
 cb <- CellBaseR()
 fl <- system.file("extdata", "chr7-sub.vcf.gz", package="VariantAnnotation")
 res <- AnnotateVcf(object=cb, file=fl)
-res
+str(res,1)
 
 ```
 

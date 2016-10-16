@@ -45,7 +45,7 @@ CellBaseR <- function(host=NULL, version=NULL, species=NULL,
     if(!is.null(version)){
       version <- paste0(version,"/")
     }else{
-      version <- "v4/"
+      version <- "latest/"
     }
   
    if(!is.null(batch_size)){

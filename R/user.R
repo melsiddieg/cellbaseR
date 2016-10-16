@@ -9,8 +9,20 @@
 #' res <- getClinicalByGene("TET1")
 #' @export
 getClinicalByGene <- function(gene, object=NULL, filters=NULL){
- cb <- CellBaseR()
- res <- getGene(object = cb, ids = gene, resource = "clinical")
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+ 
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
+  
+ res <- getGene(object = cb, ids = gene, resource = "clinical",
+                filters = filters)
  res
 }
 ##############################################################################
@@ -25,8 +37,19 @@ getClinicalByGene <- function(gene, object=NULL, filters=NULL){
 #' res <- getTranscriptByGene("TET1")
 #' @export
 getTranscriptByGene <- function(gene, object=NULL, filters=NULL){
-  cb <- CellBaseR()
-  res <- getGene(object = cb, ids = gene, resource = "transcript")
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+  
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
+  res <- getGene(object = cb, ids = gene, resource = "transcript",
+                 filters = filters)
   res
 }
 ##############################################################################
@@ -41,7 +64,17 @@ getTranscriptByGene <- function(gene, object=NULL, filters=NULL){
 #' res <- getGeneInfo("TET1")
 #' @export
 getGeneInfo <- function(gene, object=NULL, filters=NULL){
-  cb <- CellBaseR()
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+  
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
   res <- getGene(object = cb, ids = gene, resource = "info")
   res
 }
@@ -58,7 +91,17 @@ getGeneInfo <- function(gene, object=NULL, filters=NULL){
 #' res <- getSnpByGene("TET1", filters = filters)
 #' @export
 getSnpByGene <- function(gene, object=NULL, filters=NULL){
-  cb <- CellBaseR()
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+  
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
   res <- getGene(object = cb, ids = gene, resource = "snp", filters = filters)
   res
 }
@@ -74,7 +117,17 @@ getSnpByGene <- function(gene, object=NULL, filters=NULL){
 #' res <- getProteinInfo("O15350")
 #' @export
 getProteinInfo <- function(protein, object=NULL, filters=NULL){
-  cb <- CellBaseR()
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+  
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
   res <- getProtein(object = cb, ids = protein, resource = "info")
   res
 }
@@ -90,7 +143,17 @@ getProteinInfo <- function(protein, object=NULL, filters=NULL){
 #' res <- getClinicalByRegion("17:1000000-1189811")
 #' @export
 getClinicalByRegion <- function(region, object=NULL, filters=NULL){
-  cb <- CellBaseR()
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+  
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
   res <- getRegion(object = cb, ids = region, resource = "clinical")
   res
 }
@@ -106,7 +169,17 @@ getClinicalByRegion <- function(region, object=NULL, filters=NULL){
 #' res <- getConservationByRegion("17:1000000-1189811")
 #' @export
 getConservationByRegion <- function(region, object=NULL, filters=NULL){
-  cb <- CellBaseR()
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+  
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
   res <- getRegion(object = cb, ids = region, resource = "conservation")
   res
 }
@@ -122,7 +195,17 @@ getConservationByRegion <- function(region, object=NULL, filters=NULL){
 #' res <- getRegulatoryByRegion("17:1000000-1189811")
 #' @export
 getRegulatoryByRegion <- function(region, object=NULL, filters=NULL){
-  cb <- CellBaseR()
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+  
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
   res <- getRegion(object = cb, ids = region, resource = "regulatory")
   res
 }
@@ -136,7 +219,17 @@ getRegulatoryByRegion <- function(region, object=NULL, filters=NULL){
 #' res <- getTfbsByRegion("17:1000000-1189811")
 #' @export
 getTfbsByRegion <- function(region){
-  cb <- CellBaseR()
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+  
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
   res <- getRegion(object = cb, ids = region, resource = "tfbs")
   res
 }
@@ -152,7 +245,17 @@ getTfbsByRegion <- function(region){
 #' res <- getCaddScores("19:45411941:T:C")
 #' @export
 getCaddScores <- function(variant, object=NULL, filters=NULL){
-  cb <- CellBaseR()
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+  
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
   res <- getVariant(object = cb, ids = variant, resource = "cadd")
   res
 }
@@ -169,7 +272,17 @@ getCaddScores <- function(variant, object=NULL, filters=NULL){
 #' res <- getVariantAnnotation("19:45411941:T:C")
 #' @export
 getVariantAnnotation <- function(variant, object=NULL, filters=NULL){
-  cb <- CellBaseR()
+  if(!is.null(object)){
+    cb <- object
+  }else{
+    cb <- CellBaseR()
+  }
+  
+  if(!is.null(filters)){
+    filters <- filters
+  }else{
+    filters <- NULL
+  }
   res <- getVariant(object = cb, ids = variant, resource = "annotation")
   res
 }

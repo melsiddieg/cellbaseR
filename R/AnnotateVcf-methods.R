@@ -16,7 +16,11 @@
 #' @param BPPARAM a BiocParallel class object 
 #' @param ... any extra argument
 #' @return a dataframe with the results of the query
-#' @export
+# @examples 
+# cb <- CellBaseR()
+# fl <- system.file("extdata", "chr7-sub.vcf.gz", package="VariantAnnotation")
+# res <- AnnotateVcf(object=cb, file=fl)
+# @export
 setMethod("AnnotateVcf", "CellBaseR", definition = function(object, file,
                                                               batch_size,
                                                               num_threads,

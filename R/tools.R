@@ -1,24 +1,6 @@
 utils::globalVariables(c("k", "transcripts", "exons"))
 
-#' A convience fubction to directly annotate variants from a vcf file
-#' 
-#' This is a function to annotate variants from a vcf file
-#' @param object an object of class CellBaseR
-#' @param file Path to a bgzipped and tabix indexed vcf file
-#' @param  batch_size intger if multiple queries are raised by a single method 
-#' call, e.g. getting annotation info for several genes,
-#' queries will be sent to the server in batches. This slot indicates the size
-#'  of each batch, e.g. 200
-#' @param num_threads integer number of asynchronus batches to be sent to the 
-#' server
-#' @param BPPARAM a BiocParallel class object 
-#' @param ... any extra arguments
-# @examples 
-# library(cellbaseR)
-# cb <- CellBaseR()
-# fl <- system.file("extdata", "chr7-sub.vcf.gz", package="VariantAnnotation")
-# res <- AnnotateVcf(object=cb, file=fl)
-#' @return a dataframe with the annotated variants
+# Annovcf
 Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
   num_cores <-parallel::detectCores()-2
   registerDoParallel(num_cores) 

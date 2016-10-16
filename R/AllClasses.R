@@ -27,7 +27,7 @@ setClass("CellBaseR",
               tags="list"),
     prototype = prototype(
     host="http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/webservices/rest/",
-    version = "v4/",species="hsapiens/", batch_size=200, num_threads=8,
+    version = "latest/",species="hsapiens/", batch_size=200, num_threads=8,
     api=list())
 )
 
