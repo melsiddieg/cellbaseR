@@ -5,35 +5,29 @@ utils::globalVariables(c("name", "j", "registerDoMC"))
 fetchCellbase <- function(object=object, file=NULL, meta=meta, 
     species=species, categ, subcateg,ids, resource,filters=NULL, 
     batch_size=NULL, num_threads=NULL,...){
-  host <- object@host
-  species <- object@species
-  version <- object@version
-  # Checlks
-  # CATEGORIES <- c("feature", "genomic", "regulation")
-  # if(!(categ %in% CATEGORIES)){
-  #   stop("Error Unknown category")
-  # } 
-  # SUBCATEGORIES <- tolower(unlist(object@tags[[1]]))
-  # if(!(subcateg %in% SUBCATEGORIES)){
-  #   stop("Error Unknown subcategory")
-  # } 
-  # RESOURCES <- cbHelp(object, subcategory=subcateg)
-  # if(!(resource %in% RESOURCES)){
-  #   stop("Error Unknown resource")
-  # } 
-  
+    host <- object@host
+    species <- object@species
+
   # Get the parametrs
   if(species=="hsapiens/"){
     batch_size <- batch_size
+    version <- object@version
+    
   }else{
     batch_size <- 50
+    version <- "latest/"
+    cat("Note that not all genomic annotations are avaiable for",
+        object@species, "\n")
   }
+    
   num_threads <- num_threads
+  
   if(is.null(categ)){
     categ <- ""
   }else{
     categ <- paste0(categ,"/",sep="")
   }
+  
   if(is.null(subcateg)){
     subcateg <- ""
   }else{
