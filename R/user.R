@@ -214,11 +214,13 @@ getRegulatoryByRegion <- function(region, object=NULL, filters=NULL){
 #' 
 #' A convienice method to fetch Transcription facrots data for specific region/s
 #' @param region a charcter vector of genomic regions, eg 17:1000000-1100000
+#' @param object an object of class CellBaseR
+#' @param filters an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
 #' res <- getTfbsByRegion("17:1000000-1189811")
 #' @export
-getTfbsByRegion <- function(region){
+getTfbsByRegion <- function(region, object=NULL, filters=NULL){
   if(!is.null(object)){
     cb <- object
   }else{

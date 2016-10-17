@@ -4,7 +4,7 @@
 \alias{getTfbsByRegion}
 \title{getTfbsByRegion}
 \usage{
-getTfbsByRegion(region)
+getTfbsByRegion(region, object = NULL, filters = NULL)
 }
 \arguments{
 \item{region}{a charcter vector of genomic regions, eg 17:1000000-1100000}
