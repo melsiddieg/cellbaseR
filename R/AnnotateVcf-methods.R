@@ -16,7 +16,7 @@
 #' @param BPPARAM a BiocParallel class object 
 #' @param ... any extra argument
 #' @return a dataframe with the results of the query
-# @examples 
+#' @examples 
 #' cb <- CellBaseR()
 #' fl <- system.file("extdata", "hapmap_exome_chr22.vcf.gz", 
 #' package="VariantAnnotation")

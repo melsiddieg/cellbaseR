@@ -33,4 +33,10 @@ This method is a convience method to annotate a vcf files. It should be ideal
 for annotating small to medium sized 
 vcf files.
 }
+\examples{
+cb <- CellBaseR()
+fl <- system.file("extdata", "hapmap_exome_chr22.vcf.gz", 
+package="VariantAnnotation")
+res <- AnnotateVcf(object=cb, file=fl)
+}
 
