@@ -11,14 +11,17 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
   batch_size <- object@batch_size
   num_threads <- object@num_threads
   ids <- readIds(file, batch_size, num_threads)
+  #filter out multiallelic sites
+  ids2 <- sapply(ids, function(x)sapply(x, function(y)filterMulti(y)))
+  names(ids2) <- NULL
   grls <- list()
   categ <- 'genomic/'
   subcateg <- "variant/"
   resource <- "/annotation"
   # get the IDs
   gcl <- paste0(host,version,species,categ,subcateg,collapse = "")
-  for(i in seq_along(ids)){
-    hop <- paste(ids[[i]],collapse = ",")
+  for(i in seq_along(ids2)){
+    hop <- paste(ids2[[i]],collapse = ",")
     tmp <- paste0(gcl,hop,resource,collapse = ",")
     grls[[i]] <- gsub("chr","",tmp)
   }
@@ -101,3 +104,10 @@ createGeneModel <- function(object, region=NULL){
   }
   hope
 }
+
+# Filter multiallelic sites
+filterMulti <- function(x){
+  res <- strsplit(x, split = ",")[[1]][1]
+  res
+}
+
