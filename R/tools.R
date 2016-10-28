@@ -4,6 +4,7 @@ utils::globalVariables(c("k", "transcripts", "exons"))
 Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
   num_cores <-parallel::detectCores()/2
   register(BPPARAM, default=TRUE)
+  registerDoParallel(num_cores) 
   p <- bpparam()
   host <- object@host
   species <- object@species
