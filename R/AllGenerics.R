@@ -68,7 +68,9 @@ setGeneric("getMeta", function(object, resource)
 standardGeneric("getMeta"))
 
 ###############################################################################
-setGeneric("AnnotateVcf", function(object, file, ...)
+setGeneric("AnnotateVcf", function(object, file, batch_size,
+                                   num_threads,
+                                   BPPARAM=bpparam(), ...)
 standardGeneric("AnnotateVcf"))
 
 
