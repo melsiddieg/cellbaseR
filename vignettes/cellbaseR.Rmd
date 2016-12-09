@@ -153,9 +153,15 @@ data, as well as conservation and functional scores like phast and cadd  scores
 , without the need to download any files.  
 ```{r, message=FALSE, warning=FALSE, eval=FALSE}
 library(cellbaseR)
+library(VariantAnnotation)
 cb <- CellBaseR()
-fl <- system.file("extdata", "chr7-sub.vcf.gz", package="VariantAnnotation")
-res <- AnnotateVcf(object=cb, file=fl)
+fl <- system.file("extdata", "hapmap_exome_chr22_500.vcf.gz",package = "cellbaseR" )
+res <- AnnotateVcf(object=cb, file=fl, BPPARAM = bpparam(workers=2))
+vcf <- readVcf(fl, "hg19")
+vcf
+samples(header(vcf))
+geno(header(vcf))
+length(rowRanges(vcf))==length(res)
 str(res,1)
 
 ```
