@@ -4,4 +4,4 @@ inst/doc
 Bioc_Sub.Rproj
 *.Rproj
 .RData
-
+vignette/cellbaseR.html

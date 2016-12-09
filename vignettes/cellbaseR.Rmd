@@ -151,7 +151,7 @@ vcf files directly from the cellbase server, with a wealth of genomic
 annotations including riche clinical annotations like clinvar, gwas, and cosmic
 data, as well as conservation and functional scores like phast and cadd  scores
 , without the need to download any files.  
-```{r, message=FALSE, warning=FALSE, eval=FALSE}
+```{r, message=FALSE, warning=FALSE, eval=TRUE}
 library(cellbaseR)
 library(VariantAnnotation)
 cb <- CellBaseR()
