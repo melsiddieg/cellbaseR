@@ -161,7 +161,7 @@ vcf <- readVcf(fl, "hg19")
 vcf
 samples(header(vcf))
 geno(header(vcf))
-length(rowRanges(vcf))==length(res)
+length(rowRanges(vcf))==nrow(res)
 str(res,1)
 
 ```
