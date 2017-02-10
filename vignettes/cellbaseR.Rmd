@@ -32,26 +32,10 @@ Cellbase web services. Let us start by loading the library.
 library(cellbaseR)
 # A default cellbaseR object is created as follows
 cb <- CellBaseR()
-# to change the default species from human to mouse for example
-mm <-CellBaseR(species = "mmsculus") 
-
-```
-
-You can see the avaiable species and their corresonding data by
-running the cbSpecies method passing  the CellbBseR object you just created 
-
-```{r, message=FALSE, warning=FALSE}
-library(cellbaseR)
-cb <- CellBaseR()
-sp <- getMeta(object = cb, resource = "species")
-# This will give you a CellbaseResult object
-# to get the dataframe of all available species
-str(sp,1)
-
 ```
 
 ## The CellbaseR Methods
-In addition to the cbSpecies you have seen already, The cellbaseR package
+The cellbaseR package
 provide many methods to query the cellbase webservices, they include:  
  
 -  getGene  
