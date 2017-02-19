@@ -20,7 +20,7 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
   subcateg <- "variant/"
   resource <- "/annotation"
   # get the IDs
-  gcl <- paste0(host,version,species,categ,subcateg,collapse = "")
+  gcl <- paste0(host,version,species,"/",categ,subcateg,collapse = "")
   for(i in seq_along(ids2)){
     hop <- paste(ids2[[i]],collapse = ",")
     tmp <- paste0(gcl,hop,resource,collapse = ",")

@@ -9,7 +9,7 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
     species <- object@species
 
   # Get the parametrs
-  if(species=="hsapiens/"){
+  if(species=="hsapiens"){
     batch_size <- batch_size
     version <- object@version
     
@@ -134,9 +134,13 @@ createURL <- function(file=NULL, host=host, version=version, meta=meta,
     if(is.null(file)){
     skip=paste0("?","skip=",skip)
     filters <- paste(skip,filters, sep = "&")
-    grls <- paste0(host,version, meta, species, categ, subcateg, ids, 
-        resource,filters,collapse = "")
-
+       if(nchar(species)>1){
+      grls <- paste0(host,version, meta, species,"/", categ, subcateg, ids, 
+                     resource,filters,collapse = "")
+      }else{
+      grls <- paste0(host,version, meta, species, categ, subcateg, ids, 
+                     resource,filters,collapse = "")
+    }
     }else{
        grls <- list()
        gcl <- paste0(host,version,species,categ,subcateg,collapse = "")

@@ -74,13 +74,13 @@ str(TET1_transcripts,1)
 # in a specific region
 library(cellbaseR)
 cb <- CellBaseR()
-res <- getRegion(object=cb,ids="17:1000000-1100000",
+res <- getRegion(object=cb,ids="17:1000000-1005000",
 resource="clinical")
 # to get all conservation data in this region
-res <- getRegion(object=cb,ids="17:1000000-1100000",
+res <- getRegion(object=cb,ids="17:1000000-1005000",
 resource="conservation")
 #likewise to get all the regulatory data for the same region
-res <- getRegion(object=cb,ids="17:1000000-1100000", resource="regulatory")
+res <- getRegion(object=cb,ids="17:1000000-1005000", resource="regulatory")
 str(res,1)
 ```
 ### cbVraiantClient 
@@ -142,9 +142,7 @@ cb <- CellBaseR()
 fl <- system.file("extdata", "hapmap_exome_chr22_500.vcf.gz",package = "cellbaseR" )
 res <- AnnotateVcf(object=cb, file=fl, BPPARAM = bpparam(workers=2))
 vcf <- readVcf(fl, "hg19")
-vcf
 samples(header(vcf))
-geno(header(vcf))
 length(rowRanges(vcf))==nrow(res)
 str(res,1)
 

@@ -35,12 +35,35 @@ CellBaseR <- function(host=NULL, version=NULL, species=NULL,
     }else {
       host <-"http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"
     }
-  
-    if(!is.null(species)){
-        species<-paste0(species,"/")
+  available_species=c("hsapiens","mmusculus","drerio","rnorvegicus",
+                      "ptroglodytes","ggorilla","pabelii","mmulatta",
+                      "csabaeus","sscrofa","cfamiliaris","ecaballus",
+                      "ocuniculus","ggallus","btaurus","fcatus",
+                      "cintestinalis","oaries","olatipes","ttruncatus",
+                      "lafricana","cjacchus","nleucogenys","aplatyrhynchos",
+                      "falbicollis","celegans","dmelanogaster","dsimulans",
+                      "dyakuba","agambiae","adarlingi","nvectensis",
+                      "spurpuratus","bmori","aaegypti","apisum","scerevisiae"
+                      ,"spombe","afumigatus","aniger","anidulans","aoryzae",
+                      "foxysporum","pgraminis","ptriticina","moryzae",
+                      "umaydis","ssclerotiorum","cneoformans","ztritici",
+                      "pfalciparum","lmajor","ddiscoideum","glamblia",
+                      "pultimum","alaibachii","athaliana","alyrata",
+                      "bdistachyon","osativa","gmax","vvinifera","zmays",
+                      "hvulgare","macuminata","sbicolor","sitalica",
+                      "taestivum","brapa","ptrichocarpa","slycopersicum",
+                      "stuberosum","smoellendorffii","creinhardtii",
+                      "cmerolae")
+  if(!is.null(species)){
+      if(species%in% available_species){
+        species<-species
+      } else{
+      stop("please enter a valid species name\n
+           see ?getMeta examples to see the aviable species")
+            } 
     }else{
-        species <-"hsapiens/"
-    }  
+      species <- 'hsapiens'
+    }
   
     if(!is.null(version)){
       version <- paste0(version,"/")
