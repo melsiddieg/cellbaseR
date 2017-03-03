@@ -2,8 +2,8 @@
 % Please edit documentation in R/getVariant-methods.R
 \docType{methods}
 \name{getVariant,CellBaseR-method}
-\alias{getVariant}
 \alias{getVariant,CellBaseR-method}
+\alias{getVariant}
 \title{getVariant}
 \usage{
 \S4method{getVariant}{CellBaseR}(object, ids, resource, filters = NULL, ...)
@@ -39,4 +39,3 @@ http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
    cb <- CellBaseR()
    res <- getVariant(object=cb, ids="19:45411941:T:C", resource="annotation")
 }
-

@@ -2,8 +2,8 @@
 % Please edit documentation in R/getXref-methods.R
 \docType{methods}
 \name{getXref,CellBaseR-method}
-\alias{getXref}
 \alias{getXref,CellBaseR-method}
+\alias{getXref}
 \title{getXref}
 \usage{
 \S4method{getXref}{CellBaseR}(object, ids, resource, filters = NULL, ...)
@@ -38,4 +38,3 @@ http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
    cb <- CellBaseR()
    res <- getXref(object=cb, ids="ENST00000373644", resource="xref")
 }
-

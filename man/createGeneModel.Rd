@@ -25,4 +25,3 @@ this geneModel can be then turned into a GeneRegion Track object by Gviz
 cb <- CellBaseR()
 test <- createGeneModel(object = cb, region = "17:1500000-1550000")
 }
-

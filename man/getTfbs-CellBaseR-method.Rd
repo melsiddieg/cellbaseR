@@ -2,8 +2,8 @@
 % Please edit documentation in R/getTfbs-methods.R
 \docType{methods}
 \name{getTfbs,CellBaseR-method}
-\alias{getTfbs}
 \alias{getTfbs,CellBaseR-method}
+\alias{getTfbs}
 \title{getTfbs}
 \usage{
 \S4method{getTfbs}{CellBaseR}(object, ids, resource, filters = NULL, ...)
@@ -39,4 +39,3 @@ http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
    cb <- CellBaseR()
    res <- getTfbs(object=cb, ids="PAX1", resource="gene")
 }
-

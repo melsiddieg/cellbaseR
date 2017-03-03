@@ -2,8 +2,8 @@
 % Please edit documentation in R/getRegion-methods.R
 \docType{methods}
 \name{getRegion,CellBaseR-method}
-\alias{getRegion}
 \alias{getRegion,CellBaseR-method}
+\alias{getRegion}
 \title{getRegion}
 \usage{
 \S4method{getRegion}{CellBaseR}(object, ids, resource, filters = NULL, ...)
@@ -39,4 +39,3 @@ RESTful API documentation http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
    cb <- CellBaseR()
    res <- getRegion(object=cb, ids="17:1000000-1200000", resource="gene")
 }
-

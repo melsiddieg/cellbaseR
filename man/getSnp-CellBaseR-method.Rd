@@ -2,8 +2,8 @@
 % Please edit documentation in R/getSnp-methods.R
 \docType{methods}
 \name{getSnp,CellBaseR-method}
-\alias{getSnp}
 \alias{getSnp,CellBaseR-method}
+\alias{getSnp}
 \title{getSnp}
 \usage{
 \S4method{getSnp}{CellBaseR}(object, ids, resource, filters = NULL, ...)
@@ -38,4 +38,3 @@ http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 cb <- CellBaseR()
 res <- getSnp(object=cb, ids="rs6025", resource="info")
 }
-

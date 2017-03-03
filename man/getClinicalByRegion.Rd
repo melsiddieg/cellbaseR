@@ -22,4 +22,3 @@ A convienice method to fetch clinical variants for specific region/s
 \examples{
 res <- getClinicalByRegion("17:1000000-1189811")
 }
-

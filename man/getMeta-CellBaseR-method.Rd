@@ -2,8 +2,8 @@
 % Please edit documentation in R/getMeta-methods.R
 \docType{methods}
 \name{getMeta,CellBaseR-method}
-\alias{getMeta}
 \alias{getMeta,CellBaseR-method}
+\alias{getMeta}
 \title{getMeta}
 \usage{
 \S4method{getMeta}{CellBaseR}(object, resource)
@@ -32,4 +32,3 @@ http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
    cb <- CellBaseR()
    res <- getMeta(object=cb, resource="species")
 }
-

@@ -24,4 +24,3 @@ This is a convience function to get help on cellbase methods
 cb <- CellBaseR()
 cbHelp(cb, subcategory="gene")
 }
-

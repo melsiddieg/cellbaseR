@@ -2,8 +2,8 @@
 % Please edit documentation in R/getChromosomeInfo-methods.R
 \docType{methods}
 \name{getChromosomeInfo,CellBaseR-method}
-\alias{getChromosomeInfo}
 \alias{getChromosomeInfo,CellBaseR-method}
+\alias{getChromosomeInfo}
 \title{getChromosomeInfo}
 \usage{
 \S4method{getChromosomeInfo}{CellBaseR}(object, ids, resource, filters = NULL,
@@ -35,4 +35,3 @@ http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
    cb <- CellBaseR()
    res <- getChromosomeInfo(object=cb, ids="22", resource="info")
 }
-

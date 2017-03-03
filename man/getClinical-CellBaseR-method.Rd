@@ -2,8 +2,8 @@
 % Please edit documentation in R/getClinical-methods.R
 \docType{methods}
 \name{getClinical,CellBaseR-method}
-\alias{getClinical}
 \alias{getClinical,CellBaseR-method}
+\alias{getClinical}
 \title{getClinical}
 \usage{
 \S4method{getClinical}{CellBaseR}(object, filters = NULL, ...)
@@ -34,4 +34,3 @@ documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
    cbParam <- CellBaseParam(gene=c("TP73","TET1"))
    res <- getClinical(object=cb,filters=cbParam)
 }
-

@@ -23,4 +23,3 @@ A convienice method to fetch variant annotation for specific variant/s
 \examples{
 res <- getVariantAnnotation("19:45411941:T:C")
 }
-

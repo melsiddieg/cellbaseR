@@ -2,8 +2,8 @@
 % Please edit documentation in R/getProtein-methods.R
 \docType{methods}
 \name{getProtein,CellBaseR-method}
-\alias{getProtein}
 \alias{getProtein,CellBaseR-method}
+\alias{getProtein}
 \title{getProtein}
 \usage{
 \S4method{getProtein}{CellBaseR}(object, ids, resource, filters = NULL, ...)
@@ -38,4 +38,3 @@ http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
    cb <- CellBaseR()
    res <- getProtein(object=cb, ids="O15350", resource="info")
 }
-

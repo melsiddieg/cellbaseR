@@ -22,4 +22,3 @@ A convienice method to fetch annotations for specific protein/s
 \examples{
 res <- getProteinInfo("O15350")
 }
-

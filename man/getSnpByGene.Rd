@@ -23,4 +23,3 @@ A convienice method to fetch known variants (snps) for specific gene/s
 filters <- CellBaseParam(limit = 10)
 res <- getSnpByGene("TET1", filters = filters)
 }
-

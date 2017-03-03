@@ -22,4 +22,3 @@ A convienice method to fetch clinical variants for specific gene/s
 \examples{
 res <- getClinicalByGene("TET1")
 }
-

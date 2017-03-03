@@ -45,4 +45,3 @@ print(cbParam)
 for more information about the cellbase webservices see
 \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }
-

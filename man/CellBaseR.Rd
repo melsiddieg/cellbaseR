@@ -45,4 +45,3 @@ following parameters.
    cb <- CellBaseR()
    print(cb)
 }
-

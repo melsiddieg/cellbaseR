@@ -22,4 +22,3 @@ A convienice method to fetch Transcription facrots data for specific region/s
 \examples{
 res <- getTfbsByRegion("17:1000000-1189811")
 }
-

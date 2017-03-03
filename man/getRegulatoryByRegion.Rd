@@ -22,4 +22,3 @@ A convienice method to fetch regulatory data for specific region/s
 \examples{
 res <- getRegulatoryByRegion("17:1000000-1189811")
 }
-

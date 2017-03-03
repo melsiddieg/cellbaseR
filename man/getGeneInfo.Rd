@@ -22,4 +22,3 @@ A convienice method to fetch gene annotations specific gene/s
 \examples{
 res <- getGeneInfo("TET1")
 }
-

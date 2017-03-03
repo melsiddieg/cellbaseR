@@ -2,8 +2,8 @@
 % Please edit documentation in R/getGene-methods.R
 \docType{methods}
 \name{getGene,CellBaseR-method}
-\alias{getGene}
 \alias{getGene,CellBaseR-method}
+\alias{getGene}
 \title{getGene}
 \usage{
 \S4method{getGene}{CellBaseR}(object, ids, resource, filters = NULL, ...)
@@ -37,4 +37,3 @@ documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
    cb <- CellBaseR()
    res <- getGene(object=cb, ids=c("TP73","TET1"), resource="info")
 }
-

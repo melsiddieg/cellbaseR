@@ -2,8 +2,8 @@
 % Please edit documentation in R/getTranscript-methods.R
 \docType{methods}
 \name{getTranscript,CellBaseR-method}
-\alias{getTranscript}
 \alias{getTranscript,CellBaseR-method}
+\alias{getTranscript}
 \title{getTranscript}
 \usage{
 \S4method{getTranscript}{CellBaseR}(object, ids, resource, filters = NULL,
@@ -36,4 +36,3 @@ http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
    cb <- CellBaseR()
    res <- getTranscript(object=cb, ids="ENST00000373644", resource="info")
 }
-

@@ -22,4 +22,3 @@ A convienice method to fetch transcripts for specific gene/s
 \examples{
 res <- getTranscriptByGene("TET1")
 }
-

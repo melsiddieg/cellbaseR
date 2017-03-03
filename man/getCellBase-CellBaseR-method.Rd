@@ -2,8 +2,8 @@
 % Please edit documentation in R/getCellbase-methods.R
 \docType{methods}
 \name{getCellBase,CellBaseR-method}
-\alias{getCellBase}
 \alias{getCellBase,CellBaseR-method}
+\alias{getCellBase}
 \title{getCellBase}
 \usage{
 \S4method{getCellBase}{CellBaseR}(object, category, subcategory, ids, resource,
@@ -43,4 +43,3 @@ https://github.com/opencb/cellbase/wiki
 and the RESTful API documentation 
 http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }
-

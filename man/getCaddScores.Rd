@@ -22,4 +22,3 @@ A convienice method to fetch Cadd scores for specific variant/s
 \examples{
 res <- getCaddScores("19:45411941:T:C")
 }
-

@@ -2,8 +2,8 @@
 % Please edit documentation in R/AnnotateVcf-methods.R
 \docType{methods}
 \name{AnnotateVcf,CellBaseR-method}
-\alias{AnnotateVcf}
 \alias{AnnotateVcf,CellBaseR-method}
+\alias{AnnotateVcf}
 \title{AnnotateVcf}
 \usage{
 \S4method{AnnotateVcf}{CellBaseR}(object, file, batch_size, num_threads,
@@ -39,4 +39,3 @@ fl <- system.file("extdata", "hapmap_exome_chr22_500.vcf.gz",
 package = "cellbaseR" )
 res <- AnnotateVcf(object=cb, file=fl, BPPARAM = bpparam(workers=2))
 }
-

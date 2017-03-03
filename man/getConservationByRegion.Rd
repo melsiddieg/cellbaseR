@@ -22,4 +22,3 @@ A convienice method to fetch conservation data for specific region/s
 \examples{
 res <- getConservationByRegion("17:1000000-1189811")
 }
-
