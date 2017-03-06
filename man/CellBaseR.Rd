@@ -4,8 +4,9 @@
 \alias{CellBaseR}
 \title{CellBaseR}
 \usage{
-CellBaseR(host = NULL, version = NULL, species = NULL,
-  batch_size = NULL, num_threads = NULL, api = NULL, tags = NULL)
+CellBaseR(host = "http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/",
+  version = "v4", species = "hsapiens", batch_size = 200L,
+  num_threads = 8L)
 }
 \arguments{
 \item{host}{A character the default host url for cellbase webservices,
@@ -21,10 +22,6 @@ call, e.g. getting annotation info for several genes, queries will be sent
 to the server in batches.This slot indicates the size of each batch,e.g. 200}
 
 \item{num_threads}{integer number of  batches to be sent to the server}
-
-\item{api}{the CellBase api}
-
-\item{tags}{available CellBase categories}
 }
 \value{
 An object of class CellBaseR

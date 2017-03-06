@@ -210,8 +210,19 @@ parseResponse <- function(content, parallel=FALSE, num_threads=num_threads){
 #' cbHelp(cb, subcategory="gene")
 #' @export
 cbHelp <- function(object, subcategory, resource=NULL){
-  getList <- object@api
-  tags <- object@tags
+  host <- object@host
+  if(exists('.api', .GlobalEnv)&exists('.tags', .GlobalEnv)){
+    getList <- get('.api',envir = .GlobalEnv)
+    tags <- get('.tags',envir = .GlobalEnv) 
+  }else {
+    cbDocsUrl <- paste0(host, "swagger.json")
+    Datp <- jsonlite::fromJSON(cbDocsUrl)
+    tags <- Datp$tags
+    paths <- Datp$paths 
+    getList<- lapply(paths, function(x)x$get)
+    assign('.api', getList, .GlobalEnv)
+    assign('.tags', tags, .GlobalEnv)
+  }
   category <- switch (subcategory,
                       gene= "feature",
                       protein= "feature",

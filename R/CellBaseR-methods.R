@@ -21,20 +21,15 @@
 #' call, e.g. getting annotation info for several genes, queries will be sent 
 #' to the server in batches.This slot indicates the size of each batch,e.g. 200
 #' @param num_threads integer number of  batches to be sent to the server
-#' @param api the CellBase api 
-#' @param tags available CellBase categories
 #' @return An object of class CellBaseR
 #' @examples
 #'    cb <- CellBaseR()
 #'    print(cb)
 #' @export
-CellBaseR <- function(host=NULL, version=NULL, species=NULL, 
-                      batch_size=NULL, num_threads=NULL, api=NULL, tags=NULL ){
-    if(!is.null(host)){
-      host <- paste0(host, "/")
-    }else {
-      host <-"http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"
-    }
+CellBaseR <- function(host="http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"
+                      , version='v4', species='hsapiens', 
+                      batch_size=200L, num_threads=8L){
+   
   available_species=c("hsapiens","mmusculus","drerio","rnorvegicus",
                       "ptroglodytes","ggorilla","pabelii","mmulatta",
                       "csabaeus","sscrofa","cfamiliaris","ecaballus",
@@ -54,34 +49,15 @@ CellBaseR <- function(host=NULL, version=NULL, species=NULL,
                       "taestivum","brapa","ptrichocarpa","slycopersicum",
                       "stuberosum","smoellendorffii","creinhardtii",
                       "cmerolae")
-  if(!is.null(species)){
-      if(species%in% available_species){
-        species<-species
-      } else{
-      stop("please enter a valid species name\n
+  if(species%in% available_species){
+    species<-species
+  } else{
+    stop("please enter a valid species name\n
            see ?getMeta examples to see the aviable species")
-            } 
-    }else{
-      species <- 'hsapiens'
-    }
+  } 
   
-    if(!is.null(version)){
-      version <- paste0(version,"/")
-    }else{
-      version <- "v4/"
-    }
-  
-   if(!is.null(batch_size)){
-     batch_size <- batch_size
-   }else{
-     batch_size <- 200L
-   }
-  
-   if(!is.null(num_threads)){
-     num_threads <- num_threads
-   }else{
-     num_threads <- 8L
-   }
+  version <- paste0(version,"/")
+
   # Get the API list
   cbDocsUrl <- paste0(host, "swagger.json")
   Datp <- fromJSON(cbDocsUrl)
@@ -90,5 +66,5 @@ CellBaseR <- function(host=NULL, version=NULL, species=NULL,
   api <- lapply(paths, function(x)x$get)
   
     new("CellBaseR", host=host, version=version,species=species,
-        batch_size=batch_size, num_threads=num_threads, api=api, tags=tags )
+        batch_size=batch_size, num_threads=num_threads )
 }
