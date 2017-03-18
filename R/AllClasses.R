@@ -1,13 +1,12 @@
 ################################################################################
-#' This class defines the CellBaseR object
+#' CellbaseR Class
 #' @include commons.R
-#' This is an S4 class  which defines the CellBaseR object
+#' 
+#' @description This is an S4 class  which defines the CellBaseR object
 #' @details This S4 class holds the default configuration required by CellBaseR 
 #' methods to connect to the cellbase web 
 #' services. By default it is configured to query human data based on the GRCh37
-#' genome assembly. Please, visit https://github.com/opencb/cellbase/wiki and 
-#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/ for more details on
-#' following parameters.
+#' genome assembly. 
 #' @slot host a character specifying the host url. Default 
 #' "http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"
 #' @slot version a character specifying the API version. Default "v4"
@@ -18,6 +17,8 @@
 #' queries will be sent to the server in batches. This slot indicates the size 
 #' of these batches. Default 200
 #' @slot num_threads the number of threads. Default 8
+#' @seealso for more information, visit https://github.com/opencb/cellbase/wiki and 
+#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/ 
 #' @export
 setClass("CellBaseR", 
     slots = c(host="character", version="character", species="character", 

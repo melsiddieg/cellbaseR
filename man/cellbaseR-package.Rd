@@ -4,7 +4,7 @@
 \name{cellbaseR-package}
 \alias{cellbaseR}
 \alias{cellbaseR-package}
-\title{CellbaseR}
+\title{cellbaseR}
 \description{
 Querying annotation data from the high performance Cellbase web
 services
