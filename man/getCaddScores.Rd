@@ -4,7 +4,7 @@
 \alias{getCaddScores}
 \title{getCaddScores}
 \usage{
-getCaddScores(object, id, param = NULL)
+getCaddScores(object = CellBaseR(), id, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}

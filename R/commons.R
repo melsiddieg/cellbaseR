@@ -16,8 +16,6 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
   }else{
     batch_size <- 50
     version <- "latest/"
-    cat("Note that not all genomic annotations are available for",
-        object@species, "\n")
   }
     
   num_threads <- num_threads

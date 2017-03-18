@@ -11,12 +11,6 @@
 #' @export
 getClinicalByGene <- function(object, id, param=NULL){
  
- if(!is.null(param)){
-   param <- param
- }else {
-   param <- NULL
- }
- 
  res <- getGene(object = object, ids = id, resource = "clinical",
                 param = param)
  res
@@ -35,11 +29,6 @@ getClinicalByGene <- function(object, id, param=NULL){
 #' @export
 getTranscriptByGene <- function(object, id, param=NULL){
   
-  if(!is.null(param)){
-    param <- param
-  }else{
-    param <- NULL
-  }
   res <- getGene(object = object, ids = id, resource = "transcript",
                  param = param)
   res
@@ -57,18 +46,9 @@ getTranscriptByGene <- function(object, id, param=NULL){
 #' res <- getGeneInfo(cb, "TET1")
 #' @export
 getGeneInfo <- function(object, id, param=NULL){
-  if(!is.null(object)){
-    cb <- object
-  }else{
-    cb <- CellBaseR()
-  }
-  
-  if(!is.null(param)){
-    param <- param
-  }else{
-    param <- NULL
-  }
-  res <- getGene(object = object, ids = id, resource = "info")
+
+  res <- getGene(object = object, ids = id, resource = "info",
+                 param = param)
   res
 }
 ##############################################################################
@@ -86,11 +66,6 @@ getGeneInfo <- function(object, id, param=NULL){
 #' @export
 getSnpByGene <- function(object, id, param=NULL){
   
-  if(!is.null(param)){
-    param <- param
-  }else{
-    param <- NULL
-  }
   res <- getGene(object = object, ids = id, resource = "snp", param = param)
   res
 }
@@ -108,12 +83,8 @@ getSnpByGene <- function(object, id, param=NULL){
 #' @export
 getProteinInfo <- function(object, id, param=NULL){
   
-  if(!is.null(param)){
-    param <- param
-  }else{
-    param <- NULL
-  }
-  res <- getProtein(object = object, ids = id, resource = "info")
+  res <- getProtein(object = object, ids = id, resource = "info",
+                    param = param)
   res
 }
 ##############################################################################
@@ -130,12 +101,8 @@ getProteinInfo <- function(object, id, param=NULL){
 #' @export
 getClinicalByRegion <- function(object, id, param=NULL){
  
-  if(!is.null(param)){
-    param <- param
-  }else{
-    param <- NULL
-  }
-  res <- getRegion(object = object, ids = id, resource = "clinical")
+  res <- getRegion(object = object, ids = id, resource = "clinical",
+                   param = param)
   res
 }
 ##############################################################################
@@ -152,12 +119,8 @@ getClinicalByRegion <- function(object, id, param=NULL){
 #' @export
 getConservationByRegion <- function(object, id, param=NULL){
 
-  if(!is.null(param)){
-    param <- param
-  }else{
-    param <- NULL
-  }
-  res <- getRegion(object = object, ids = id, resource = "conservation")
+  res <- getRegion(object = object, ids = id, resource = "conservation",
+                   param = param)
   res
 }
 ##############################################################################
@@ -174,12 +137,8 @@ getConservationByRegion <- function(object, id, param=NULL){
 #' @export
 getRegulatoryByRegion <- function(object, id, param=NULL){
 
-  if(!is.null(param)){
-    param <- param
-  }else{
-    param <- NULL
-  }
-  res <- getRegion(object = object, ids = id, resource = "regulatory")
+  res <- getRegion(object = object, ids = id, resource = "regulatory",
+                   param = param)
   res
 }
 ##############################################################################
@@ -196,12 +155,8 @@ getRegulatoryByRegion <- function(object, id, param=NULL){
 #' @export
 getTfbsByRegion <- function(object, id, param=NULL){
 
-  if(!is.null(param)){
-    param <- param
-  }else{
-    param <- NULL
-  }
-  res <- getRegion(object = object, ids = id, resource = "tfbs")
+  res <- getRegion(object = object, ids = id, resource = "tfbs",
+                   param = param)
   res
 }
 ##############################################################################
@@ -218,12 +173,8 @@ getTfbsByRegion <- function(object, id, param=NULL){
 #' @export
 getCaddScores <- function(object, id, param=NULL){
 
-  if(!is.null(param)){
-    param <- param
-  }else{
-    param <- NULL
-  }
-  res <- getVariant(object = object, ids = id, resource = "cadd")
+  res <- getVariant(object = object, ids = id, resource = "cadd",
+                    param = param)
   res
 }
 ##############################################################################
@@ -240,17 +191,8 @@ getCaddScores <- function(object, id, param=NULL){
 #' res <- getVariantAnnotation(cb, "19:45411941:T:C")
 #' @export
 getVariantAnnotation <- function(object, id, param=NULL){
-  if(!is.null(object)){
-    cb <- object
-  }else{
-    cb <- CellBaseR()
-  }
   
-  if(!is.null(param)){
-    param <- param
-  }else{
-    param <- NULL
-  }
-  res <- getVariant(object = object, ids = id, resource = "annotation")
+  res <- getVariant(object = object, ids = id, resource = "annotation",
+                    param = param)
   res
 }
