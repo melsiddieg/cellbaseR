@@ -4,14 +4,14 @@
 \alias{getProteinInfo}
 \title{getProteinInfo}
 \usage{
-getProteinInfo(protein, object = NULL, filters = NULL)
+getProteinInfo(object, id, param = NULL)
 }
 \arguments{
-\item{protein}{a charcter vector of Uniprot Ids}
-
 \item{object}{an object of class CellBaseR}
 
-\item{filters}{an object of class CellBaseParam}
+\item{id}{a charcter vector of Uniprot Ids}
+
+\item{param}{an object of class CellBaseParam}
 }
 \value{
 a dataframe of the query result
@@ -20,5 +20,6 @@ a dataframe of the query result
 A convienice method to fetch annotations for specific protein/s
 }
 \examples{
-res <- getProteinInfo("O15350")
+cb <- CellBaseR()
+res <- getProteinInfo(cb, "O15350")
 }

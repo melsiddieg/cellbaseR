@@ -10,7 +10,7 @@
 #' @param subcategory character to specify the subcategory to be queried
 #' @param ids a character vector of the ids to be queried
 #' @param resource a character to specify the resource to be queried
-#' @param filters an object of class CellBaseParam specifying additional filters
+#' @param param an object of class CellBaseParam specifying additional param
 #'  for the CellBaseR
 #' @param ... any extra arguments
 #' @return a dataframe holding the results of the query
@@ -24,22 +24,22 @@
 #' @export
 setMethod("getCellBase", "CellBaseR", definition = function(object, category, 
                                                       subcategory, ids, resource
-                                                      ,filters=NULL,...) {
+                                                      ,param=NULL,...) {
   categ <- category
   subcateg<- subcategory
   ids <- ids
   resource <- resource
-  if (!is.null(filters)) {
-    filters <- c(genome=filters@genome, gene=filters@gene,region=filters@region
-                 , rs=filters@rs,so=filters@so, phenotype=filters@phenotype,
-                 limit=filters@limit, include=filters@include,
-                 exclude=filters@exclude, limit=filters@limit)
-    filters <- paste(filters, collapse = "&")
+  if (!is.null(param)) {
+    param <- c(genome=param@genome, gene=param@gene,region=param@region
+                 , rs=param@rs,so=param@so, phenotype=param@phenotype,
+                 limit=param@limit, include=param@include,
+                 exclude=param@exclude, limit=param@limit)
+    param <- paste(param, collapse = "&")
   }
-  # TODO: filters are not enabled
+  # TODO: param are not enabled
   result <- fetchCellbase(object=object, file=NULL, meta = NULL, categ=categ, 
                           subcateg=subcateg, ids=ids, resource=resource , 
-                          filters=filters,...)
+                          param=param,...)
   
   return(result)
 })

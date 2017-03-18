@@ -6,12 +6,12 @@
 \alias{getClinical}
 \title{getClinical}
 \usage{
-\S4method{getClinical}{CellBaseR}(object, filters = NULL, ...)
+\S4method{getClinical}{CellBaseR}(object, param = NULL, ...)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
 
-\item{filters}{a object of class CellBaseParam specifying the parameters
+\item{param}{a object of class CellBaseParam specifying the parameters
 limiting the CellBaseR}
 
 \item{...}{any extra arguments}
@@ -25,12 +25,12 @@ A method to query Clinical data from Cellbase web services.
 }
 \details{
 Please, for details on possible values for the parameters 
-and  additional filters of this function refer to 
+and  additional param of this function refer to 
 https://github.com/opencb/cellbase/wiki and the RESTful API 
 documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }
 \examples{
    cb <- CellBaseR()
    cbParam <- CellBaseParam(gene=c("TP73","TET1"))
-   res <- getClinical(object=cb,filters=cbParam)
+   res <- getClinical(object=cb,param=cbParam)
 }

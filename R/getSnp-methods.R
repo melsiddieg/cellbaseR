@@ -4,7 +4,7 @@
 #' A method to query genomic variation data from Cellbase web services from 
 #' Cellbase web services. 
 #' @details Please for details on possible values for the parameters  and  
-#' additional filters of this function refer to
+#' additional param of this function refer to
 #' https://github.com/opencb/cellbase/wiki and the RESTful API documentation 
 #' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 #' @aliases getSnp
@@ -12,7 +12,7 @@
 #' @param ids a character vector of the ids to be queried, must be a valid rsid,
 #' for example 'rs6025'
 #' @param resource a character vector to specify the resource to be queried
-#' @param filters a object of class CellBaseParam specifying additional filters
+#' @param param a object of class CellBaseParam specifying additional param
 #'  for the query
 #' @param ... any extra arguments
 #' @return a dataframe with the results of the query
@@ -21,21 +21,21 @@
 #' res <- getSnp(object=cb, ids="rs6025", resource="info")
 #' @export
 setMethod("getSnp", "CellBaseR", definition = function(object, ids, resource,
-                                                       filters=NULL,...) {
+                                                       param=NULL,...) {
     categ <- "feature"
     subcateg<- "variation"
     ids <- ids
     resource <- resource
-    if (!is.null(filters)) {
-      filters <- c(genome=filters@genome, gene=filters@gene,
-                   region=filters@region, rs=filters@rs,so=filters@so,
-                   phenotype=filters@phenotype, limit=filters@limit, 
-                   include=filters@include, exclude=filters@exclude,
-                   limit=filters@limit)
-      filters <- paste(filters, collapse = "&")
+    if (!is.null(param)) {
+      param <- c(genome=param@genome, gene=param@gene,
+                   region=param@region, rs=param@rs,so=param@so,
+                   phenotype=param@phenotype, limit=param@limit, 
+                   include=param@include, exclude=param@exclude,
+                   limit=param@limit)
+      param <- paste(param, collapse = "&")
     }
     result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ,
                             subcateg=subcateg, ids=ids, resource=resource,
-                            filters=filters,...)
+                            param=param,...)
     return(result)
 })

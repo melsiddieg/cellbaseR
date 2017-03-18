@@ -6,7 +6,7 @@
 \alias{getProtein}
 \title{getProtein}
 \usage{
-\S4method{getProtein}{CellBaseR}(object, ids, resource, filters = NULL, ...)
+\S4method{getProtein}{CellBaseR}(object, ids, resource, param = NULL, ...)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -16,7 +16,7 @@ or more of uniprot ids, for example O15350.}
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{filters}{a object of class CellBaseParam specifying additional filters
+\item{param}{a object of class CellBaseParam specifying additional param
 for the query}
 
 \item{...}{any extra arguments}
@@ -30,7 +30,7 @@ A method to query protein data from Cellbase web services.
 }
 \details{
 Please, for details on possible values for the 
-parameters  and  additional filters of this function refer to
+parameters  and  additional param of this function refer to
  https://github.com/opencb/cellbase/wiki and the RESTful 
 http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }

@@ -4,14 +4,14 @@
 \alias{getClinicalByRegion}
 \title{getClinicalByRegion}
 \usage{
-getClinicalByRegion(region, object = NULL, filters = NULL)
+getClinicalByRegion(object, id, param = NULL)
 }
 \arguments{
-\item{region}{a charcter vector of genomic regions, eg 17:1000000-1100000}
-
 \item{object}{an object of class CellBaseR}
 
-\item{filters}{an object of class CellBaseParam}
+\item{id}{a charcter vector of genomic regions, eg 17:1000000-1100000}
+
+\item{param}{an object of class CellBaseParam}
 }
 \value{
 a dataframe of the query result
@@ -20,5 +20,6 @@ a dataframe of the query result
 A convienice method to fetch clinical variants for specific region/s
 }
 \examples{
-res <- getClinicalByRegion("17:1000000-1189811")
+cb <- CellBaseR()
+res <- getClinicalByRegion(cb, "17:1000000-1189811")
 }

@@ -3,7 +3,7 @@ utils::globalVariables(c("name", "j", "registerDoMC"))
 # we need to adjust the output for the protein and Genomesequence methods
 #
 fetchCellbase <- function(object=object, file=NULL, meta=meta, 
-    species=species, categ, subcateg,ids, resource,filters=NULL, 
+    species=species, categ, subcateg,ids, resource,param=NULL, 
     batch_size=NULL, num_threads=NULL,...){
     host <- object@host
     species <- object@species
@@ -16,7 +16,7 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
   }else{
     batch_size <- 50
     version <- "latest/"
-    cat("Note that not all genomic annotations are avaiable for",
+    cat("Note that not all genomic annotations are available for",
         object@species, "\n")
   }
     
@@ -72,7 +72,7 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
         while(is.null(file)&all(unlist(num_results)==server_limit)){
         grls <- createURL(file=NULL, host=host, version=version, meta=meta, 
                           species=species, categ=categ, subcateg=subcateg,
-                          ids=ids, resource=resource,filters=filters,
+                          ids=ids, resource=resource,param=param,
                           skip = skip)
         skip=skip+1000
         content <- callREST2(grls = grls)
@@ -128,18 +128,18 @@ readIds <- function(file=file,batch_size,num_threads)
 ## create a list of character vectors of urls
 createURL <- function(file=NULL, host=host, version=version, meta=meta, 
     species=species, categ=categ, subcateg=subcateg, ids=ids, 
-    resource=resource, filters=filters,skip=0)
+    resource=resource, param=param,skip=0)
     {
 
     if(is.null(file)){
     skip=paste0("?","skip=",skip)
-    filters <- paste(skip,filters, sep = "&")
+    param <- paste(skip,param, sep = "&")
        if(nchar(species)>1){
       grls <- paste0(host,version, meta, species,"/", categ, subcateg, ids, 
-                     resource,filters,collapse = "")
+                     resource,param,collapse = "")
       }else{
       grls <- paste0(host,version, meta, species, categ, subcateg, ids, 
-                     resource,filters,collapse = "")
+                     resource,param,collapse = "")
     }
     }else{
        grls <- list()
@@ -204,7 +204,7 @@ parseResponse <- function(content, parallel=FALSE, num_threads=num_threads){
 #' @param subcategory a character the subcategory to be queried
 #' @param  resource A charcter when specified will get all the parametrs for
 #' that specific resource
-#' @return documentation about avaiable resources or required parameters
+#' @return documentation about available resources or required parameters
 #' @examples 
 #' cb <- CellBaseR()
 #' cbHelp(cb, subcategory="gene")

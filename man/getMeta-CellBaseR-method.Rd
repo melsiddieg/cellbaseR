@@ -18,13 +18,13 @@ a dataframe with the
  results of the query
 }
 \description{
-A method for getting the avaiable metadata from the cellbase web services
+A method for getting the available metadata from the cellbase web services
 }
 \details{
 This method is for getting species data from the cellbase web services.
 
 Please, for details on possible values for the 
-parameters  and  additional filters of this function refer to 
+parameters  and  additional param of this function refer to 
 https://github.com/opencb/cellbase/wiki and the RESTful 
 http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }

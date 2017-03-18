@@ -6,7 +6,7 @@
 \alias{getGene}
 \title{getGene}
 \usage{
-\S4method{getGene}{CellBaseR}(object, ids, resource, filters = NULL, ...)
+\S4method{getGene}{CellBaseR}(object, ids, resource, param = NULL, ...)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -15,7 +15,7 @@
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{filters}{an object of class CellBaseParam specifying additional filters
+\item{param}{an object of class CellBaseParam specifying additional param
 for the CellBaseR}
 
 \item{...}{any extra arguments}
@@ -29,7 +29,7 @@ A method to query gene data from Cellbase web services.
 }
 \details{
 Please, for details on possible values for the parameters 
-and  additional filters of this function refer to
+and  additional param of this function refer to
  https://github.com/opencb/cellbase/wiki and the RESTful API 
 documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }

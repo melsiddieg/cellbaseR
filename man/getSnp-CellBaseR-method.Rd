@@ -6,7 +6,7 @@
 \alias{getSnp}
 \title{getSnp}
 \usage{
-\S4method{getSnp}{CellBaseR}(object, ids, resource, filters = NULL, ...)
+\S4method{getSnp}{CellBaseR}(object, ids, resource, param = NULL, ...)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -16,7 +16,7 @@ for example 'rs6025'}
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{filters}{a object of class CellBaseParam specifying additional filters
+\item{param}{a object of class CellBaseParam specifying additional param
 for the query}
 
 \item{...}{any extra arguments}
@@ -30,7 +30,7 @@ Cellbase web services.
 }
 \details{
 Please for details on possible values for the parameters  and  
-additional filters of this function refer to
+additional param of this function refer to
 https://github.com/opencb/cellbase/wiki and the RESTful API documentation 
 http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }

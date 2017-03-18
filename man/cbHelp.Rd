@@ -15,7 +15,7 @@ cbHelp(object, subcategory, resource = NULL)
 that specific resource}
 }
 \value{
-documentation about avaiable resources or required parameters
+documentation about available resources or required parameters
 }
 \description{
 This is a convience function to get help on cellbase methods

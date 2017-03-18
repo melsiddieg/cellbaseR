@@ -2,64 +2,64 @@
 #'@include commons.R
 ###############################################################################
 ###############################################################################
-setGeneric("getClinical", function(object, filters,...)
+setGeneric("getClinical", function(object, param,...)
 standardGeneric("getClinical"))
 
 
-setGeneric("getGene", function(object,ids,resource,filters=NULL, ...)
+setGeneric("getGene", function(object,ids,resource,param=NULL, ...)
 standardGeneric("getGene"))
 
 ###############################################################################
 
 ###############################################################################
-setGeneric("getRegion", function(object,ids,resource,filters=NULL, ...)
+setGeneric("getRegion", function(object,ids,resource,param=NULL, ...)
 standardGeneric("getRegion"))
 
 ###############################################################################
 
 ###############################################################################
-setGeneric("getSnp", function(object,ids,resource,filters=NULL, ...)
+setGeneric("getSnp", function(object,ids,resource,param=NULL, ...)
 standardGeneric("getSnp"))
 
 ###############################################################################
 
 ###############################################################################
-setGeneric("getVariant", function(object,ids,resource,filters=NULL, ...)
+setGeneric("getVariant", function(object,ids,resource,param=NULL, ...)
 standardGeneric("getVariant"))
 
 ###############################################################################
 
 setGeneric("getCellBase", function(object, category, subcategory, ids, resource,
-                                   filters=NULL,...)
+                                   param=NULL,...)
 standardGeneric("getCellBase"))
 
 ###############################################################################
 
 ###############################################################################
-setGeneric("getTfbs", function(object,ids,resource,filters=NULL, ...)
+setGeneric("getTfbs", function(object,ids,resource,param=NULL, ...)
 standardGeneric("getTfbs"))
 
 ###############################################################################
 
 ###############################################################################
-setGeneric("getTranscript", function(object,ids,resource,filters=NULL, ...)
+setGeneric("getTranscript", function(object,ids,resource,param=NULL, ...)
 standardGeneric("getTranscript"))
 
 ##############################################################################
 
 ##############################################################################
-setGeneric("getXref", function(object,ids,resource,filters=NULL, ...)
+setGeneric("getXref", function(object,ids,resource,param=NULL, ...)
 standardGeneric("getXref"))
 
 ##############################################################################
 
 ##############################################################################
-setGeneric("getProtein", function(object,ids,resource,filters=NULL, ...)
+setGeneric("getProtein", function(object,ids,resource,param=NULL, ...)
 standardGeneric("getProtein"))
 
 ###############################################################################
 ###############################################################################
-setGeneric("getChromosomeInfo", function(object,ids,resource,filters=NULL, ...)
+setGeneric("getChromosomeInfo", function(object,ids,resource,param=NULL, ...)
 standardGeneric("getChromosomeInfo"))
 
 ###############################################################################

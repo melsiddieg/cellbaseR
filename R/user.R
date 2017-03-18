@@ -1,290 +1,256 @@
 #' getClinicalByGene
 #' 
 #' A convienice method to fetch clinical variants for specific gene/s
-#' @param gene a charcter vector of HUGO symbol (gene names)
-#' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param object an object of CellBaseR class
+#' @param id a charcter vector of HUGO symbol (gene names)
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' res <- getClinicalByGene("TET1")
+#' cb <- CellBaseR()
+#' res <- getClinicalByGene(cb, "TET1")
 #' @export
-getClinicalByGene <- function(gene, object=NULL, filters=NULL){
-  if(!is.null(object)){
-    cb <- object
-  }else{
-    cb <- CellBaseR()
-  }
+getClinicalByGene <- function(object, id, param=NULL){
  
-  if(!is.null(filters)){
-    filters <- filters
-  }else{
-    filters <- NULL
-  }
-  
- res <- getGene(object = cb, ids = gene, resource = "clinical",
-                filters = filters)
+ if(!is.null(param)){
+   param <- param
+ }else {
+   param <- NULL
+ }
+ 
+ res <- getGene(object = object, ids = id, resource = "clinical",
+                param = param)
  res
 }
 ##############################################################################
 #' getTranscriptByGene
 #' 
 #' A convienice method to fetch transcripts for specific gene/s
-#' @param gene a charcter vector of HUGO symbol (gene names)
 #' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param id a charcter vector of HUGO symbol (gene names)
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' res <- getTranscriptByGene("TET1")
+#' cb <- CellBaseR()
+#' res <- getTranscriptByGene(cb, "TET1")
 #' @export
-getTranscriptByGene <- function(gene, object=NULL, filters=NULL){
-  if(!is.null(object)){
-    cb <- object
-  }else{
-    cb <- CellBaseR()
-  }
+getTranscriptByGene <- function(object, id, param=NULL){
   
-  if(!is.null(filters)){
-    filters <- filters
+  if(!is.null(param)){
+    param <- param
   }else{
-    filters <- NULL
+    param <- NULL
   }
-  res <- getGene(object = cb, ids = gene, resource = "transcript",
-                 filters = filters)
+  res <- getGene(object = object, ids = id, resource = "transcript",
+                 param = param)
   res
 }
 ##############################################################################
 #' getGeneInfo
 #' 
 #' A convienice method to fetch gene annotations specific gene/s
-#' @param gene a charcter vector of HUGO symbol (gene names)
 #' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param id a charcter vector of HUGO symbol (gene names)
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' res <- getGeneInfo("TET1")
+#' cb <- CellBaseR()
+#' res <- getGeneInfo(cb, "TET1")
 #' @export
-getGeneInfo <- function(gene, object=NULL, filters=NULL){
+getGeneInfo <- function(object, id, param=NULL){
   if(!is.null(object)){
     cb <- object
   }else{
     cb <- CellBaseR()
   }
   
-  if(!is.null(filters)){
-    filters <- filters
+  if(!is.null(param)){
+    param <- param
   }else{
-    filters <- NULL
+    param <- NULL
   }
-  res <- getGene(object = cb, ids = gene, resource = "info")
+  res <- getGene(object = object, ids = id, resource = "info")
   res
 }
 ##############################################################################
 #' getSnpByGene
 #' 
 #' A convienice method to fetch known variants (snps) for specific gene/s
-#' @param gene a charcter vector of HUGO symbol (gene names)
 #' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param id a charcter vector of HUGO symbol (gene names)
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' filters <- CellBaseParam(limit = 10)
-#' res <- getSnpByGene("TET1", filters = filters)
+#' cb <- CellBaseR()
+#' param <- CellBaseParam(limit = 10)
+#' res <- getSnpByGene(cb, "TET1", param = param)
 #' @export
-getSnpByGene <- function(gene, object=NULL, filters=NULL){
-  if(!is.null(object)){
-    cb <- object
-  }else{
-    cb <- CellBaseR()
-  }
+getSnpByGene <- function(object, id, param=NULL){
   
-  if(!is.null(filters)){
-    filters <- filters
+  if(!is.null(param)){
+    param <- param
   }else{
-    filters <- NULL
+    param <- NULL
   }
-  res <- getGene(object = cb, ids = gene, resource = "snp", filters = filters)
+  res <- getGene(object = object, ids = id, resource = "snp", param = param)
   res
 }
 ##############################################################################
 #' getProteinInfo
 #' 
 #' A convienice method to fetch annotations for specific protein/s
-#' @param protein a charcter vector of Uniprot Ids 
 #' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param id a charcter vector of Uniprot Ids 
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' res <- getProteinInfo("O15350")
+#' cb <- CellBaseR()
+#' res <- getProteinInfo(cb, "O15350")
 #' @export
-getProteinInfo <- function(protein, object=NULL, filters=NULL){
-  if(!is.null(object)){
-    cb <- object
-  }else{
-    cb <- CellBaseR()
-  }
+getProteinInfo <- function(object, id, param=NULL){
   
-  if(!is.null(filters)){
-    filters <- filters
+  if(!is.null(param)){
+    param <- param
   }else{
-    filters <- NULL
+    param <- NULL
   }
-  res <- getProtein(object = cb, ids = protein, resource = "info")
+  res <- getProtein(object = object, ids = id, resource = "info")
   res
 }
 ##############################################################################
 #' getClinicalByRegion
 #' 
 #' A convienice method to fetch clinical variants for specific region/s
-#' @param region a charcter vector of genomic regions, eg 17:1000000-1100000
 #' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param id a charcter vector of genomic regions, eg 17:1000000-1100000
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' res <- getClinicalByRegion("17:1000000-1189811")
+#' cb <- CellBaseR()
+#' res <- getClinicalByRegion(cb, "17:1000000-1189811")
 #' @export
-getClinicalByRegion <- function(region, object=NULL, filters=NULL){
-  if(!is.null(object)){
-    cb <- object
+getClinicalByRegion <- function(object, id, param=NULL){
+ 
+  if(!is.null(param)){
+    param <- param
   }else{
-    cb <- CellBaseR()
+    param <- NULL
   }
-  
-  if(!is.null(filters)){
-    filters <- filters
-  }else{
-    filters <- NULL
-  }
-  res <- getRegion(object = cb, ids = region, resource = "clinical")
+  res <- getRegion(object = object, ids = id, resource = "clinical")
   res
 }
 ##############################################################################
 #' getConservationByRegion
 #' 
 #' A convienice method to fetch conservation data for specific region/s
-#' @param region a charcter vector of genomic regions, eg 17:1000000-1100000
+#' @param id a charcter vector of genomic regions, eg 17:1000000-1100000
 #' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' res <- getConservationByRegion("17:1000000-1189811")
+#' cb <- CellBaseR()
+#' res <- getConservationByRegion(cb, "17:1000000-1189811")
 #' @export
-getConservationByRegion <- function(region, object=NULL, filters=NULL){
-  if(!is.null(object)){
-    cb <- object
+getConservationByRegion <- function(object, id, param=NULL){
+
+  if(!is.null(param)){
+    param <- param
   }else{
-    cb <- CellBaseR()
+    param <- NULL
   }
-  
-  if(!is.null(filters)){
-    filters <- filters
-  }else{
-    filters <- NULL
-  }
-  res <- getRegion(object = cb, ids = region, resource = "conservation")
+  res <- getRegion(object = object, ids = id, resource = "conservation")
   res
 }
 ##############################################################################
 #' getRegulatoryByRegion
 #' 
 #' A convienice method to fetch regulatory data for specific region/s
-#' @param region a charcter vector of genomic regions, eg 17:1000000-1100000
 #' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param id a charcter vector of genomic regions, eg 17:1000000-1100000
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' res <- getRegulatoryByRegion("17:1000000-1189811")
+#' cb <- CellBaseR()
+#' res <- getRegulatoryByRegion(cb, "17:1000000-1189811")
 #' @export
-getRegulatoryByRegion <- function(region, object=NULL, filters=NULL){
-  if(!is.null(object)){
-    cb <- object
+getRegulatoryByRegion <- function(object, id, param=NULL){
+
+  if(!is.null(param)){
+    param <- param
   }else{
-    cb <- CellBaseR()
+    param <- NULL
   }
-  
-  if(!is.null(filters)){
-    filters <- filters
-  }else{
-    filters <- NULL
-  }
-  res <- getRegion(object = cb, ids = region, resource = "regulatory")
+  res <- getRegion(object = object, ids = id, resource = "regulatory")
   res
 }
 ##############################################################################
 #' getTfbsByRegion
 #' 
 #' A convienice method to fetch Transcription facrots data for specific region/s
-#' @param region a charcter vector of genomic regions, eg 17:1000000-1100000
+#' @param id a charcter vector of genomic regions, eg 17:1000000-1100000
 #' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' res <- getTfbsByRegion("17:1000000-1189811")
+#' cb <- CellBaseR()
+#' res <- getTfbsByRegion(cb, "17:1000000-1189811")
 #' @export
-getTfbsByRegion <- function(region, object=NULL, filters=NULL){
-  if(!is.null(object)){
-    cb <- object
+getTfbsByRegion <- function(object, id, param=NULL){
+
+  if(!is.null(param)){
+    param <- param
   }else{
-    cb <- CellBaseR()
+    param <- NULL
   }
-  
-  if(!is.null(filters)){
-    filters <- filters
-  }else{
-    filters <- NULL
-  }
-  res <- getRegion(object = cb, ids = region, resource = "tfbs")
+  res <- getRegion(object = object, ids = id, resource = "tfbs")
   res
 }
 ##############################################################################
 #' getCaddScores
 #' 
 #' A convienice method to fetch Cadd scores for specific variant/s
-#' @param variant a charcter vector of genomic variants, eg 19:45411941:T:C
 #' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param id a charcter vector of genomic variants, eg 19:45411941:T:C
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' res <- getCaddScores("19:45411941:T:C")
+#' cb <- CellBaseR()
+#' res <- getCaddScores(cb, "19:45411941:T:C")
 #' @export
-getCaddScores <- function(variant, object=NULL, filters=NULL){
-  if(!is.null(object)){
-    cb <- object
+getCaddScores <- function(object, id, param=NULL){
+
+  if(!is.null(param)){
+    param <- param
   }else{
-    cb <- CellBaseR()
+    param <- NULL
   }
-  
-  if(!is.null(filters)){
-    filters <- filters
-  }else{
-    filters <- NULL
-  }
-  res <- getVariant(object = cb, ids = variant, resource = "cadd")
+  res <- getVariant(object = object, ids = id, resource = "cadd")
   res
 }
 ##############################################################################
 #' getVariantAnnotation
 #' 
 #' A convienice method to fetch variant annotation for specific variant/s
-#' @param variant a charcter vector of length < 200 of genomic variants,
-#'  eg 19:45411941:T:C
 #' @param object an object of class CellBaseR
-#' @param filters an object of class CellBaseParam
+#' @param id a charcter vector of length < 200 of genomic variants,
+#'  eg 19:45411941:T:C
+#' @param param an object of class CellBaseParam
 #' @return a dataframe of the query result
 #' @examples 
-#' res <- getVariantAnnotation("19:45411941:T:C")
+#' cb <- CellBaseR()
+#' res <- getVariantAnnotation(cb, "19:45411941:T:C")
 #' @export
-getVariantAnnotation <- function(variant, object=NULL, filters=NULL){
+getVariantAnnotation <- function(object, id, param=NULL){
   if(!is.null(object)){
     cb <- object
   }else{
     cb <- CellBaseR()
   }
   
-  if(!is.null(filters)){
-    filters <- filters
+  if(!is.null(param)){
+    param <- param
   }else{
-    filters <- NULL
+    param <- NULL
   }
-  res <- getVariant(object = cb, ids = variant, resource = "annotation")
+  res <- getVariant(object = object, ids = id, resource = "annotation")
   res
 }

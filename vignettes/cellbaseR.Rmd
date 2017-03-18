@@ -102,13 +102,13 @@ data, as well as abiliy to fiter these data by gene, phenotype, rs, etc…
 ```{r, eval=TRUE, message=FALSE, warning=FALSE}
 library(cellbaseR)
 cb <- CellBaseR()
-# First we have to specify aour filters, we do that by creating an object of
+# First we have to specify aour param, we do that by creating an object of
 # class CellbaseParam
 cbparam <- CellBaseParam(gene="TET1", genome="GRCh38")
 cbparam
-# Note that cbClinical does NOT require any Ids to be passed, only the filters
+# Note that cbClinical does NOT require any Ids to be passed, only the param
 # and of course the CellbaseQuery object
-res <- getClinical(object=cb,filters=cbparam)
+res <- getClinical(object=cb,param=cbparam)
 str(res,1)
 
 ```

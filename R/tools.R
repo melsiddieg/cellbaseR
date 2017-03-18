@@ -88,7 +88,7 @@ createGeneModel <- function(object, region=NULL){
     resource <- "gene"
     data <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ, 
                           subcateg=subcateg,
-                          ids=ids, resource=resource, filters=NULL)
+                          ids=ids, resource=resource, param=NULL)
     rt4 <- data[,c(1,2,11)]
     rt4 <- as.data.table(rt4)
     #rt4 <- as.data.table(rt4)

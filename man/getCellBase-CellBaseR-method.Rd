@@ -7,7 +7,7 @@
 \title{getCellBase}
 \usage{
 \S4method{getCellBase}{CellBaseR}(object, category, subcategory, ids, resource,
-  filters = NULL, ...)
+  param = NULL, ...)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -20,7 +20,7 @@
 
 \item{resource}{a character to specify the resource to be queried}
 
-\item{filters}{an object of class CellBaseParam specifying additional filters
+\item{param}{an object of class CellBaseParam specifying additional param
 for the CellBaseR}
 
 \item{...}{any extra arguments}

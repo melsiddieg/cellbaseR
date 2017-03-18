@@ -4,14 +4,14 @@
 \alias{getTranscriptByGene}
 \title{getTranscriptByGene}
 \usage{
-getTranscriptByGene(gene, object = NULL, filters = NULL)
+getTranscriptByGene(object, id, param = NULL)
 }
 \arguments{
-\item{gene}{a charcter vector of HUGO symbol (gene names)}
-
 \item{object}{an object of class CellBaseR}
 
-\item{filters}{an object of class CellBaseParam}
+\item{id}{a charcter vector of HUGO symbol (gene names)}
+
+\item{param}{an object of class CellBaseParam}
 }
 \value{
 a dataframe of the query result
@@ -20,5 +20,6 @@ a dataframe of the query result
 A convienice method to fetch transcripts for specific gene/s
 }
 \examples{
-res <- getTranscriptByGene("TET1")
+cb <- CellBaseR()
+res <- getTranscriptByGene(cb, "TET1")
 }

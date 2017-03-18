@@ -6,8 +6,7 @@
 \alias{getTranscript}
 \title{getTranscript}
 \usage{
-\S4method{getTranscript}{CellBaseR}(object, ids, resource, filters = NULL,
-  ...)
+\S4method{getTranscript}{CellBaseR}(object, ids, resource, params = NULL, ...)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -17,7 +16,7 @@ like ENST00000380152}
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{filters}{a object of class CellBaseParam specifying additional filters for the query}
+\item{params}{a object of class CellBaseParam specifying additional params for the query}
 
 \item{...}{any extra arguments}
 }
@@ -29,7 +28,7 @@ A method to query transcript data from Cellbase web services.
 }
 \details{
 Please, for details on possible values for the 
-parameters  and  additional filters of this function refer to https://github.com/opencb/cellbase/wiki and the RESTful 
+parameters  and  additional params of this function refer to https://github.com/opencb/cellbase/wiki and the RESTful 
 http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }
 \examples{

@@ -1,11 +1,11 @@
 ###############################################################################
 #' getMeta
 #' 
-#' A method for getting the avaiable metadata from the cellbase web services
+#' A method for getting the available metadata from the cellbase web services
 #'
 #' This method is for getting species data from the cellbase web services.
 #' @details Please, for details on possible values for the 
-#' parameters  and  additional filters of this function refer to 
+#' parameters  and  additional param of this function refer to 
 #' https://github.com/opencb/cellbase/wiki and the RESTful 
 #' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 #' @aliases getMeta
@@ -27,7 +27,7 @@ setMethod("getMeta", "CellBaseR",    definition = function(object, resource){
     resource <- resource
     result <- fetchCellbase(object=object, file=NULL, meta=meta, categ=categ,
                             subcateg=subcateg,
-                            ids=ids, resource=resource, filters=NULL)
+                            ids=ids, resource=resource, param=NULL)
     data <- lapply(result, function(x)as.data.frame(x))
     result <- rbind.pages(data)
     return(result)

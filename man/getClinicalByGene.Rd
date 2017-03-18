@@ -4,14 +4,14 @@
 \alias{getClinicalByGene}
 \title{getClinicalByGene}
 \usage{
-getClinicalByGene(gene, object = NULL, filters = NULL)
+getClinicalByGene(object, id, param = NULL)
 }
 \arguments{
-\item{gene}{a charcter vector of HUGO symbol (gene names)}
+\item{object}{an object of CellBaseR class}
 
-\item{object}{an object of class CellBaseR}
+\item{id}{a charcter vector of HUGO symbol (gene names)}
 
-\item{filters}{an object of class CellBaseParam}
+\item{param}{an object of class CellBaseParam}
 }
 \value{
 a dataframe of the query result
@@ -20,5 +20,6 @@ a dataframe of the query result
 A convienice method to fetch clinical variants for specific gene/s
 }
 \examples{
-res <- getClinicalByGene("TET1")
+cb <- CellBaseR()
+res <- getClinicalByGene(cb, "TET1")
 }

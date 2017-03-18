@@ -3,14 +3,14 @@
 #' 
 #'   A method to query gene data from Cellbase web services.
 #' @details Please, for details on possible values for the parameters 
-#' and  additional filters of this function refer to
+#' and  additional param of this function refer to
 #'  https://github.com/opencb/cellbase/wiki and the RESTful API 
 #' documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 #' @aliases getGene
 #' @param object an object of class CellBaseR
 #' @param ids a character vector of gene ids to be queried
 #' @param resource a character vector to specify the resource to be queried
-#' @param filters an object of class CellBaseParam specifying additional filters
+#' @param param an object of class CellBaseParam specifying additional param
 #'  for the CellBaseR
 #' @param ... any extra arguments
 #' @return an object of class CellBaseResponse which holds a dataframe with the 
@@ -21,25 +21,25 @@
 #' @export
 setMethod("getGene", "CellBaseR", definition = function(object, ids, 
                                                              resource, 
-                                                             filters=NULL,...)
+                                                             param=NULL,...)
   {
  
     categ <- "feature"
     subcateg<- "gene"
     ids <- ids
     resource <- resource
-    if (!is.null(filters)) {
-        filters <- c(genome=filters@genome, gene=filters@gene,
-                     region=filters@region, rs=filters@rs,so=filters@so,
-                     phenotype=filters@phenotype, limit=filters@limit, 
-                     include=filters@include, exclude=filters@exclude,
-                     limit=filters@limit)
-        filters <- paste(filters, collapse = "&")
+    if (!is.null(param)) {
+        param <- c(genome=param@genome, gene=param@gene,
+                     region=param@region, rs=param@rs,so=param@so,
+                     phenotype=param@phenotype, limit=param@limit, 
+                     include=param@include, exclude=param@exclude,
+                     limit=param@limit)
+        param <- paste(param, collapse = "&")
     }
-    # TODO: filters are not enabled
+    # TODO: param are not enabled
     result <- fetchCellbase(object=object,file=NULL, meta=NULL, 
                             categ=categ, subcateg=subcateg, 
                             ids=ids, resource=resource,
-                            filters=filters,...)
+                            param=param,...)
     return(result)
 })

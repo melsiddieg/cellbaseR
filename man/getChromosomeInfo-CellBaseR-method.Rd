@@ -6,7 +6,7 @@
 \alias{getChromosomeInfo}
 \title{getChromosomeInfo}
 \usage{
-\S4method{getChromosomeInfo}{CellBaseR}(object, ids, resource, filters = NULL,
+\S4method{getChromosomeInfo}{CellBaseR}(object, ids, resource, param = NULL,
   ...)
 }
 \arguments{
@@ -16,7 +16,7 @@
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{filters}{a object of class CellBaseParam specifying additional filters for the query}
+\item{param}{a object of class CellBaseParam specifying additional param for the query}
 
 \item{...}{any extra arguments}
 }
@@ -28,7 +28,7 @@ A method to query sequence data from Cellbase web services.
 }
 \details{
 Please, for details on possible values for the 
-parameters  and  additional filters of this function refer to https://github.com/opencb/cellbase/wiki and the RESTful 
+parameters  and  additional param of this function refer to https://github.com/opencb/cellbase/wiki and the RESTful 
 http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
 }
 \examples{

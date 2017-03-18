@@ -4,14 +4,14 @@
 \alias{getConservationByRegion}
 \title{getConservationByRegion}
 \usage{
-getConservationByRegion(region, object = NULL, filters = NULL)
+getConservationByRegion(object, id, param = NULL)
 }
 \arguments{
-\item{region}{a charcter vector of genomic regions, eg 17:1000000-1100000}
-
 \item{object}{an object of class CellBaseR}
 
-\item{filters}{an object of class CellBaseParam}
+\item{id}{a charcter vector of genomic regions, eg 17:1000000-1100000}
+
+\item{param}{an object of class CellBaseParam}
 }
 \value{
 a dataframe of the query result
@@ -20,5 +20,6 @@ a dataframe of the query result
 A convienice method to fetch conservation data for specific region/s
 }
 \examples{
-res <- getConservationByRegion("17:1000000-1189811")
+cb <- CellBaseR()
+res <- getConservationByRegion(cb, "17:1000000-1189811")
 }
