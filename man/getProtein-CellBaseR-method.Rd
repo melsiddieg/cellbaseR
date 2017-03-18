@@ -6,7 +6,7 @@
 \alias{getProtein}
 \title{getProtein}
 \usage{
-\S4method{getProtein}{CellBaseR}(object, ids, resource, param = NULL, ...)
+\S4method{getProtein}{CellBaseR}(object, ids, resource, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -18,8 +18,6 @@ or more of uniprot ids, for example O15350.}
 
 \item{param}{a object of class CellBaseParam specifying additional param
 for the query}
-
-\item{...}{any extra arguments}
 }
 \value{
 an object of class CellBaseResponse which holds a dataframe with th

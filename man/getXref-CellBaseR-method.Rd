@@ -6,7 +6,7 @@
 \alias{getXref}
 \title{getXref}
 \usage{
-\S4method{getXref}{CellBaseR}(object, ids, resource, param = NULL, ...)
+\S4method{getXref}{CellBaseR}(object, ids, resource, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -19,8 +19,6 @@ uniprot ids,etc.}
 
 \item{param}{a object of class CellBaseParam specifying additional param
 for the query}
-
-\item{...}{any extra arguments}
 }
 \value{
 a dataframe with the results of the query

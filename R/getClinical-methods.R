@@ -10,7 +10,6 @@
 #' @param object an object of class CellBaseR
 #' @param param a object of class CellBaseParam specifying the parameters
 #'  limiting the CellBaseR
-#' @param ... any extra arguments
 #' @return an object of class CellBaseResponse which holds a dataframe with the
 #'  results of the query
 #' @examples
@@ -20,7 +19,7 @@
 #' @export
 ##############################################################################
 setMethod("getClinical", "CellBaseR", definition = function(object,
-                                                            param=NULL,...) {
+                                                            param=NULL) {
    
     categ <- "feature"
     subcateg<- "clinical"
@@ -34,7 +33,7 @@ setMethod("getClinical", "CellBaseR", definition = function(object,
     param <- paste(param, collapse = "&")
     result <- fetchCellbase(object=object,file=NULL, meta=NULL, categ=categ, 
                             subcateg=subcateg,ids=ids,resource=resource, 
-                            param=param,...)
+                            param=param)
     
     return(result)
 })

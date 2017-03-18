@@ -14,14 +14,13 @@
 #' @param resource a character vector to specify the resource to be queried
 #' @param param a object of class CellBaseParam specifying additional param
 #'  for the query
-#' @param ... any extra arguments
 #' @return a dataframe with the results of the query
 #' @examples
 #' cb <- CellBaseR()
 #' res <- getSnp(object=cb, ids="rs6025", resource="info")
 #' @export
 setMethod("getSnp", "CellBaseR", definition = function(object, ids, resource,
-                                                       param=NULL,...) {
+                                                       param=NULL) {
     categ <- "feature"
     subcateg<- "variation"
     ids <- ids
@@ -36,6 +35,6 @@ setMethod("getSnp", "CellBaseR", definition = function(object, ids, resource,
     }
     result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ,
                             subcateg=subcateg, ids=ids, resource=resource,
-                            param=param,...)
+                            param=param)
     return(result)
 })

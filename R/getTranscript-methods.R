@@ -10,20 +10,19 @@
 #' @param ids a character vector of the transcript ids to be queried, for example, ensemble transccript ID
 #' like ENST00000380152
 #' @param resource a character vector to specify the resource to be queried
-#' @param params a object of class CellBaseParam specifying additional params for the query
-#' @param ... any extra arguments
+#' @param param a object of class CellBaseParam specifying additional params for the query
 #' @return a dataframe with the results of the query
 #' @examples
 #'    cb <- CellBaseR()
 #'    res <- getTranscript(object=cb, ids="ENST00000373644", resource="info")
 #' @export
-setMethod("getTranscript", "CellBaseR", definition = function(object, ids, resource, params=NULL,...) {
+setMethod("getTranscript", "CellBaseR", definition = function(object, ids, resource, param=NULL) {
 
     categ <- "feature"
     subcateg<- "transcript"
     ids <- ids
     resource <- resource
     result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ, subcateg=subcateg,
-                            ids=ids, resource=resource, params=NULL,...)
+                            ids=ids, resource=resource, param=NULL)
     return(result)
 })

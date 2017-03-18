@@ -7,7 +7,7 @@
 \title{getCellBase}
 \usage{
 \S4method{getCellBase}{CellBaseR}(object, category, subcategory, ids, resource,
-  param = NULL, ...)
+  param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -22,8 +22,6 @@
 
 \item{param}{an object of class CellBaseParam specifying additional param
 for the CellBaseR}
-
-\item{...}{any extra arguments}
 }
 \value{
 a dataframe holding the results of the query

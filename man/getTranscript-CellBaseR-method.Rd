@@ -6,7 +6,7 @@
 \alias{getTranscript}
 \title{getTranscript}
 \usage{
-\S4method{getTranscript}{CellBaseR}(object, ids, resource, params = NULL, ...)
+\S4method{getTranscript}{CellBaseR}(object, ids, resource, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -16,9 +16,7 @@ like ENST00000380152}
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{params}{a object of class CellBaseParam specifying additional params for the query}
-
-\item{...}{any extra arguments}
+\item{param}{a object of class CellBaseParam specifying additional params for the query}
 }
 \value{
 a dataframe with the results of the query

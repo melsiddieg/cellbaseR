@@ -14,14 +14,13 @@
 #' @param resource a character vector to specify the resource to be queried
 #' @param param a object of class CellBaseParam specifying additional param
 #'  for the query
-#' @param ... any extra arguments
 #' @return a dataframe with the results of the query
 #' @examples
 #'    cb <- CellBaseR()
 #'    res <- getXref(object=cb, ids="ENST00000373644", resource="xref")
 #' @export
 setMethod("getXref", "CellBaseR", definition = function(object, ids, resource,
-                                                        param=NULL,...) {
+                                                        param=NULL) {
     
     categ <- "feature"
     subcateg<- "id"
@@ -37,6 +36,6 @@ setMethod("getXref", "CellBaseR", definition = function(object, ids, resource,
     }
     result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ,
                             subcateg=subcateg,
-                            ids=ids, resource=resource, param=param,...)
+                            ids=ids, resource=resource, param=param)
     return(result)
 })

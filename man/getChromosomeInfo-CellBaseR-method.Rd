@@ -6,8 +6,7 @@
 \alias{getChromosomeInfo}
 \title{getChromosomeInfo}
 \usage{
-\S4method{getChromosomeInfo}{CellBaseR}(object, ids, resource, param = NULL,
-  ...)
+\S4method{getChromosomeInfo}{CellBaseR}(object, ids, resource, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -17,8 +16,6 @@
 \item{resource}{a character vector to specify the resource to be queried}
 
 \item{param}{a object of class CellBaseParam specifying additional param for the query}
-
-\item{...}{any extra arguments}
 }
 \value{
 a dataframe with the results of the query

@@ -14,7 +14,6 @@
 #' of each batch, e.g. 200
 #' @param num_threads number of asynchronus batches to be sent to the server
 #' @param BPPARAM a BiocParallel class object 
-#' @param ... any extra argument
 #' @return a dataframe with the results of the query
 #' @examples 
 #' cb <- CellBaseR()
@@ -25,9 +24,8 @@
 setMethod("AnnotateVcf", "CellBaseR", definition = function(object, file,
                                                               batch_size,
                                                               num_threads,
-                                                              BPPARAM=bpparam(),
-                                                              ...){
+                                                              BPPARAM=bpparam()){
     result <- Annovcf(object=object, file=file, batch_size, num_threads, 
-                      BPPARAM=bpparam(), ...)
+                      BPPARAM=bpparam())
     return(result)
 })

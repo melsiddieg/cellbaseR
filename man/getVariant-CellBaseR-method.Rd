@@ -6,7 +6,7 @@
 \alias{getVariant}
 \title{getVariant}
 \usage{
-\S4method{getVariant}{CellBaseR}(object, ids, resource, param = NULL, ...)
+\S4method{getVariant}{CellBaseR}(object, ids, resource, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -19,8 +19,6 @@ example, '1:128546:A:T'}
 
 \item{param}{a object of class CellBaseParam specifying additional param
 for the query}
-
-\item{...}{any extra arguments}
 }
 \value{
 a dataframe with the results of the query

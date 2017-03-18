@@ -4,7 +4,7 @@ utils::globalVariables(c("name", "j", "registerDoMC"))
 #
 fetchCellbase <- function(object=object, file=NULL, meta=meta, 
     species=species, categ, subcateg,ids, resource,param=NULL, 
-    batch_size=NULL, num_threads=NULL,...){
+    batch_size=NULL, num_threads=NULL){
     host <- object@host
     species <- object@species
 
@@ -51,7 +51,7 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
     container=list()
     grls <- createURL(file=file, host=host, version=version, species=species,
                       categ=categ, subcateg=subcateg, 
-                      ids=ids, resource=resource,...)
+                      ids=ids, resource=resource)
     cat("\ngetting the data....\n")
     content <- callREST2(grls = grls,async=FALSE,num_threads)
     cat("\nparsing the data....\n")
@@ -249,17 +249,17 @@ getCellBaseResourceHelp <- function(object, subcategory){
   res
 }
 #
-cbCheck <- function(object, category, subcategory, resource){
-  CATEGORIES <- c("feature", "genomic", "regulation")
-  if(!(category %in% CATEGORIES)){
-    stop("Error Unknown category")
-  } 
-  SUBCATEGORIES <- tolower(unlist(object@tags[[1]]))
-  if(!(subcategory %in% SUBCATEGORIES)){
-    stop("Error Unknown subcategory")
-  } 
-  RESOURCES <- cbHelp(object, subcategory)
-  if(!(resource %in% RESOURCES)){
-    stop("Error Unknown resource")
-  } 
-}
+# cbCheck <- function(object, category, subcategory, resource){
+#   CATEGORIES <- c("feature", "genomic", "regulation")
+#   if(!(category %in% CATEGORIES)){
+#     stop("Error Unknown category")
+#   } 
+#   SUBCATEGORIES <- tolower(unlist(tags[[1]]))
+#   if(!(subcategory %in% SUBCATEGORIES)){
+#     stop("Error Unknown subcategory")
+#   } 
+#   RESOURCES <- getCellBaseResourceHelp(object, subcategory)
+#   if(!(resource %in% RESOURCES)){
+#     stop("Error Unknown resource")
+#   } 
+# }

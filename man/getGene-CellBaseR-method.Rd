@@ -6,7 +6,7 @@
 \alias{getGene}
 \title{getGene}
 \usage{
-\S4method{getGene}{CellBaseR}(object, ids, resource, param = NULL, ...)
+\S4method{getGene}{CellBaseR}(object, ids, resource, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -17,8 +17,6 @@
 
 \item{param}{an object of class CellBaseParam specifying additional param
 for the CellBaseR}
-
-\item{...}{any extra arguments}
 }
 \value{
 an object of class CellBaseResponse which holds a dataframe with the 

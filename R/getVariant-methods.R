@@ -15,7 +15,6 @@
 #' @param resource a character vector to specify the resource to be queried
 #' @param param a object of class CellBaseParam specifying additional param
 #'  for the query
-#' @param ... any extra arguments
 #' @return a dataframe with the results of the query
 #' @examples
 #'    cb <- CellBaseR()
@@ -23,11 +22,14 @@
 #' @export
 setMethod("getVariant", "CellBaseR", definition = function(object, ids, 
                                                            resource, 
-                                                           param=NULL,...) {
+                                                           param=NULL) {
     categ <- "genomic"
     subcateg<- "variant"
     ids <- ids
     resource <- resource
+    if(object@species!='hsapiens'&resource=='cadd'){
+      stop('cadd scores are only avaialable for hsapiens')
+    }
     if (!is.null(param)) {
       param <- c(genome=param@genome, gene=param@gene,
                    region=param@region, rs=param@rs,so=param@so,
@@ -38,7 +40,7 @@ setMethod("getVariant", "CellBaseR", definition = function(object, ids,
     }
     result <- fetchCellbase(object=object, file=NULL, meta=NULL, 
                             categ=categ,  subcateg=subcateg,
-                            ids=ids, resource=resource, param=param,...)
+                            ids=ids, resource=resource, param=param)
 
     return(result)
 })

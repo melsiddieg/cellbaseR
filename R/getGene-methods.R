@@ -12,7 +12,6 @@
 #' @param resource a character vector to specify the resource to be queried
 #' @param param an object of class CellBaseParam specifying additional param
 #'  for the CellBaseR
-#' @param ... any extra arguments
 #' @return an object of class CellBaseResponse which holds a dataframe with the 
 #' results of the query
 #' @examples
@@ -21,7 +20,7 @@
 #' @export
 setMethod("getGene", "CellBaseR", definition = function(object, ids, 
                                                              resource, 
-                                                             param=NULL,...)
+                                                             param=NULL)
   {
  
     categ <- "feature"
@@ -40,6 +39,6 @@ setMethod("getGene", "CellBaseR", definition = function(object, ids,
     result <- fetchCellbase(object=object,file=NULL, meta=NULL, 
                             categ=categ, subcateg=subcateg, 
                             ids=ids, resource=resource,
-                            param=param,...)
+                            param=param)
     return(result)
 })

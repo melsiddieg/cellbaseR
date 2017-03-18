@@ -6,7 +6,7 @@
 \alias{getTfbs}
 \title{getTfbs}
 \usage{
-\S4method{getTfbs}{CellBaseR}(object, ids, resource, param = NULL, ...)
+\S4method{getTfbs}{CellBaseR}(object, ids, resource, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -19,8 +19,6 @@ Pdr1, and Oaf1}
 
 \item{param}{a object of class CellBaseParam specifying additional param
 for the query}
-
-\item{...}{any extra arguments}
 }
 \value{
 a dataframe with the results of the query

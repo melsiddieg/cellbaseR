@@ -15,7 +15,6 @@
 #' @param resource a character vector to specify the resource to be queried
 #' @param param a object of class CellBaseParam specifying additional param
 #'  for the query
-#' @param ... any extra arguments
 #' @return a dataframe with the results of the query
 #' @examples
 #'    cb <- CellBaseR()
@@ -23,7 +22,7 @@
 #' @export
 setMethod("getTfbs", "CellBaseR",    definition = function(object, ids,
                                                            resource,
-                                                           param=NULL,...) {
+                                                           param=NULL) {
     categ <- "regulation"
     subcateg<- "tf"
     ids <- ids
@@ -38,6 +37,6 @@ setMethod("getTfbs", "CellBaseR",    definition = function(object, ids,
     }
     result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ,
                             subcateg=subcateg,
-                            ids=ids, resource=resource, param=param,...)
+                            ids=ids, resource=resource, param=param)
     return(result)
 })

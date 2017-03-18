@@ -15,14 +15,13 @@
 #' @param resource a character vector to specify the resource to be queried
 #' @param param a object of class CellBaseParam specifying additional param
 #'  for the query
-#' @param ... any extra arguments
 #' @return a dataframe with the results of the query
 #' @examples
 #'    cb <- CellBaseR()
 #'    res <- getRegion(object=cb, ids="17:1000000-1200000", resource="gene")
 #' @export
 setMethod("getRegion", "CellBaseR", definition = function(object, ids, resource,
-                                                          param=NULL,...) {
+                                                          param=NULL) {
   
     categ <- "genomic"
     subcateg<- "region"
@@ -38,6 +37,6 @@ setMethod("getRegion", "CellBaseR", definition = function(object, ids, resource,
     }
     result <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ,
                             subcateg=subcateg, ids=ids, resource=resource, 
-                            param=param,...)
+                            param=param)
     return(result)
 })

@@ -7,7 +7,7 @@
 \title{AnnotateVcf}
 \usage{
 \S4method{AnnotateVcf}{CellBaseR}(object, file, batch_size, num_threads,
-  BPPARAM = bpparam(), ...)
+  BPPARAM = bpparam())
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -22,8 +22,6 @@ of each batch, e.g. 200}
 \item{num_threads}{number of asynchronus batches to be sent to the server}
 
 \item{BPPARAM}{a BiocParallel class object}
-
-\item{...}{any extra argument}
 }
 \value{
 a dataframe with the results of the query

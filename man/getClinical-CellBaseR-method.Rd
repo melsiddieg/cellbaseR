@@ -6,15 +6,13 @@
 \alias{getClinical}
 \title{getClinical}
 \usage{
-\S4method{getClinical}{CellBaseR}(object, param = NULL, ...)
+\S4method{getClinical}{CellBaseR}(object, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
 
 \item{param}{a object of class CellBaseParam specifying the parameters
 limiting the CellBaseR}
-
-\item{...}{any extra arguments}
 }
 \value{
 an object of class CellBaseResponse which holds a dataframe with the

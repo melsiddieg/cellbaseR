@@ -6,7 +6,7 @@
 \alias{getSnp}
 \title{getSnp}
 \usage{
-\S4method{getSnp}{CellBaseR}(object, ids, resource, param = NULL, ...)
+\S4method{getSnp}{CellBaseR}(object, ids, resource, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
@@ -18,8 +18,6 @@ for example 'rs6025'}
 
 \item{param}{a object of class CellBaseParam specifying additional param
 for the query}
-
-\item{...}{any extra arguments}
 }
 \value{
 a dataframe with the results of the query

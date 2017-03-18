@@ -172,7 +172,7 @@ getTfbsByRegion <- function(object, id, param=NULL){
 #' res <- getCaddScores(cb, "19:45411941:T:C")
 #' @export
 getCaddScores <- function(object, id, param=NULL){
-
+  
   res <- getVariant(object = object, ids = id, resource = "cadd",
                     param = param)
   res
