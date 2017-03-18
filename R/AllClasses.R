@@ -1,5 +1,5 @@
 ################################################################################
-#' CellbaseR Class
+#' CellBaseR Class
 #' @include commons.R
 #' 
 #' @description This is an S4 class  which defines the CellBaseR object
@@ -17,8 +17,8 @@
 #' queries will be sent to the server in batches. This slot indicates the size 
 #' of these batches. Default 200
 #' @slot num_threads the number of threads. Default 8
-#' @seealso for more information, visit https://github.com/opencb/cellbase/wiki and 
-#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/ 
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 setClass("CellBaseR", 
     slots = c(host="character", version="character", species="character", 
@@ -30,14 +30,13 @@ setClass("CellBaseR",
 
 
 ###############################################################################
-#' This Class defines a CellBaseParam object
+#' CellBaseParam Class
 #' 
-#' This class  defines a CellBaseParam object to hold filtering parameters
-#' @details This class stores filtering parameters to be used by CellBaseR query
-#'  methods. Not all the slots will be
-#' used by all query methods, please have a look at 
-#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/ and the 
-#' Reference Manual for more information.
+#' @description  This class  defines a CellBaseParam object to hold filtering 
+#' parameters.
+#' @details This class stores parameters used for filtering the CellBaseR query
+#' and is avaialable for all query methods. CellBaseParam object is used to
+#' control what results are returned from the' CellBaseR methods
 #' @slot genome A character the genome build to query, e.g.GRCh37(default)
 #' @slot gene A character vector denoting the gene/s to be queried
 #' @slot region A character vector denoting the region/s to be queried must be 
@@ -48,6 +47,8 @@ setClass("CellBaseR",
 #' @slot include A character vector denoting the fields to be returned
 #' @slot exclude A character vector denoting the fields to be excluded
 #' @slot limit A number limiting the number of results to be returned
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 setClass("CellBaseParam",slots = c(genome="character", gene="character", 
                                    region="character", rs="character", 

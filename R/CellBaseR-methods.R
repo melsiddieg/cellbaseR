@@ -1,4 +1,4 @@
-### CellbaseR constructor function
+#' CellbaseR constructor function
 #' @aliases CellBaseR
 #' @title  CellBaseR
 #' 
@@ -7,10 +7,7 @@
 #' This class defines the CellBaseR object. It holds the default
 #' configuration required by CellBaseR methods to connect to the
 #' cellbase web services. By defult it is configured to query human
-#' data based on the GRCh37 genome assembly. Please, visit
-#' https://github.com/opencb/cellbase/wiki and
-#' bioinfodev.hpc.cam.ac.uk/cellbase/webservices/ for more details on
-#' following parameters.
+#' data based on the GRCh37 genome assembly.
 #' @import methods
 #' @param  host A character the default host url for cellbase webservices,
 #' e.g. "http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"
@@ -22,6 +19,8 @@
 #' to the server in batches.This slot indicates the size of each batch,e.g. 200
 #' @param num_threads integer number of  batches to be sent to the server
 #' @return An object of class CellBaseR
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @examples
 #'    cb <- CellBaseR()
 #'    print(cb)

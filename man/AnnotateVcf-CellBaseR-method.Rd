@@ -27,8 +27,8 @@ of each batch, e.g. 200}
 a dataframe with the results of the query
 }
 \description{
-This method is a convience method to annotate a vcf files. It should be ideal 
-for annotating small to medium sized 
+This method is a convience method to annotate bgzipped tabix-indexed vcf 
+files. It should be ideal for annotating small to medium sized 
 vcf files.
 }
 \examples{

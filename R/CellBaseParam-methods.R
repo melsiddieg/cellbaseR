@@ -1,6 +1,6 @@
-#' A constructor function for CellBaseParam
+#' A Constructor for the CellBaseParam Object
 #' 
-#'use the CellBaseParam object to control what results are returned from the
+#'CellBaseParam object is used to control what results are returned from the
 #'CellBaseR methods
 #' @param genome A character denoting the genome build to query,eg, GRCh37
 #' (default),or GRCh38
@@ -17,8 +17,8 @@
 #' @examples
 #' cbParam <- CellBaseParam(genome="GRCh38",gene=c("TP73","TET1"))
 #' print(cbParam)
-#' @seealso for more information about the cellbase webservices see
-#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 CellBaseParam <- function(genome=character(), gene=character(),
 region=character(), rs=character(), so=character(), phenotype=character(),

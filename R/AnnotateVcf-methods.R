@@ -1,8 +1,8 @@
 ################################################################################
 #' AnnotateVcf
 #' 
-#' This method is a convience method to annotate a vcf files. It should be ideal 
-#' for annotating small to medium sized 
+#' This method is a convience method to annotate bgzipped tabix-indexed vcf 
+#' files. It should be ideal for annotating small to medium sized 
 #' vcf files.
 #' @include AllClasses.R AllGenerics.R
 #' @aliases AnnotateVcf
@@ -22,9 +22,9 @@
 #' res <- AnnotateVcf(object=cb, file=fl, BPPARAM = bpparam(workers=2))
 #' @export
 setMethod("AnnotateVcf", "CellBaseR", definition = function(object, file,
-                                                              batch_size,
-                                                              num_threads,
-                                                              BPPARAM=bpparam()){
+                                                            batch_size,
+                                                            num_threads,
+                                                            BPPARAM=bpparam()){
     result <- Annovcf(object=object, file=file, batch_size, num_threads, 
                       BPPARAM=bpparam())
     return(result)

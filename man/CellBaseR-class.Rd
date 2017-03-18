@@ -3,7 +3,7 @@
 \docType{class}
 \name{CellBaseR-class}
 \alias{CellBaseR-class}
-\title{CellbaseR Class}
+\title{CellBaseR Class}
 \description{
 This is an S4 class  which defines the CellBaseR object
 }
@@ -33,6 +33,6 @@ of these batches. Default 200}
 }}
 
 \seealso{
-for more information, visit https://github.com/opencb/cellbase/wiki and 
-http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+\url{https://github.com/opencb/cellbase/wiki} 
+and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }

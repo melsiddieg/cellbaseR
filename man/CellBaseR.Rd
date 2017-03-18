@@ -30,15 +30,19 @@ An object of class CellBaseR
 This is a constructor function for CellBaseR object
 }
 \details{
+CellbaseR constructor function
+
+
 This class defines the CellBaseR object. It holds the default
 configuration required by CellBaseR methods to connect to the
 cellbase web services. By defult it is configured to query human
-data based on the GRCh37 genome assembly. Please, visit
-https://github.com/opencb/cellbase/wiki and
-bioinfodev.hpc.cam.ac.uk/cellbase/webservices/ for more details on
-following parameters.
+data based on the GRCh37 genome assembly.
 }
 \examples{
    cb <- CellBaseR()
    print(cb)
+}
+\seealso{
+\url{https://github.com/opencb/cellbase/wiki} 
+and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }
