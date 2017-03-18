@@ -2,9 +2,9 @@
 
 export(CellBaseParam)
 export(CellBaseR)
-export(cbHelp)
 export(createGeneModel)
 export(getCaddScores)
+export(getCellBaseResourceHelp)
 export(getClinicalByGene)
 export(getClinicalByRegion)
 export(getConservationByRegion)

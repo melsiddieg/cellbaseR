@@ -195,19 +195,17 @@ parseResponse <- function(content, parallel=FALSE, num_threads=num_threads){
 }
 # consider seperating into two functions
 ### Docs
-#' A function to get help about cellbase queries
+#' A function to get help about available cellbase resources
 #' 
 #' This is a convience function to get help on cellbase methods
 #' @param object a cellBase class object
 #' @param subcategory a character the subcategory to be queried
-#' @param  resource A charcter when specified will get all the parametrs for
-#' that specific resource
-#' @return documentation about available resources or required parameters
+#' @return documentation about available resources rs
 #' @examples 
 #' cb <- CellBaseR()
-#' cbHelp(cb, subcategory="gene")
+#' getCellBaseResourceHelp(cb, subcategory="gene")
 #' @export
-cbHelp <- function(object, subcategory, resource=NULL){
+getCellBaseResourceHelp <- function(object, subcategory){
   host <- object@host
   if(exists('.api', .GlobalEnv)&exists('.tags', .GlobalEnv)){
     getList <- get('.api',envir = .GlobalEnv)
@@ -232,6 +230,11 @@ cbHelp <- function(object, subcategory, resource=NULL){
                       id="feature")
   
   ## filtered
+  SUBCATEGORIES <- tolower(unlist(tags[[1]]))
+  if(!(subcategory %in% SUBCATEGORIES)){
+    cat("Please use one of CellBase Subcategories\n")
+    cat(SUBCATEGORIES,'\n')
+    stop("Error unknown subcategory")}
   parts <- Filter(Negate(function(x) is.null(unlist(x))), getList)
   cbGetParams <- lapply(parts, function(x)x$parameters)
   catsub <- paste(category,subcategory, sep = "/")
@@ -240,17 +243,9 @@ cbHelp <- function(object, subcategory, resource=NULL){
   patt1 <- paste0(catsub,"/", ".*?/","(.*)" )
   resMatch <- regexec(patt1,narrowed)
   m <- regmatches(narrowed, resMatch)
-  if(is.null(resource)){
-    res <- sapply(m, function(x)x[2])
-    res <- res[!is.na(res)]
-  }else{
-    patt2 <- paste(catsub,"/", ".*?/", resource, sep="")
-    index <- grep(patt2, names(parts))
-    res <- parts[[index]]
-    res <- res$parameters
-    res <- subset(res,!(name %in% c("version", "species")), 
-                  select=c("name", "description","required", "type"))
-  }
+  res <- sapply(m, function(x)x[2])
+  res <- res[!is.na(res)]
+
   res
 }
 #
