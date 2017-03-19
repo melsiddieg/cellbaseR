@@ -2,10 +2,9 @@
 #' getXref
 #' 
 #' A method to query cross reference data from Cellbase web services.
-#' @details Please, for details on possible values for the 
-#' parameters  and  additional param of this function refer to
-#'  https://github.com/opencb/cellbase/wiki and the RESTful 
-#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+#' @details This method retrieves cross references for genomic identifiers, eg
+#' ENSEMBL ids, it also provide starts_with service that is useful for
+#' autocomplete services.
 #' @aliases getXref
 #' @param object an object of class CellBaseR
 #' @param ids a character vector of the ids to be queried, any crossrefereable
@@ -18,6 +17,9 @@
 #' @examples
 #'    cb <- CellBaseR()
 #'    res <- getXref(object=cb, ids="ENST00000373644", resource="xref")
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 setMethod("getXref", "CellBaseR", definition = function(object, ids, resource,
                                                         param=NULL) {

@@ -9,14 +9,15 @@
 #' @param object an object of class CellBaseR
 #' @param ids a character vector of the ids to be queried, must be a valid 
 #' transcription factor name, for example, 
-#' Pdr1, and Oaf1
+#' eg, CTCF
 #' @param resource a character vector to specify the resource to be queried
 #' @param param a object of class CellBaseParam specifying additional param
 #'  for the query
 #' @return a dataframe with the results of the query
 #' @examples
 #'    cb <- CellBaseR()
-#'    res <- getTfbs(object=cb, ids="PAX1", resource="gene")
+#'    param <- CellBaseParam(limit = 12)
+#'    res <- getTf(object=cb, ids="CTCF", resource="tfbs", param=param)
 #' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
 #' and the RESTful API documentation 
 #' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}

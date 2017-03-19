@@ -28,12 +28,17 @@ A method to query variant annotation data from Cellbase web services from
  Cellbase web services.
 }
 \details{
-Please, for details on possible values for the parameters  and 
- additional param of this function refer to
-https://github.com/opencb/cellbase/wiki and the RESTful API documentation 
-http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+This method retrieves extensive genomic annotations for variants
+including consequence types, conservation data, population frequncies from 1k
+ genomes and Exac projects, etc.
+as well as clinical data and various other annotations
 }
 \examples{
    cb <- CellBaseR()
    res <- getVariant(object=cb, ids="19:45411941:T:C", resource="annotation")
+}
+\seealso{
+\url{https://github.com/opencb/cellbase/wiki} 
+and the RESTful API documentation 
+\url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }

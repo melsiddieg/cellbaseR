@@ -43,9 +43,11 @@ provide many methods to query the cellbase webservices, they include:
 -  getProtein   
 -  getTranscript
 -  getRegion 
--  getVariant   
--  getXref   
+-  getVariant 
 -  getClinical 
+-  getTf
+-  getXref   
+
 
 In all cases the user is expected to provide the ids for the query and the 
 resource to be queried, in addition to the CellbaseQuery object they created.
@@ -56,11 +58,9 @@ For example, a query through the cbGene will look something like this
 library(cellbaseR)
 cb <- CellBaseR()
 genes <- c("TP73","TET1")
-
 res <- getGene(object = cb, ids = genes, resource = "info")
-# to get the resulting data.frame run cellbaseData()
 str(res,2)
-# as you can see the res dataframe also contains a transcriots column 
+# as you can see the res dataframe also contains a transcripts column 
 # which is in fact a list column of nested dataframes, to get the
 # trasnscripts data.frame for first gene
 TET1_transcripts <- res$transcripts[[1]]
@@ -83,7 +83,7 @@ resource="conservation")
 res <- getRegion(object=cb,ids="17:1000000-1005000", resource="regulatory")
 str(res,1)
 ```
-### cbVraiantClient 
+### getVariant
 Getting annotation for a specific variant
 ```{r, eval=FALSE,message=FALSE, warning=FALSE}
 library(cellbaseR)
@@ -97,7 +97,7 @@ str(res2, 1)
 A very powerfull feature of cellbaseR is ability to fetch a wealth of clinical 
 data, as well as abiliy to fiter these data by gene, phenotype, rs, etc…
 
-### cbClinical
+### getClinical
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE}
 library(cellbaseR)

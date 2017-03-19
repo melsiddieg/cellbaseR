@@ -64,11 +64,12 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
 
 
 
-# create GeneModel
-#' A convience functon to construct a genemodel
+#' createGeneModel 
 #' 
-#' @details  This function takes cbResponse object and returns a geneModel, 
-#' this geneModel can be then turned into a GeneRegion Track object by Gviz
+#' A convience functon to construct a genemodel 
+#' @details  This function create a gene model data frame, which can be then 
+#' turned into a GeneRegionTrack for visualiaztion
+#'  by \code{\link[Gviz]{GeneRegionTrack}}  
 #' @param object an object of class CellbaseResponse
 #' @param region a character 
 #' @return A geneModel
@@ -76,6 +77,9 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
 #' @examples
 #' cb <- CellBaseR()
 #' test <- createGeneModel(object = cb, region = "17:1500000-1550000")
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 createGeneModel <- function(object, region=NULL){
   if(!is.null(region)){

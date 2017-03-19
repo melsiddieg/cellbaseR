@@ -27,12 +27,16 @@ a dataframe with the results of the query
 A method to query cross reference data from Cellbase web services.
 }
 \details{
-Please, for details on possible values for the 
-parameters  and  additional param of this function refer to
- https://github.com/opencb/cellbase/wiki and the RESTful 
-http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+This method retrieves cross references for genomic identifiers, eg
+ENSEMBL ids, it also provide starts_with service that is useful for
+autocomplete services.
 }
 \examples{
    cb <- CellBaseR()
    res <- getXref(object=cb, ids="ENST00000373644", resource="xref")
+}
+\seealso{
+\url{https://github.com/opencb/cellbase/wiki} 
+and the RESTful API documentation 
+\url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }
