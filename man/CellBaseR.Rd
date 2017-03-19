@@ -27,7 +27,7 @@ to the server in batches.This slot indicates the size of each batch,e.g. 200}
 An object of class CellBaseR
 }
 \description{
-This is a constructor function for CellBaseR object
+This is a constructor function for the CellBaseR object
 }
 \details{
 CellbaseR constructor function
@@ -44,5 +44,6 @@ data based on the GRCh37 genome assembly.
 }
 \seealso{
 \url{https://github.com/opencb/cellbase/wiki} 
-and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
+and the RESTful API documentation 
+\url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }

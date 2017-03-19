@@ -15,20 +15,24 @@
 limiting the CellBaseR}
 }
 \value{
-an object of class CellBaseResponse which holds a dataframe with the
- results of the query
+a dataframe with the results of the query
 }
 \description{
 A method to query Clinical data from Cellbase web services.
 }
 \details{
-Please, for details on possible values for the parameters 
-and  additional param of this function refer to 
-https://github.com/opencb/cellbase/wiki and the RESTful API 
-documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+This method retrieves clinicaly relevant variants annotations from
+multiple resources including clinvar, cosmic and gwas catalog. Furthermore,
+ the user can filter these data in many ways including phenotype, genes, rs,
+ etc,.
 }
 \examples{
    cb <- CellBaseR()
    cbParam <- CellBaseParam(gene=c("TP73","TET1"))
    res <- getClinical(object=cb,param=cbParam)
+}
+\seealso{
+\url{https://github.com/opencb/cellbase/wiki} 
+and the RESTful API documentation 
+\url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }

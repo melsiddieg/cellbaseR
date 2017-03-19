@@ -1,13 +1,11 @@
 ###############################################################################
-#' getTfbs
+#' getTf
 #' 
 #' A method to query transcription factors binding sites data from Cellbase web
 #'  services.
-#' @details Please for details on possible values for the parameters  and
-#'   additional param of this function refer to
-#' https://github.com/opencb/cellbase/wiki and the RESTful API documentation 
-#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
-#' @aliases getTfbs
+#' @details This method retrieves various transcription factors binding sites 
+#' data 
+#' @aliases getTf
 #' @param object an object of class CellBaseR
 #' @param ids a character vector of the ids to be queried, must be a valid 
 #' transcription factor name, for example, 
@@ -19,8 +17,11 @@
 #' @examples
 #'    cb <- CellBaseR()
 #'    res <- getTfbs(object=cb, ids="PAX1", resource="gene")
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
-setMethod("getTfbs", "CellBaseR",    definition = function(object, ids,
+setMethod("getTf", "CellBaseR",    definition = function(object, ids,
                                                            resource,
                                                            param=NULL) {
     categ <- "regulation"

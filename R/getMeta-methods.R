@@ -3,11 +3,9 @@
 #' 
 #' A method for getting the available metadata from the cellbase web services
 #'
-#' This method is for getting species data from the cellbase web services.
-#' @details Please, for details on possible values for the 
-#' parameters  and  additional param of this function refer to 
-#' https://github.com/opencb/cellbase/wiki and the RESTful 
-#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+#' @details This method is for getting information about the avaialable species
+#' and available annotation, assembly for each species from the cellbase web 
+#' services.
 #' @aliases getMeta
 #' @param object an object of class CellBaseR
 #' @param resource the resource you want to query it metadata
@@ -16,6 +14,9 @@
 #' @examples
 #'    cb <- CellBaseR()
 #'    res <- getMeta(object=cb, resource="species")
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 setMethod("getMeta", "CellBaseR",    definition = function(object, resource){
     # host <- object@host

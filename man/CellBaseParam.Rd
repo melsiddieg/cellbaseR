@@ -43,5 +43,6 @@ print(cbParam)
 }
 \seealso{
 \url{https://github.com/opencb/cellbase/wiki} 
-and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
+and the RESTful API documentation 
+\url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }

@@ -27,10 +27,8 @@ e results of the query
 A method to query protein data from Cellbase web services.
 }
 \details{
-Please, for details on possible values for the 
-parameters  and  additional param of this function refer to
- https://github.com/opencb/cellbase/wiki and the RESTful 
-http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+This method retrieves various protein annotations including 
+protein description, features, sequence, substitution scores, evidence,  etc.
 }
 \examples{
    cb <- CellBaseR()

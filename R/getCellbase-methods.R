@@ -1,9 +1,10 @@
 ###############################################################################
 #' getCellBase
 #' 
-#' The generic method for cbGet This method allows the user to query the 
+#' The generic method for querying CellBase web services.
+#' @details  This method allows the user to query the 
 #' cellbase web services without any  predefined categories, subcategries, 
-#' or resources. Please, for details on possible values for the parameters and 
+#' or resources.
 #' @aliases getCellBase
 #' @param object an object of class CellBaseR
 #' @param category character to specify the category to be queried.
@@ -17,9 +18,9 @@
 #'    cb <- CellBaseR()
 #'    res <- getCellBase(object=cb, category="feature", subcategory="gene", 
 #'    ids="TET1", resource="info")
-#' @seealso  https://github.com/opencb/cellbase/wiki 
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
 #' and the RESTful API documentation 
-#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 setMethod("getCellBase", "CellBaseR", definition = function(object, category, 
                                                       subcategory, ids, resource

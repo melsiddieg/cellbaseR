@@ -38,5 +38,6 @@ in the form 1:100000-1500000}
 
 \seealso{
 \url{https://github.com/opencb/cellbase/wiki} 
-and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
+and the RESTful API documentation 
+\url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }

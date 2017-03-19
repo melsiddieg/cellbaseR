@@ -2,7 +2,7 @@
 #' @aliases CellBaseR
 #' @title  CellBaseR
 #' 
-#' @description  This is a constructor function for CellBaseR object
+#' @description  This is a constructor function for the CellBaseR object
 #' @details
 #' This class defines the CellBaseR object. It holds the default
 #' configuration required by CellBaseR methods to connect to the
@@ -20,7 +20,8 @@
 #' @param num_threads integer number of  batches to be sent to the server
 #' @return An object of class CellBaseR
 #' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
-#' and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @examples
 #'    cb <- CellBaseR()
 #'    print(cb)

@@ -18,7 +18,8 @@
 #' of these batches. Default 200
 #' @slot num_threads the number of threads. Default 8
 #' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
-#' and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 setClass("CellBaseR", 
     slots = c(host="character", version="character", species="character", 
@@ -48,7 +49,8 @@ setClass("CellBaseR",
 #' @slot exclude A character vector denoting the fields to be excluded
 #' @slot limit A number limiting the number of results to be returned
 #' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
-#' and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 setClass("CellBaseParam",slots = c(genome="character", gene="character", 
                                    region="character", rs="character", 

@@ -27,9 +27,12 @@ for the CellBaseR}
 a dataframe holding the results of the query
 }
 \description{
-The generic method for cbGet This method allows the user to query the 
+The generic method for querying CellBase web services.
+}
+\details{
+This method allows the user to query the 
 cellbase web services without any  predefined categories, subcategries, 
-or resources. Please, for details on possible values for the parameters and
+or resources.
 }
 \examples{
    cb <- CellBaseR()
@@ -37,7 +40,7 @@ or resources. Please, for details on possible values for the parameters and
    ids="TET1", resource="info")
 }
 \seealso{
-https://github.com/opencb/cellbase/wiki 
+\url{https://github.com/opencb/cellbase/wiki} 
 and the RESTful API documentation 
-http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+\url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }

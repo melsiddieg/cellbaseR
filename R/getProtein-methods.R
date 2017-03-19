@@ -2,10 +2,8 @@
 #' getProtein
 #' 
 #' A method to query protein data from Cellbase web services.
-#' @details  Please, for details on possible values for the 
-#' parameters  and  additional param of this function refer to
-#'  https://github.com/opencb/cellbase/wiki and the RESTful 
-#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+#' @details  This method retrieves various protein annotations including 
+#' protein description, features, sequence, substitution scores, evidence,  etc.
 #' @aliases getProtein
 #' @param object an object of class CellBaseR
 #' @param ids a character vector of uniprot ids to be queried, should be one

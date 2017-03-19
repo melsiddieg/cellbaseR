@@ -39,7 +39,7 @@ RoxygenNote: 6.0.1
 biocViews: Annotation, VariantAnnotation
 Lazy: TRUE
 LazyData: TRUE
-Collate:
+Collate: 
     'commons.R'
     'AllClasses.R'
     'AllGenerics.R'
@@ -55,7 +55,7 @@ Collate:
     'getProtein-methods.R'
     'getRegion-methods.R'
     'getSnp-methods.R'
-    'getTfbs-methods.R'
+    'getTf-methods.R'
     'getTranscript-methods.R'
     'getVariant-methods.R'
     'getXref-methods.R'

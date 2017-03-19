@@ -18,7 +18,8 @@
 #' cbParam <- CellBaseParam(genome="GRCh38",gene=c("TP73","TET1"))
 #' print(cbParam)
 #' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
-#' and \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 CellBaseParam <- function(genome=character(), gene=character(),
 region=character(), rs=character(), so=character(), phenotype=character(),

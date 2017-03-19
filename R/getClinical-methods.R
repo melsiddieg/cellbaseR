@@ -2,20 +2,22 @@
 #' getClinical
 #'
 #'  A method to query Clinical data from Cellbase web services.
-#' @details  Please, for details on possible values for the parameters 
-#' and  additional param of this function refer to 
-#' https://github.com/opencb/cellbase/wiki and the RESTful API 
-#' documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+#' @details  This method retrieves clinicaly relevant variants annotations from
+#' multiple resources including clinvar, cosmic and gwas catalog. Furthermore,
+#'  the user can filter these data in many ways including phenotype, genes, rs,
+#'  etc,.
 #' @aliases getClinical
 #' @param object an object of class CellBaseR
 #' @param param a object of class CellBaseParam specifying the parameters
 #'  limiting the CellBaseR
-#' @return an object of class CellBaseResponse which holds a dataframe with the
-#'  results of the query
+#' @return a dataframe with the results of the query
 #' @examples
 #'    cb <- CellBaseR()
 #'    cbParam <- CellBaseParam(gene=c("TP73","TET1"))
 #'    res <- getClinical(object=cb,param=cbParam)
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}   
 #' @export
 ##############################################################################
 setMethod("getClinical", "CellBaseR", definition = function(object,

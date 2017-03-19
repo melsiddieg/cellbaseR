@@ -15,7 +15,8 @@
 
 \item{resource}{a character vector to specify the resource to be queried}
 
-\item{param}{a object of class CellBaseParam specifying additional param for the query}
+\item{param}{a object of class CellBaseParam specifying additional param for
+the query}
 }
 \value{
 a dataframe with the results of the query
@@ -24,11 +25,16 @@ a dataframe with the results of the query
 A method to query sequence data from Cellbase web services.
 }
 \details{
-Please, for details on possible values for the 
-parameters  and  additional param of this function refer to https://github.com/opencb/cellbase/wiki and the RESTful 
-http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+A method to query sequence data from Cellbase web services. This 
+method retrieves information about chromosomes, including its size and
+detailed information about its different cytobands
 }
 \examples{
    cb <- CellBaseR()
    res <- getChromosomeInfo(object=cb, ids="22", resource="info")
+}
+\seealso{
+\url{https://github.com/opencb/cellbase/wiki} 
+and the RESTful API documentation 
+\url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }

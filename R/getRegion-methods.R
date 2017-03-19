@@ -3,10 +3,8 @@
 #' 
 #'   A method to query features within a genomic region from Cellbase web 
 #'   services.
-#' @details  Please, for details on possible values
-#' for the parameters  and  additional param of this function refer to 
-#' https://github.com/opencb/cellbase/wiki and the 
-#' RESTful API documentation http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+#' @details  This method retrieves various genomic features from a given
+#' region including genes, snps, clincally relevant variants, proteins, etc.
 #' @aliases getRegion
 #' @param object an object of class CellBaseR
 #' @param ids a character vector of the regions to be queried, for example,
@@ -19,6 +17,9 @@
 #' @examples
 #'    cb <- CellBaseR()
 #'    res <- getRegion(object=cb, ids="17:1000000-1200000", resource="gene")
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 setMethod("getRegion", "CellBaseR", definition = function(object, ids, resource,
                                                           param=NULL) {

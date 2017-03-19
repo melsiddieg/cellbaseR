@@ -36,8 +36,8 @@ standardGeneric("getCellBase"))
 ###############################################################################
 
 ###############################################################################
-setGeneric("getTfbs", function(object,ids,resource,param=NULL)
-standardGeneric("getTfbs"))
+setGeneric("getTf", function(object,ids,resource,param=NULL)
+standardGeneric("getTf"))
 
 ###############################################################################
 

@@ -19,19 +19,21 @@
 for the CellBaseR}
 }
 \value{
-an object of class CellBaseResponse which holds a dataframe with the 
-results of the query
+a dataframe with the results of the query
 }
 \description{
 A method to query gene data from Cellbase web services.
 }
 \details{
-Please, for details on possible values for the parameters 
-and  additional param of this function refer to
- https://github.com/opencb/cellbase/wiki and the RESTful API 
-documentation  http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+This method retrieves various gene annotations including transcripts
+and exons data as well as gene expression and clinical data
 }
 \examples{
    cb <- CellBaseR()
    res <- getGene(object=cb, ids=c("TP73","TET1"), resource="info")
+}
+\seealso{
+\url{https://github.com/opencb/cellbase/wiki} 
+and the RESTful API documentation 
+\url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 }

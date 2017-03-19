@@ -230,7 +230,8 @@ getCellBaseResourceHelp <- function(object, subcategory){
                       id="feature")
   
   ## filtered
-  SUBCATEGORIES <- tolower(unlist(tags[[1]]))
+  SUBCATEGORIES <- c('gene', 'protein', 'tf', 'variation', 'variant',
+                     'clinical', 'transcript', 'id')
   if(!(subcategory %in% SUBCATEGORIES)){
     cat("Please use one of CellBase Subcategories\n")
     cat(SUBCATEGORIES,'\n')

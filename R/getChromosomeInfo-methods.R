@@ -1,16 +1,20 @@
-########################################################################################################################
+###############################################################################
 #' getChromosomeInfo
 #' 
 #' A method to query sequence data from Cellbase web services.
-#' @details  Please, for details on possible values for the 
-#' parameters  and  additional param of this function refer to https://github.com/opencb/cellbase/wiki and the RESTful 
-#' http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/
+#' @details A method to query sequence data from Cellbase web services. This 
+#' method retrieves information about chromosomes, including its size and
+#' detailed information about its different cytobands   
 #' @aliases getChromosomeInfo
 #' @param object an object of class CellBaseR
 #' @param ids a character vector of chromosome ids to be queried
 #' @param resource a character vector to specify the resource to be queried
-#' @param param a object of class CellBaseParam specifying additional param for the query
+#' @param param a object of class CellBaseParam specifying additional param for
+#'  the query
 #' @return  a dataframe with the results of the query
+#' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
+#' and the RESTful API documentation 
+#' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @examples
 #'    cb <- CellBaseR()
 #'    res <- getChromosomeInfo(object=cb, ids="22", resource="info")
@@ -26,5 +30,5 @@ setMethod("getChromosomeInfo", "CellBaseR",
     categ=categ, subcateg=subcateg, ids=ids, resource=resource 
     , param=NULL)
     data <- result[[1]][[1]]
-    return(result)
+    return(data)
 })
