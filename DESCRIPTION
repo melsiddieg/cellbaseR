@@ -34,7 +34,8 @@ Suggests:
     BiocStyle,
     knitr,
     rmarkdown,
-    Gviz
+    Gviz,
+    VariantAnnotation
 RoxygenNote: 6.0.1
 biocViews: Annotation, VariantAnnotation
 Lazy: TRUE
