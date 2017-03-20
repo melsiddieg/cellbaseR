@@ -210,6 +210,8 @@ parseResponse <- function(content, parallel=FALSE, num_threads=num_threads){
 #' getCellBaseResourceHelp(cb, subcategory="gene")
 #' # Get help about what resources are available to the getRegion method
 #' getCellBaseResourceHelp(cb, subcategory="region")
+#' # Get help about what resources are available to the getXref method
+#' getCellBaseResourceHelp(cb, subcategory="id")
 #' @export
 getCellBaseResourceHelp <- function(object, subcategory){
   host <- object@host
@@ -237,7 +239,7 @@ getCellBaseResourceHelp <- function(object, subcategory){
   
   ## filtered
   SUBCATEGORIES <- c('gene', 'protein', 'tf', 'variation', 'variant',
-                     'clinical', 'transcript', 'id')
+                     'clinical', 'transcript', 'id', 'region')
   if(!(subcategory %in% SUBCATEGORIES)){
     cat("Please use one of CellBase Subcategories\n")
     cat(SUBCATEGORIES,'\n')

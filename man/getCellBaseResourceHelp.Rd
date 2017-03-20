@@ -29,4 +29,6 @@ cb <- CellBaseR()
 getCellBaseResourceHelp(cb, subcategory="gene")
 # Get help about what resources are available to the getRegion method
 getCellBaseResourceHelp(cb, subcategory="region")
+# Get help about what resources are available to the getXref method
+getCellBaseResourceHelp(cb, subcategory="id")
 }
