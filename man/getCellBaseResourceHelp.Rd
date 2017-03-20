@@ -2,7 +2,7 @@
 % Please edit documentation in R/commons.R
 \name{getCellBaseResourceHelp}
 \alias{getCellBaseResourceHelp}
-\title{A function to get help about available cellbase resources}
+\title{getCellBaseResourceHelp}
 \usage{
 getCellBaseResourceHelp(object, subcategory)
 }
@@ -12,12 +12,21 @@ getCellBaseResourceHelp(object, subcategory)
 \item{subcategory}{a character the subcategory to be queried}
 }
 \value{
-documentation about available resources rs
+character vector of the available resources to that particular 
+subcategory
 }
 \description{
-This is a convience function to get help on cellbase methods
+A function to get help about available cellbase resources
+}
+\details{
+This function retrieves available resources for each generic method
+like getGene, getRegion, getprotein, etc. It help the user see all possible 
+resources to use with the getGeneric methods
 }
 \examples{
 cb <- CellBaseR()
+# Get help about what resources are available to the getGene method
 getCellBaseResourceHelp(cb, subcategory="gene")
+# Get help about what resources are available to the getRegion method
+getCellBaseResourceHelp(cb, subcategory="region")
 }
