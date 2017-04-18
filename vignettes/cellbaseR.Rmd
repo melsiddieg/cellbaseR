@@ -1,0 +1,154 @@
+---
+title: "Simplifying Genomic Annotations in R"
+author: "Mohammed Omar Elsiddieg Abdallah"
+date: "`r doc_date()`"
+package: "`r pkg_ver('cellbaseR')`"
+#  BiocStyle::html_document
+vignette: >
+  %\VignetteIndexEntry{"Simplifying Genomic Annotations in R"}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}  
+output: 
+   BiocStyle::html_document
+---
+# Introduction to CellbaseR
+This R package makes use of the exhaustive RESTful Web service API that has been
+implemented for the Cellabase database. It enable researchers to query and 
+obtain a wealth of biological information from a single database saving a lot 
+of time. Another benefit is that researchers can easily make  queries about 
+different biological topics and link all this information together as all 
+information is integrated.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# CellbaseR Classes and Methods
+## The CellbaseR class  
+This is an S4 class that holds the basic configuration for connecting to the 
+Cellbase web services. Let us start by loading the library. 
+
+```{r , eval=FALSE, message=FALSE}
+# to get the default CellbaseR object (human data, from genome GRCh37)
+library(cellbaseR)
+# A default cellbaseR object is created as follows
+cb <- CellBaseR()
+```
+
+## The CellbaseR Methods
+The cellbaseR package
+provide many methods to query the cellbase webservices, they include:  
+ 
+-  getGene  
+-  getSnp 
+-  getProtein   
+-  getTranscript
+-  getRegion 
+-  getVariant 
+-  getClinical 
+-  getTf
+-  getXref   
+
+
+In all cases the user is expected to provide the ids for the query and the 
+resource to be queried, in addition to the CellbaseQuery object they created.
+For example, a query through the cbGene will look something like this
+
+### getGene
+```{r, message=FALSE, warning=FALSE}
+library(cellbaseR)
+cb <- CellBaseR()
+genes <- c("TP73","TET1")
+res <- getGene(object = cb, ids = genes, resource = "info")
+str(res,2)
+# as you can see the res dataframe also contains a transcripts column 
+# which is in fact a list column of nested dataframes, to get the
+# trasnscripts data.frame for first gene
+TET1_transcripts <- res$transcripts[[1]]
+str(TET1_transcripts,1)
+```
+
+
+### getRegion  
+```{r, message=FALSE, warning=FALSE}
+# making a query through cbRegion to get all the clinically relevant variants 
+# in a specific region
+library(cellbaseR)
+cb <- CellBaseR()
+res <- getRegion(object=cb,ids="17:1000000-1005000",
+resource="clinical")
+# to get all conservation data in this region
+res <- getRegion(object=cb,ids="17:1000000-1005000",
+resource="conservation")
+#likewise to get all the regulatory data for the same region
+res <- getRegion(object=cb,ids="17:1000000-1005000", resource="regulatory")
+str(res,1)
+```
+### getVariant
+Getting annotation for a specific variant
+```{r, eval=FALSE,message=FALSE, warning=FALSE}
+library(cellbaseR)
+cb <- CellBaseR()
+res2 <- getVariant(object=cb, ids="1:169549811:A:G", resource="annotation")
+# to get the data 
+res2 <- cbData(res2)
+str(res2, 1)
+```
+
+A very powerfull feature of cellbaseR is ability to fetch a wealth of clinical 
+data, as well as abiliy to fiter these data by gene, phenotype, rs, etc…
+
+### getClinical
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+library(cellbaseR)
+cb <- CellBaseR()
+# First we have to specify aour param, we do that by creating an object of
+# class CellbaseParam
+cbparam <- CellBaseParam(gene="TET1", genome="GRCh38")
+cbparam
+# Note that cbClinical does NOT require any Ids to be passed, only the param
+# and of course the CellbaseQuery object
+res <- getClinical(object=cb,param=cbparam)
+str(res,1)
+
+```
+
+# CellbaseR utilities
+## CreateGeneModel 
+A usefull utility for fast building of gene models, compatible with Gviz 
+package for genomic visualization
+
+```{r,message=FALSE, warning=FALSE, eval=TRUE}
+library(cellbaseR)
+cb <- CellBaseR()
+test <- createGeneModel(object = cb, region = "17:1500000-1550000")
+if(require("Gviz")){
+  testTrack <- Gviz::GeneRegionTrack(test)
+  Gviz::plotTracks(testTrack, transcriptAnnotation='symbol')
+}
+
+```
+
+## AnnotateVcf  
+This utility allows users to annoate genomic variants from small to medium-sized
+vcf files directly from the cellbase server, with a wealth of genomic 
+annotations including riche clinical annotations like clinvar, gwas, and cosmic
+data, as well as conservation and functional scores like phast and cadd  scores
+, without the need to download any files.  
+```{r, message=FALSE, warning=FALSE, eval=TRUE}
+library(cellbaseR)
+library(VariantAnnotation)
+cb <- CellBaseR()
+fl <- system.file("extdata", "hapmap_exome_chr22_500.vcf.gz",package = "cellbaseR" )
+res <- AnnotateVcf(object=cb, file=fl, BPPARAM = bpparam(workers=2))
+vcf <- readVcf(fl, "hg19")
+samples(header(vcf))
+length(rowRanges(vcf))==nrow(res)
+str(res,1)
+
+```
+
+
+
+
+

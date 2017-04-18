@@ -1,0 +1,7 @@
+inst/doc
+.Rproj.user
+.Rhistory
+Bioc_Sub.Rproj
+*.Rproj
+.RData
+*.html
