@@ -112,6 +112,20 @@ res <- getClinical(object=cb,param=cbparam)
 str(res,1)
 
 ```
+# cellbaseR wrappers
+cellbaseE package also provides many wrapper functions around commomn cellbaseR
+queries. These include:  
+- getClinicalByGene
+- getTranscriptByGene
+- getGeneInfo
+- getSnpByGene
+- getProteinInfo
+- getClinicalByRegion
+- getConservationByRegion
+- getRegulatoryByRegion
+- getTfbsByRegion
+- getCaddScores
+- getVariantAnnotation
 
 # CellbaseR utilities
 ## CreateGeneModel 
@@ -148,7 +162,20 @@ str(res,1)
 
 ```
 
+# Getting help with cellbaseR queries
+cellbaseR Also provides a quick method to get information about the avaiable
+resources for any particular CellBaseR method, eg, getGene, getProtein, etc, 
+through getCellBaseResourceHelp. 
+```{r}
+library(cellbaseR)
+cb <- CellBaseR()
+# Get help about what resources are available to the getGene method
+getCellBaseResourceHelp(cb, subcategory="gene")
+# Get help about what resources are available to the getRegion method
+getCellBaseResourceHelp(cb, subcategory="region")
+# Get help about what resources are available to the getXref method
+getCellBaseResourceHelp(cb, subcategory="id")
 
 
-
+```
 
