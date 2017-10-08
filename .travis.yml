@@ -1,0 +1,12 @@
+language: r
+r: bioc-devel
+before_install:
+  - sudo apt-get  update
+  - sudo apt-get install libcurl4-openssl-dev libxml2-dev
+  - sudo apt-get -y build-dep libcurl4-gnutls-dev
+  - sudo apt-get -y install libcurl4-gnutls-dev
+
+
+
+
+

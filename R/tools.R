@@ -1,5 +1,4 @@
 utils::globalVariables(c("k", "transcripts", "exons", '.api', '.tags'))
-
 # Annovcf
 Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
   num_cores <-2

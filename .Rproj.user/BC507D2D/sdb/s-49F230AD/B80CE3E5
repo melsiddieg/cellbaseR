@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: cellbaseR\nType: Package\nDate: 2016-04-17\nTitle: Querying annotation data from the rich cellbase web services\nVersion: 0.2.0\nAuthor: Mohammed OE Abdallah\nMaintainer:  Mohammed OE Abdallah <melsiddieg@gmail.com>\nDescription: Classes and methods for querying cellbase web services\nLicense: Apache Licence v2\nDepends:\n    R(>= 3.2.2),\n    RCurl,\n    jsonlite,methods,pbapply,R.utils,parallel,\n    Rsamtools,\n    doMC\nRoxygenNote: 5.0.1\nbiocViews: Annotation Data\nLazy: TRUE\nCollate:\n    'cellbase_functions.R'\n    'cellbase_classes.R'\nVignetteBuilder: knitr\nSuggests: BiocStyle, knitr, rmarkdown",
+    "created" : 1461108959333.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2160737614",
+    "id" : "B80CE3E5",
+    "lastKnownWriteTime" : 1461091594,
+    "last_content_update" : 1461091594,
+    "path" : "~/R/cellbase/clients/R/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}

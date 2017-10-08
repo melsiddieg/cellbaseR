@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(Rsamtools)\nlibrary(httr)\nlibrary(jsonlite)\nlibrary(data.table)\n#library(R.utils)\nfl <- system.file(\"extdata\", \"chr22.vcf.gz\", package=\"VariantAnnotation\")\nnum_iter<- ceiling(R.utils::countLines(fl)[[1]]/200)\ni <- 1\nres <- list()\n#ex2 <- \"/home/sieny/Projects/EX2/EX2.vcf.gz\"\n#hypf <- \"/home/sieny/Projects/Sudan_geneome/output_all.vcf.gz\"\ndemo <- Rsamtools::TabixFile(fl,yieldSize = 200)\ntbx <- open(demo)\nsystem.time(\nwhile (i <=num_iter){\n  inter <- scanTabix(tbx)[[1]]\n  if(length(inter)==0)break\n  whim <- lapply(inter, function(x){strsplit(x[1],split = \"\\t\")[[1]][c(1,2,4,5)]})\n  whish <- sapply(whim, function(x){paste(x,collapse =\":\")})\n  hope <- paste(whish,collapse = \",\")\n  gbase <- \"http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/v3/hsapiens/genomic/variant/\"\n  gurl <- paste0(gbase,hope,\"/full_annotation\",collapse = \"\")\n  gurl <- gsub(\"chr\",\"\",gurl)\n  rg <- GET(gurl)\n  if(status_code(rg)==200){\n    cr <- content(rg,as = \"text\")\n    gj <- fromJSON(cr)\n    res[[i]] <-gj$response$result\n    i <- i+1\n  }\n}\n)\n# First Method\nsystem.time({\npgs <- lapply(res, function(x)rbind.pages(x))\npages <- rbind.pages(pgs)}\n)\n# Second Method\nlibrary(parallel)\nlibrary(doMC)\nnumcores <- detectCores()-2\nregisterDoMC(numcores)\nsystem.time({\npgs2 <- mclapply(res, function(x)rbind.pages(x),mc.cores=numcores)\npages2 <- rbind.pages(pgs2)\n})\n#Third Method\nsystem.time({\n  fgs <- foreach(k=1:length(res),.options.multicore=list(preschedule=TRUE)) %dopar% {\n    rbind.pages(res[[k]])\n  }\n  fpgs <- rbind.pages(fgs)\n})\n# Fourth Method\nsystem.time({\n  fgs <- foreach(k=1:length(res),.options.multicore=list(preschedule=TRUE),\n                 .combine=function(...)rbind.pages(list(...)),\n                 .packages='jsonlite',.multicombine=TRUE) %dopar% {\n    rbind.pages(res[[k]])\n  }\n })\n\n  ###############\nret <- sapply(res, length)\nsum(ret)\n###\nlibrary(foreach)\nlibrary(doMC)\n\n\n\n\n\n\n\n\n\n\nif(url.exists(\"http://www.omegahat.net/Rcartogram/demo.jpg\")) {\n  header = dynCurlReader()\n  curlPerform(url = \"http://www.omegahat.net/Rcartogram/demo.jpg\",\n              headerfunction = header$update, curl = header$curl())\n  class( header$value() )\n  length( header$value() )\n}\n\nu = \"http://www.omegahat.net/RCurl/data.gz\"\n\nif(url.exists(u)) {\n  \n  content = getBinaryURL(u)\n  \n  if(require(Rcompression)) {\n    x = gunzip(content)\n    read.csv(textConnection(x))\n  } else {\n    tmp = tempfile()\n    write(content, file = tmp)\n    read.csv(gzfile(tmp))\n  }",
+    "created" : 1461020158603.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3223915630",
+    "id" : "5FD6703",
+    "lastKnownWriteTime" : 1461278132,
+    "last_content_update" : 1461278134115,
+    "path" : "~/R/Cellbase/while.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"cellbaseR\"\nauthor: \"Mohammed Omar Elsiddieg Abdallah\"\ndate: \"19 April 2016\"\noutput: \n  BiocStyle::html_document\nvignette: >\n  %\\VignetteIndexEntry{\"cellbaseR\"}\n  %\\VignetteEngine{knitr::rmarkdown}\n  %\\VignetteEncoding{UTF-8}  \n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\n```\n\nLoading the library\n\n```{r, eval=FALSE }\nlibrary(cellbaseR)\n\n```\n\n## The CellbaseQuery class\n\nDefining the CellbaseQuery object holding the config to connect to cellbase data\n\n```{r , eval=TRUE}\ncb <- cellbaseR::CellbaseQuery()\ncb\n\n```\nThis create a CellbaseQuery object which by default connect to the human cellbase database\nand GRCh37 genome assembly, you can see the avaiable species and data for each species by running the cbSpecies method passing  the CellbaseQuery object you just created\n```{r, eval=FALSE, message=FALSE, warning=FALSE}\nsp <- cbSpecies(object = cb) # This will give you a list of dataframes corresponding\n# to avaiable groups\n# See the available groups\nnames(sp)\n# Get the information about the vertberates group\nvertebrates <- (sp[[\"vertebrates\"]])\nhead(vertebrates)\n# Later will see How to change the default species from human to your species of interest\n\n```\n\n## The CellbaseQuery Methods\nIn addition to the cbSpecies you have seen already, The cellbaseR package\nprovide many methods to query the cellbase webservices, they include:  \n \n-  cbGene  \n-  cbSnp  \n-  cbProtein  \n-  cbTranscript  \n-  cbRegion  \n-  cbVariant  \n-  cbXref  \n-  cbClinical  \n\nIn all cases the user is expected to provide the ids for the query and the resource to be queried, in addition to \nthe CellbaseQuery object they created.For example, a query through the cbGene will look something like this\n```{r, eval=FALSE}\ncb <- CellbaseQuery()\ngenes <- c(\"TP73\",\"TET1\")\n# the following query will fetch all the clinically relevant variants for these genes\nres <- cbGene(object = cb, ids = genes, resource = \"snp\")\nres\n\n```\n\n\n\nmaking a query through cbRegion to get all the clinically relevant variants in a specific region\n```{r, eval=FALSE}\n\nres <- cellbaseR::cbRegion(object = cb,ids = \"17:1000000-1100000\",resource = \"clinical\")\n# to get the data \nres <- cellbaseR::cellbaseData(res)\n\n```\nGetting annotation for a specific variant\n\n\n```{r,eval=FALSE}\nres2 <- cbVariant(object =cb,ids = \"1:169549811:A:G\",resource = \"annotation\")\n# to get the data \nres2 <- cellbaseR::cellbaseData(res2)\n```\n\n\n\n",
+    "created" : 1461190207696.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "936195360",
+    "id" : "A79F3214",
+    "lastKnownWriteTime" : 1461191165,
+    "last_content_update" : 1461191165603,
+    "path" : "~/R/cellbase/clients/R/vignettes/cellbaseR.Rmd",
+    "project_path" : "vignettes/cellbaseR.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
