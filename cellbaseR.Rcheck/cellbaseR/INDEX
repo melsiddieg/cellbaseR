@@ -1,0 +1,46 @@
+AnnotateVcf,CellBaseR-method
+                        AnnotateVcf
+CellBaseParam           A Constructor for the CellBaseParam Object
+CellBaseParam-class     CellBaseParam Class
+CellBaseR               CellBaseR
+CellBaseR-class         CellBaseR Class
+cellbaseR-package       cellbaseR
+createGeneModel         createGeneModel
+getCaddScores           getCaddScores
+getCellBase,CellBaseR-method
+                        getCellBase
+getCellBaseResourceHelp
+                        getCellBaseResourceHelp
+getChromosomeInfo,CellBaseR-method
+                        getChromosomeInfo
+getClinical,CellBaseR-method
+                        getClinical
+getClinicalByGene       getClinicalByGene
+getClinicalByRegion     getClinicalByRegion
+getConservationByRegion
+                        getConservationByRegion
+getGene,CellBaseR-method
+                        getGene
+getGeneInfo             getGeneInfo
+getMeta,CellBaseR-method
+                        getMeta
+getProtein,CellBaseR-method
+                        getProtein
+getProteinInfo          getProteinInfo
+getRegion,CellBaseR-method
+                        getRegion
+getRegulatoryByRegion   getRegulatoryByRegion
+getSnp,CellBaseR-method
+                        getSnp
+getSnpByGene            getSnpByGene
+getTf,CellBaseR-method
+                        getTf
+getTfbsByRegion         getTfbsByRegion
+getTranscript,CellBaseR-method
+                        getTranscript
+getTranscriptByGene     getTranscriptByGene
+getVariant,CellBaseR-method
+                        getVariant
+getVariantAnnotation    getVariantAnnotation
+getXref,CellBaseR-method
+                        getXref
