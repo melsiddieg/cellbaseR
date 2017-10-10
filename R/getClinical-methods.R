@@ -37,5 +37,5 @@ setMethod("getClinical", "CellBaseR", definition = function(object,
                             subcateg=subcateg,ids=ids,resource=resource, 
                             param=param)
     
-    return(result)
+    return(result$annot)
 })
