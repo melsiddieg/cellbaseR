@@ -45,7 +45,7 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
     names(res) <- NULL
     ind <- sapply(res, function(x)length(x)!=1)
     res <- res[ind]
-    ds <- bplapply(res, function(x)rbind.pages(x), BPPARAM = p)
+    ds <- bplapply(res, function(x)rbind_pages(x), BPPARAM = p)
     container[[i]] <- ds
     i=i+1
   }
@@ -53,9 +53,9 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
 
   final <-foreach(k=1:length(container),
                   .options.multicore=list(preschedule=TRUE),
-                  .combine=function(...)rbind.pages(list(...)),
+                  .combine=function(...)rbind_pages(list(...)),
                   .packages='jsonlite',.multicombine=TRUE) %dopar% {
-                  rbind.pages(container[[k]])
+                  rbind_pages(container[[k]])
                             }
 
   return(final)

@@ -28,7 +28,7 @@ multiple resources including clinvar, cosmic and gwas catalog. Furthermore,
 }
 \examples{
    cb <- CellBaseR()
-   cbParam <- CellBaseParam(gene=c("TP73","TET1"))
+   cbParam <- CellBaseParam(gene=c("TP73","TET1"), limit=100)
    res <- getClinical(object=cb,param=cbParam)
 }
 \seealso{

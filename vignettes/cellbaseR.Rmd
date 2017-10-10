@@ -104,7 +104,7 @@ library(cellbaseR)
 cb <- CellBaseR()
 # First we have to specify aour param, we do that by creating an object of
 # class CellbaseParam
-cbparam <- CellBaseParam(gene="TET1", genome="GRCh38")
+cbparam <- CellBaseParam(gene="TET1", genome="GRCh38", limit = 50)
 cbparam
 # Note that cbClinical does NOT require any Ids to be passed, only the param
 # and of course the CellbaseQuery object
@@ -118,7 +118,7 @@ str(res,1)
 A usefull utility for fast building of gene models, compatible with Gviz 
 package for genomic visualization
 
-```{r,message=FALSE, warning=FALSE, eval=TRUE}
+```{r,message=FALSE, warning=FALSE, eval=TRUE, message=FALSE}
 library(cellbaseR)
 cb <- CellBaseR()
 test <- createGeneModel(object = cb, region = "17:1500000-1550000")
@@ -147,8 +147,4 @@ length(rowRanges(vcf))==nrow(res)
 str(res,1)
 
 ```
-
-
-
-
 
