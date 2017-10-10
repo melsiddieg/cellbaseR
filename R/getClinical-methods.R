@@ -13,7 +13,7 @@
 #' @return a dataframe with the results of the query
 #' @examples
 #'    cb <- CellBaseR()
-#'    cbParam <- CellBaseParam(gene=c("TP73","TET1"))
+#'    cbParam <- CellBaseParam(gene=c("TP73","TET1"), limit=100)
 #'    res <- getClinical(object=cb,param=cbParam)
 #' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
 #' and the RESTful API documentation 

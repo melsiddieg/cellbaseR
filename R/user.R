@@ -7,6 +7,7 @@
 #' @return a dataframe of the query result
 #' @examples 
 #' cb <- CellBaseR()
+#' param<-CellBaseParam(limit=50)
 #' res <- getClinicalByGene(cb, "TET1")
 #' @export
 getClinicalByGene <- function(object, id, param=NULL){
