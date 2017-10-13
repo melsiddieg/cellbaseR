@@ -60,7 +60,9 @@ CellBaseR <- function(host="http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/re
 
   # Get the API list
   cbDocsUrl <- paste0(host, "swagger.json")
-  Datp <- fromJSON(cbDocsUrl)
+  resp <- GET(cbDocsUrl,timeout(7))
+  Datp <- content(resp)
+  # Datp <- fromJSON(cbDocsUrl)
   tags <- Datp$tags
   paths <- Datp$paths
   api <- lapply(paths, function(x)x$get)

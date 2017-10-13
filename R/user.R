@@ -8,13 +8,12 @@
 #' @examples 
 #' cb <- CellBaseR()
 #' param<-CellBaseParam(limit=50)
-#' res <- getClinicalByGene(cb, "TET1")
+#' res <- getClinicalByGene(cb, "TET1", param=param)
 #' @export
 getClinicalByGene <- function(object, id, param=NULL){
- 
  res <- getGene(object = object, ids = id, resource = "clinical",
                 param = param)
- res
+ res$annotation
 }
 ##############################################################################
 #' getTranscriptByGene

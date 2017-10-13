@@ -152,7 +152,7 @@ createURL <- function(file=NULL, host=host, version=version, meta=meta,
   return(grls)
 }
 
-
+### Consider putting in a loop
 callREST2 <- function(grls,async=FALSE,num_threads=num_threads)
 {
   content <- list()
