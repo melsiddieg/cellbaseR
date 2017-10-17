@@ -2,40 +2,45 @@
 #' 
 #'CellBaseParam object is used to control what results are returned from the
 #'CellBaseR methods
-#' @param genome A character denoting the genome build to query,eg, GRCh37
-#' (default),or GRCh38
-#' @param gene A character vector denoting the gene/s to be queried
-#' @param region A character vector denoting the region/s to be queried must be
-#' in the form 1:100000-1500000 not chr1:100000-1500000
-#' @param rs A character vector denoting the rs ids to be queried
-#' @param so A character vector denoting sequence ontology to be queried
-#' @param phenotype A character vector denoting the phenotype to be queried
-#' @param include A character vector denoting the fields to be returned
-#' @param exclude A character vector denoting the fields to be excluded
-#' @param limit A number limiting the number of results to be returned
+#' @slot assembly A character the assembly build to query, e.g.GRCh37(default)
+#' @slot feature A character vector denoting the feature/s to be queried
+#' @slot region A character vector denoting the region/s to be queried must be 
+#' in the form 1:100000-1500000
+#' @slot rsid A character vector denoting the rs ids to be queried
+#' @slot accession A caharcter vector of Cinvar accessions
+#' @slot type A caharcter vector of Variant types
+#' @slot mode_inheritance_labels A character vector
+#' @slot clinsig_labels A character vector
+#' @slot alleleOrigin A character vector
+#' @slot so A character vector denoting sequence ontology to be queried
+#' @slot source A character vector
+#' @slot trait A character vector denoting the trait to be queried
+#' @slot include A character vector denoting the fields to be returned
+#' @slot exclude A character vector denoting the fields to be excluded
+#' @slot limit A number limiting the number of results to be returned
 #' @return an object of class CellBaseParam
 #' @examples
-#' cbParam <- CellBaseParam(genome="GRCh38",gene=c("TP73","TET1"))
+#' cbParam <- CellBaseParam(assembly="GRCh38",feature=c("TP73","TET1"))
 #' print(cbParam)
 #' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
 #' and the RESTful API documentation 
 #' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
-CellBaseParam <- function(genome=character(), gene=character(),
-region=character(), rs=character(), so=character(), phenotype=character(),
+CellBaseParam <- function(assembly=character(), feature=character(),
+region=character(), rsid=character(), so=character(), trait=character(),
 include=character(), exclude=character(), limit=character()){
 
-    if(length(genome)>0){
-        genome <- paste0(genome,collapse = ",")
-        genome <- paste("genome=",genome,sep = "")
+    if(length(assembly)>0){
+        assembly <- paste0(assembly,collapse = ",")
+        assembly <- paste("assembly=",assembly,sep = "")
     }else{
-        genome <- character()
+        assembly <- character()
     }
-    if(length(gene)>0){
-        gene <- paste0(gene,collapse = ",")
-        gene <- paste("gene=",gene,sep = "")
+    if(length(feature)>0){
+        feature <- paste0(feature,collapse = ",")
+        feature <- paste("feature=",feature,sep = "")
     }else{
-        gene <- character()
+        feature <- character()
     }
 
     if(length(region)>0){
@@ -45,11 +50,11 @@ include=character(), exclude=character(), limit=character()){
         region <-character()
     }
 
-    if(length(rs)>0){
-        rs <- paste0(rs,collapse = ",")
-        rs <- paste("rs=",rs,sep = "")
+    if(length(rsid)>0){
+        rsid <- paste0(rs,collapse = ",")
+        rsid <- paste("id=",rs,sep = "")
     }else{
-        rs <- character()
+        rsid <- character()
     }
     if(length(so)>0){
         so <- paste0(so,collapse = ",")
@@ -58,11 +63,11 @@ include=character(), exclude=character(), limit=character()){
         so <- character()
     }
 
-    if(length(phenotype)>0){
-        phenotype <- paste0(phenotype,collapse = ",")
-        phenotype <- paste("phenotype=",phenotype,sep = "")
+    if(length(trait)>0){
+        trait <- paste0(trait,collapse = ",")
+        trait <- paste("trait=",trait,sep = "")
     }else{
-        phenotype <- character()
+        trait <- character()
     }
 
     if(length(include)>0){
@@ -85,7 +90,7 @@ include=character(), exclude=character(), limit=character()){
         limit=paste("limit=", 1000, sep="")
     }
 
-    new("CellBaseParam", genome=genome, gene=gene, region=region, rs=rs, so=so,
-    phenotype=phenotype, include=include, exclude=exclude, limit=limit)
+    new("CellBaseParam", assembly=assembly, feature=feature, region=region, rsid=rsid, so=so,
+    trait=trait, include=include, exclude=exclude, limit=limit)
 
 }

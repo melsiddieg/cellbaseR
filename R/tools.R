@@ -115,3 +115,14 @@ filterMulti <- function(x){
   res
 }
 
+### Process CellBaseParam objects
+processParam <- function(param){
+  label <- as.character(param)
+  if(length(param)>0){
+    param <- paste0(param,collapse = ",")
+    param <- paste(paste0(param,"="),param,sep = "")
+  }else{
+    param <- character()
+  }
+  param
+}
