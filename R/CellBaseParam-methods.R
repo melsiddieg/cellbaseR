@@ -55,8 +55,8 @@ include=character(), exclude=character(), limit=character()){
     }
 
     if(length(rsid)>0){
-        rsid <- paste0(rs,collapse = ",")
-        rsid <- paste("id=",rs,sep = "")
+        rsid <- paste0(rsid,collapse = ",")
+        rsid <- paste("id=",rsid,sep = "")
     }else{
         rsid <- character()
     }
