@@ -30,10 +30,15 @@ setMethod("getCellBase", "CellBaseR", definition = function(object, category,
   ids <- ids
   resource <- resource
   if (!is.null(param)) {
-    param <- c(genome=param@genome, gene=param@gene,region=param@region
-                 , rs=param@rs,so=param@so, phenotype=param@phenotype,
-                 limit=param@limit, include=param@include,
-                 exclude=param@exclude, limit=param@limit)
+    param <- c(assembly=param@assembly,feature=param@feature,region=param@region
+              ,rsid=param@rsid,so=param@so, trait=param@trait,
+               accession=param@accession, type=param@type,
+               mode_inheritance_labels=param@mode_inheritance_labels,
+               clinsig_labels=param@clinsig_labels, 
+              alleleOrigin=param@alleleOrigin, 
+               consistency_labels=param@consistency_labels,
+              limit=param@limit, include=param@include,
+              exclude=param@exclude, limit=param@limit)
     param <- paste(param, collapse = "&")
   }
   # TODO: param are not enabled

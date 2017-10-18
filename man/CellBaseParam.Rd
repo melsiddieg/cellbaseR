@@ -4,31 +4,12 @@
 \alias{CellBaseParam}
 \title{A Constructor for the CellBaseParam Object}
 \usage{
-CellBaseParam(genome = character(), gene = character(),
-  region = character(), rs = character(), so = character(),
-  phenotype = character(), include = character(), exclude = character(),
-  limit = character())
-}
-\arguments{
-\item{genome}{A character denoting the genome build to query,eg, GRCh37
-(default),or GRCh38}
-
-\item{gene}{A character vector denoting the gene/s to be queried}
-
-\item{region}{A character vector denoting the region/s to be queried must be
-in the form 1:100000-1500000 not chr1:100000-1500000}
-
-\item{rs}{A character vector denoting the rs ids to be queried}
-
-\item{so}{A character vector denoting sequence ontology to be queried}
-
-\item{phenotype}{A character vector denoting the phenotype to be queried}
-
-\item{include}{A character vector denoting the fields to be returned}
-
-\item{exclude}{A character vector denoting the fields to be excluded}
-
-\item{limit}{A number limiting the number of results to be returned}
+CellBaseParam(assembly = character(), feature = character(),
+  region = character(), rsid = character(), accession = character(),
+  type = character(), mode_inheritance_labels = character(),
+  clinsig_labels = character(), alleleOrigin = character(),
+  consistency_labels = character(), so = character(), trait = character(),
+  include = character(), exclude = character(), limit = character())
 }
 \value{
 an object of class CellBaseParam
@@ -37,8 +18,45 @@ an object of class CellBaseParam
 CellBaseParam object is used to control what results are returned from the
 CellBaseR methods
 }
+\section{Slots}{
+
+\describe{
+\item{\code{assembly}}{A character the assembly build to query, e.g.GRCh37(default)}
+
+\item{\code{feature}}{A character vector denoting the feature/s to be queried}
+
+\item{\code{region}}{A character vector denoting the region/s to be queried must be 
+in the form 1:100000-1500000}
+
+\item{\code{rsid}}{A character vector denoting the rs ids to be queried}
+
+\item{\code{accession}}{A caharcter vector of Cinvar accessions}
+
+\item{\code{type}}{A caharcter vector of Variant types}
+
+\item{\code{mode_inheritance_labels}}{A character vector}
+
+\item{\code{clinsig_labels}}{A character vector}
+
+\item{\code{alleleOrigin}}{A character vector}
+
+\item{\code{consistency_labels}}{A character vector}
+
+\item{\code{so}}{A character vector denoting sequence ontology to be queried}
+
+\item{\code{source}}{A character vector}
+
+\item{\code{trait}}{A character vector denoting the trait to be queried}
+
+\item{\code{include}}{A character vector denoting the fields to be returned}
+
+\item{\code{exclude}}{A character vector denoting the fields to be excluded}
+
+\item{\code{limit}}{A number limiting the number of results to be returned}
+}}
+
 \examples{
-cbParam <- CellBaseParam(genome="GRCh38",gene=c("TP73","TET1"))
+cbParam <- CellBaseParam(assembly="GRCh38",feature=c("TP73","TET1"))
 print(cbParam)
 }
 \seealso{

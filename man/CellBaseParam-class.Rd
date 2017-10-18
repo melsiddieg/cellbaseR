@@ -16,18 +16,32 @@ control what results are returned from the' CellBaseR methods
 \section{Slots}{
 
 \describe{
-\item{\code{genome}}{A character the genome build to query, e.g.GRCh37(default)}
+\item{\code{assembly}}{A character the assembly build to query, e.g.GRCh37(default)}
 
-\item{\code{gene}}{A character vector denoting the gene/s to be queried}
+\item{\code{feature}}{A character vector denoting the feature/s to be queried}
 
 \item{\code{region}}{A character vector denoting the region/s to be queried must be 
 in the form 1:100000-1500000}
 
-\item{\code{rs}}{A character vector denoting the rs ids to be queried}
+\item{\code{rsid}}{A character vector denoting the rs ids to be queried}
+
+\item{\code{accession}}{A caharcter vector of Cinvar accessions}
+
+\item{\code{type}}{A caharcter vector of Variant types}
+
+\item{\code{mode_inheritance_labels}}{A character vector}
+
+\item{\code{clinsig_labels}}{A character vector}
+
+\item{\code{alleleOrigin}}{A character vector}
+
+\item{\code{consistency_labels}}{A character vector}
 
 \item{\code{so}}{A character vector denoting sequence ontology to be queried}
 
-\item{\code{phenotype}}{A character vector denoting the phenotype to be queried}
+\item{\code{source}}{A character vector}
+
+\item{\code{trait}}{A character vector denoting the trait to be queried}
 
 \item{\code{include}}{A character vector denoting the fields to be returned}
 

@@ -28,10 +28,15 @@ setMethod("getClinical", "CellBaseR", definition = function(object,
     ids <- NULL
     resource <- "search"
 
-    param <- c(assembly=param@assembly, feature=param@feature,
-    region=param@region,rsid=param@rsid,so=param@so,
-    trait=param@trait, include=param@include,
-    exclude=param@exclude, limit=param@limit)
+    param <- c(assembly=param@assembly,feature=param@feature,region=param@region
+               ,rsid=param@rsid,so=param@so, trait=param@trait,
+               accession=param@accession, type=param@type,
+               mode_inheritance_labels=param@mode_inheritance_labels,
+               clinsig_labels=param@clinsig_labels, 
+               alleleOrigin=param@alleleOrigin, 
+               consistency_labels=param@consistency_labels,
+               limit=param@limit, include=param@include,
+               exclude=param@exclude, limit=param@limit)
     param <- paste(param, collapse = "&")
     result <- fetchCellbase(object=object,file=NULL, meta=NULL, categ=categ, 
                             subcateg=subcateg,ids=ids,resource=resource, 

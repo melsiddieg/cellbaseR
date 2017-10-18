@@ -12,6 +12,7 @@
 #' @slot mode_inheritance_labels A character vector
 #' @slot clinsig_labels A character vector
 #' @slot alleleOrigin A character vector
+#' @slot consistency_labels A character vector
 #' @slot so A character vector denoting sequence ontology to be queried
 #' @slot source A character vector
 #' @slot trait A character vector denoting the trait to be queried
@@ -27,7 +28,10 @@
 #' \url{http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/}
 #' @export
 CellBaseParam <- function(assembly=character(), feature=character(),
-region=character(), rsid=character(), so=character(), trait=character(),
+region=character(), rsid=character(), accession=character(),
+type=character(), mode_inheritance_labels=character(),
+clinsig_labels=character(), alleleOrigin=character(), 
+consistency_labels=character(), so=character(), trait=character(),
 include=character(), exclude=character(), limit=character()){
 
     if(length(assembly)>0){
@@ -56,6 +60,46 @@ include=character(), exclude=character(), limit=character()){
     }else{
         rsid <- character()
     }
+  if(length(accession)>0){
+    accession <- paste0(accession,collapse = ",")
+    accession <- paste("accession=",accession,sep = "")
+  }else{
+    accession <- character()
+  }
+  
+  if(length(type)>0){
+    type <- paste0(type,collapse = ",")
+    type <- paste("type=",type,sep = "")
+  }else{
+    type <- character()
+  }
+  
+  if(length(mode_inheritance_labels)>0){
+    mode_inheritance_labels <- paste0(mode_inheritance_labels,collapse = ",")
+    mode_inheritance_labels <- paste("mode_inheritance_labels=",mode_inheritance_labels,sep = "")
+  }else{
+    mode_inheritance_labels <- character()
+  }
+  
+  if(length(clinsig_labels)>0){
+    clinsig_labels <- paste0(clinsig_labels,collapse = ",")
+    clinsig_labels <- paste("clinsig_labels=",clinsig_labels,sep = "")
+  }else{
+    clinsig_labels <- character()
+  }
+  if(length(alleleOrigin)>0){
+    alleleOrigin <- paste0(alleleOrigin,collapse = ",")
+    alleleOrigin <- paste("alleleOrigin=",alleleOrigin,sep = "")
+  }else{
+    alleleOrigin <- character()
+  }
+  if(length(consistency_labels)>0){
+    consistency_labels <- paste0(consistency_labels,collapse = ",")
+    consistency_labels <- paste("consistency_labels=",consistency_labels,sep = "")
+  }else{
+    consistency_labels <- character()
+  }
+
     if(length(so)>0){
         so <- paste0(so,collapse = ",")
         so <- paste("so=",so,sep = "")
@@ -90,7 +134,11 @@ include=character(), exclude=character(), limit=character()){
         limit=paste("limit=", 1000, sep="")
     }
 
-    new("CellBaseParam", assembly=assembly, feature=feature, region=region, rsid=rsid, so=so,
-    trait=trait, include=include, exclude=exclude, limit=limit)
+    new("CellBaseParam", assembly=assembly, feature=feature, region=region, 
+        rsid=rsid, accession=accession,  type=type, 
+        mode_inheritance_labels=mode_inheritance_labels,
+        clinsig_labels=clinsig_labels, alleleOrigin=alleleOrigin,
+        consistency_labels=consistency_labels, so=so,
+        trait=trait, include=include, exclude=exclude, limit=limit)
 
 }

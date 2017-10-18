@@ -48,6 +48,7 @@ setClass("CellBaseR",
 #' @slot mode_inheritance_labels A character vector
 #' @slot clinsig_labels A character vector
 #' @slot alleleOrigin A character vector
+#' @slot consistency_labels A character vector
 #' @slot so A character vector denoting sequence ontology to be queried
 #' @slot source A character vector
 #' @slot trait A character vector denoting the trait to be queried
@@ -64,6 +65,7 @@ setClass("CellBaseParam",
                   trait="character", accession="character", type="character",
                   source="character", mode_inheritance_labels="character",
                   clinsig_labels="character", alleleOrigin="character", 
+                  consistency_labels="character",
                   include ="character", exclude = "character",
                   limit="character"), 
          
@@ -72,4 +74,5 @@ setClass("CellBaseParam",
                   so=character(0), trait=character(0), accession=character(0),
                   source=character(0), mode_inheritance_labels=character(0),
                   clinsig_labels=character(0), alleleOrigin=character(0),
-                  include=character(0), exclude=character(0),limit="1000"))
+                  consistency_labels=character(), include=character(0),
+                  exclude=character(0),limit="1000"))

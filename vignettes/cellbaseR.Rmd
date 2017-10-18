@@ -104,7 +104,7 @@ library(cellbaseR)
 cb <- CellBaseR()
 # First we have to specify aour param, we do that by creating an object of
 # class CellbaseParam
-cbparam <- CellBaseParam(gene="TET1", genome="GRCh38", limit = 50)
+cbparam <- CellBaseParam(feature = "TET1", assembly = "GRCh38", limit = 50)
 cbparam
 # Note that cbClinical does NOT require any Ids to be passed, only the param
 # and of course the CellbaseQuery object

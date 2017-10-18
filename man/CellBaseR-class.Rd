@@ -11,7 +11,7 @@ This is an S4 class  which defines the CellBaseR object
 This S4 class holds the default configuration required by CellBaseR 
 methods to connect to the cellbase web 
 services. By default it is configured to query human data based on the GRCh37
-genome assembly.
+assembly assembly.
 }
 \section{Slots}{
 
@@ -25,7 +25,7 @@ genome assembly.
 "hsapiens"}
 
 \item{\code{batch_size}}{if multiple queries are raised by a single method call, e.g.
- getting annotation info for several genes,
+ getting annotation info for several features,
 queries will be sent to the server in batches. This slot indicates the size 
 of these batches. Default 200}
 

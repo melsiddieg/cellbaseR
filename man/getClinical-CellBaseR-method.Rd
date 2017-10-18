@@ -23,12 +23,12 @@ A method to query Clinical data from Cellbase web services.
 \details{
 This method retrieves clinicaly relevant variants annotations from
 multiple resources including clinvar, cosmic and gwas catalog. Furthermore,
- the user can filter these data in many ways including phenotype, genes, rs,
+ the user can filter these data in many ways including trait, features, rs,
  etc,.
 }
 \examples{
    cb <- CellBaseR()
-   cbParam <- CellBaseParam(gene=c("TP73","TET1"), limit=100)
+   cbParam <- CellBaseParam(feature=c("TP73","TET1"), limit=100)
    res <- getClinical(object=cb,param=cbParam)
 }
 \seealso{

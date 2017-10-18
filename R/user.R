@@ -1,19 +1,11 @@
 #' getClinicalByGene
 #' 
 #' A convienice method to fetch clinical variants for specific gene/s
-#' @param object an object of CellBaseR class
-#' @param id a charcter vector of HUGO symbol (gene names)
-#' @param param an object of class CellBaseParam
-#' @return a dataframe of the query result
-#' @examples 
-#' cb <- CellBaseR()
-#' param<-CellBaseParam(limit=50)
-#' res <- getClinicalByGene(cb, "TET1", param=param)
+
 #' @export
-getClinicalByGene <- function(object, id, param=NULL){
- res <- getGene(object = object, ids = id, resource = "clinical",
-                param = param)
- res$annotation
+getClinicalByGene <- function(){
+ .Deprecated("getClinical")
+  ## use getClinical instead
 }
 ##############################################################################
 #' getTranscriptByGene
