@@ -8,7 +8,7 @@
 #' @examples 
 #' cb <- CellBaseR()
 #' param<-CellBaseParam(limit=50)
-#' res <- getClinicalByGene(cb, "TET1")
+#' res <- getClinicalByGene(cb, "TET1", param)
 #' @export
 getClinicalByGene <- function(object, id, param=NULL){
  

@@ -30,6 +30,6 @@ setMethod("getMeta", "CellBaseR",    definition = function(object, resource){
                             subcateg=subcateg,
                             ids=ids, resource=resource, param=NULL)
     data <- lapply(result, function(x)as.data.frame(x))
-    result <- rbind.pages(data)
+    result <- rbind_pages(data)
     return(result)
 })

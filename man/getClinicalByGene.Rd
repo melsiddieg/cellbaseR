@@ -22,5 +22,5 @@ A convienice method to fetch clinical variants for specific gene/s
 \examples{
 cb <- CellBaseR()
 param<-CellBaseParam(limit=50)
-res <- getClinicalByGene(cb, "TET1")
+res <- getClinicalByGene(cb, "TET1", param)
 }
