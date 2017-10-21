@@ -68,7 +68,6 @@ setClass("CellBaseParam",
                   consistency_labels="character",
                   include ="character", exclude = "character",
                   limit="character"), 
-         
                   prototype = prototype(assembly=character(0),
                   feature=character(0), region=character(0), rsid=character(0), 
                   so=character(0), trait=character(0), accession=character(0),

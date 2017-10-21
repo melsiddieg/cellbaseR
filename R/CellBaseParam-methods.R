@@ -2,23 +2,23 @@
 #' 
 #'CellBaseParam object is used to control what results are returned from the
 #'CellBaseR methods
-#' @slot assembly A character the assembly build to query, e.g.GRCh37(default)
-#' @slot feature A character vector denoting the feature/s to be queried
-#' @slot region A character vector denoting the region/s to be queried must be 
+#' @param  assembly A character the assembly build to query, e.g.GRCh37(default)
+#' @param feature A character vector denoting the feature/s to be queried
+#' @param region A character vector denoting the region/s to be queried must be 
 #' in the form 1:100000-1500000
-#' @slot rsid A character vector denoting the rs ids to be queried
-#' @slot accession A caharcter vector of Cinvar accessions
-#' @slot type A caharcter vector of Variant types
-#' @slot mode_inheritance_labels A character vector
-#' @slot clinsig_labels A character vector
-#' @slot alleleOrigin A character vector
-#' @slot consistency_labels A character vector
-#' @slot so A character vector denoting sequence ontology to be queried
-#' @slot source A character vector
-#' @slot trait A character vector denoting the trait to be queried
-#' @slot include A character vector denoting the fields to be returned
-#' @slot exclude A character vector denoting the fields to be excluded
-#' @slot limit A number limiting the number of results to be returned
+#' @param rsid A character vector denoting the rs ids to be queried
+#' @param accession A caharcter vector of Cinvar accessions
+#' @param type A caharcter vector of Variant types
+#' @param mode_inheritance_labels A character vector
+#' @param clinsig_labels A character vector
+#' @param alleleOrigin A character vector
+#' @param consistency_labels A character vector
+#' @param so A character vector denoting sequence ontology to be queried
+#' @param source A character vector
+#' @param trait A character vector denoting the trait to be queried
+#' @param include A character vector denoting the fields to be returned
+#' @param exclude A character vector denoting the fields to be excluded
+#' @param limit A number limiting the number of results to be returned
 #' @return an object of class CellBaseParam
 #' @examples
 #' cbParam <- CellBaseParam(assembly="GRCh38",feature=c("TP73","TET1"))
@@ -31,8 +31,9 @@ CellBaseParam <- function(assembly=character(), feature=character(),
 region=character(), rsid=character(), accession=character(),
 type=character(), mode_inheritance_labels=character(),
 clinsig_labels=character(), alleleOrigin=character(), 
-consistency_labels=character(), so=character(), trait=character(),
-include=character(), exclude=character(), limit=character()){
+consistency_labels=character(), so=character(),source=character(),
+trait=character(), include=character(), exclude=character(),
+limit=character()){
 
     if(length(assembly)>0){
         assembly <- paste0(assembly,collapse = ",")

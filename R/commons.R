@@ -15,7 +15,7 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
     
   }else{
     batch_size <- 50
-    version <- "v4/"
+    version <- "latest/"
   }
     
   num_threads <- num_threads
@@ -152,7 +152,7 @@ createURL <- function(file=NULL, host=host, version=version, meta=meta,
   return(grls)
 }
 
-### Consider putting in a loop
+
 callREST2 <- function(grls,async=FALSE,num_threads=num_threads)
 {
   content <- list()
@@ -257,4 +257,18 @@ getCellBaseResourceHelp <- function(object, subcategory){
 
   res
 }
-
+#
+# cbCheck <- function(object, category, subcategory, resource){
+#   CATEGORIES <- c("feature", "genomic", "regulation")
+#   if(!(category %in% CATEGORIES)){
+#     stop("Error Unknown category")
+#   } 
+#   SUBCATEGORIES <- tolower(unlist(tags[[1]]))
+#   if(!(subcategory %in% SUBCATEGORIES)){
+#     stop("Error Unknown subcategory")
+#   } 
+#   RESOURCES <- getCellBaseResourceHelp(object, subcategory)
+#   if(!(resource %in% RESOURCES)){
+#     stop("Error Unknown resource")
+#   } 
+# }
