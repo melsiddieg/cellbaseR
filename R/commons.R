@@ -15,7 +15,7 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
     
   }else{
     batch_size <- 50
-    version <- "latest/"
+    version <- "v4/"
   }
     
   num_threads <- num_threads
@@ -149,6 +149,7 @@ createURL <- function(file=NULL, host=host, version=version, meta=meta,
        grls[[i]] <- gsub("chr","",tmp)
         }
     }
+  #cat("query URL is: ", grls,"\n")
   return(grls)
 }
 
