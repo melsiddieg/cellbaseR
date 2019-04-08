@@ -1,4 +1,4 @@
-utils::globalVariables(c("name", "j", "registerDoMC"))
+utils::globalVariables(c("name", "j", "registerDoMC",".tags",".api"))
 ###############################################################################
 # we need to adjust the output for the protein and Genomesequence methods
 #
@@ -15,7 +15,7 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
     
   }else{
     batch_size <- 50
-    version <- "latest/"
+    version <- "v4/"
   }
     
   num_threads <- num_threads
