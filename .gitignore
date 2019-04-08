@@ -5,3 +5,5 @@ Bioc_Sub.Rproj
 *.Rproj
 .RData
 *.html
+/*.Rcheck/
+vignettes/*.html

@@ -6,7 +6,8 @@
 \alias{getChromosomeInfo}
 \title{getChromosomeInfo}
 \usage{
-\S4method{getChromosomeInfo}{CellBaseR}(object, ids, resource, param = NULL)
+\S4method{getChromosomeInfo}{CellBaseR}(object, ids, resource,
+  param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}

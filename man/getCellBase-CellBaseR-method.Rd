@@ -6,8 +6,8 @@
 \alias{getCellBase}
 \title{getCellBase}
 \usage{
-\S4method{getCellBase}{CellBaseR}(object, category, subcategory, ids, resource,
-  param = NULL)
+\S4method{getCellBase}{CellBaseR}(object, category, subcategory, ids,
+  resource, param = NULL)
 }
 \arguments{
 \item{object}{an object of class CellBaseR}
