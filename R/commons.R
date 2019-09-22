@@ -1,4 +1,4 @@
-utils::globalVariables(c("name", "j", "registerDoMC"))
+utils::globalVariables(c("name", "j", "registerDoMC",".api",".tags"))
 ###############################################################################
 # we need to adjust the output for the protein and Genomesequence methods
 #
