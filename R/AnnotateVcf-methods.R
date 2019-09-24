@@ -29,6 +29,6 @@ setMethod("AnnotateVcf", "CellBaseR", definition = function(object, file,
                                                             num_threads,
                                                             BPPARAM=bpparam()){
     result <- Annovcf(object=object, file=file, batch_size, num_threads, 
-                      BPPARAM=bpparam())
+                      BPPARAM=bpparam(),batch_size = 100)
     return(result)
 })

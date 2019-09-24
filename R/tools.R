@@ -1,6 +1,6 @@
 utils::globalVariables(c("k", "transcripts", "exons", '.api', '.tags'))
 # Annovcf
-Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
+Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam(),...){
   num_cores <-2
   register(BPPARAM, default=TRUE)
   registerDoParallel(num_cores) 
@@ -8,11 +8,15 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam()){
   host <- object@host
   species <- object@species
   version <- object@version
-  batch_size <- object@batch_size
   num_threads <- object@num_threads
+  if(is.null(batch_size)){
+    batch_size <- object@batch_size
+  }else{
+    batch_size <- batch_size
+  }
   ids <- readIds(file, batch_size, num_threads)
   #filter out multiallelic sites
-  ids2 <- sapply(ids, function(x)sapply(x, function(y)filterMulti(y)))
+  ids2 <- lapply(ids, function(x)sapply(x, function(y)filterMulti(y)))
   names(ids2) <- NULL
   grls <- list()
   categ <- 'genomic/'
