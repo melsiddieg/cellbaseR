@@ -33,7 +33,7 @@ vcf files.
 }
 \examples{
 cb <- CellBaseR()
-fl <- system.file("extdata", "hapmap_exome_chr22_500.vcf.gz",
+fl <- system.file("extdata", "hapmap_exome_chr22_200.vcf.gz",
                   package = "cellbaseR" )
 res <- AnnotateVcf(object=cb, file=fl, BPPARAM = bpparam(workers=2))
 }
