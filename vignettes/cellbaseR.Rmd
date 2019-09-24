@@ -153,7 +153,7 @@ data, as well as conservation and functional scores like phast and cadd  scores
 library(cellbaseR)
 library(VariantAnnotation)
 cb <- CellBaseR()
-fl <- system.file("extdata", "hapmap_exome_chr22_500.vcf.gz",package = "cellbaseR" )
+fl <- system.file("extdata", "hapmap_exome_chr22_200.vcf.gz",package = "cellbaseR" )
 res <- AnnotateVcf(object=cb, file=fl, BPPARAM = bpparam(workers=2))
 vcf <- readVcf(fl, "hg19")
 samples(header(vcf))

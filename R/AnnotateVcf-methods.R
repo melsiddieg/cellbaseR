@@ -17,7 +17,7 @@
 #' @return a dataframe with the results of the query
 #' @examples 
 #' cb <- CellBaseR()
-#' fl <- system.file("extdata", "hapmap_exome_chr22_500.vcf.gz",
+#' fl <- system.file("extdata", "hapmap_exome_chr22_200.vcf.gz",
 #'                   package = "cellbaseR" )
 #' res <- AnnotateVcf(object=cb, file=fl, BPPARAM = bpparam(workers=2))
 #' @seealso  \url{https://github.com/opencb/cellbase/wiki} 
