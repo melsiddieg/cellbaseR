@@ -75,7 +75,7 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
         skip=skip+1000
         content <- callREST2(grls = grls)
         res_list <- parseResponse(content=content)
-        num_results <- res_list$num_results
+        num_results <- res_list$num_result
         cell <- res_list$result
         container[[i]] <- cell
         i=i+1

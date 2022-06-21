@@ -18,7 +18,7 @@ Depends: R(>= 3.4)
 Imports: methods, jsonlite, httr, data.table, pbapply, tidyr, R.utils,
         Rsamtools, BiocParallel, foreach, utils, parallel, doParallel
 Suggests: BiocStyle, knitr, rmarkdown, Gviz, VariantAnnotation
-RoxygenNote: 6.1.1
+RoxygenNote: 7.2.0
 biocViews: Annotation, VariantAnnotation
 Lazy: TRUE
 LazyData: TRUE

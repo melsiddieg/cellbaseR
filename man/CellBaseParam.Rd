@@ -4,13 +4,24 @@
 \alias{CellBaseParam}
 \title{A Constructor for the CellBaseParam Object}
 \usage{
-CellBaseParam(assembly = character(), feature = character(),
-  region = character(), rsid = character(), accession = character(),
-  type = character(), mode_inheritance_labels = character(),
-  clinsig_labels = character(), alleleOrigin = character(),
-  consistency_labels = character(), so = character(),
-  source = character(), trait = character(), include = character(),
-  exclude = character(), limit = character())
+CellBaseParam(
+  assembly = character(),
+  feature = character(),
+  region = character(),
+  rsid = character(),
+  accession = character(),
+  type = character(),
+  mode_inheritance_labels = character(),
+  clinsig_labels = character(),
+  alleleOrigin = character(),
+  consistency_labels = character(),
+  so = character(),
+  source = character(),
+  trait = character(),
+  include = character(),
+  exclude = character(),
+  limit = character()
+)
 }
 \arguments{
 \item{assembly}{A character the assembly build to query, e.g.GRCh37(default)}
