@@ -26,7 +26,7 @@
 #'    cb <- CellBaseR()
 #'    print(cb)
 #' @export
-CellBaseR <- function(host="http://bioinfo.hpc.cam.ac.uk/cellbase/webservices/rest/"
+CellBaseR <- function(host="https://ws.opencb.org/cellbase-4.8.2/webservices/rest/"
                       , version='v4', species='hsapiens', 
                       batch_size=200L, num_threads=8L){
    
