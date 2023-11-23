@@ -74,8 +74,6 @@ str(TET1_transcripts,1)
 # in a specific region
 library(cellbaseR)
 cb <- CellBaseR()
-res <- getRegion(object=cb,ids="17:1000000-1005000",
-resource="clinical")
 # to get all conservation data in this region
 res <- getRegion(object=cb,ids="17:1000000-1005000",
 resource="conservation")
@@ -104,7 +102,7 @@ library(cellbaseR)
 cb <- CellBaseR()
 # First we have to specify aour param, we do that by creating an object of
 # class CellbaseParam
-cbparam <- CellBaseParam(feature = "TET1", assembly = "GRCh38", limit = 50)
+cbparam <- CellBaseParam(feature = "TET1", assembly = "grch38",limit=50)
 cbparam
 # Note that cbClinical does NOT require any Ids to be passed, only the param
 # and of course the CellbaseQuery object
@@ -124,7 +122,6 @@ queries. These include:
 - getConservationByRegion
 - getRegulatoryByRegion
 - getTfbsByRegion
-- getCaddScores
 - getVariantAnnotation
 
 # CellbaseR utilities
@@ -135,6 +132,7 @@ package for genomic visualization
 ```{r,message=FALSE, warning=FALSE, eval=TRUE, message=FALSE}
 library(cellbaseR)
 cb <- CellBaseR()
+cbparam <- CellBaseParam(feature = "TET1", assembly = "grch37")
 test <- createGeneModel(object = cb, region = "17:1500000-1550000")
 if(require("Gviz")){
   testTrack <- Gviz::GeneRegionTrack(test)
