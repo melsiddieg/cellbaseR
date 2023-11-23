@@ -39,7 +39,6 @@ The cellbaseR package
 provide many methods to query the cellbase webservices, they include:  
  
 -  getGene  
--  getSnp 
 -  getProtein   
 -  getTranscript
 -  getRegion 
@@ -116,7 +115,6 @@ queries. These include:
 - getClinicalByGene
 - getTranscriptByGene
 - getGeneInfo
-- getSnpByGene
 - getProteinInfo
 - getClinicalByRegion
 - getConservationByRegion

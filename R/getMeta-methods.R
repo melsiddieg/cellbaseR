@@ -29,7 +29,7 @@ setMethod("getMeta", "CellBaseR",    definition = function(object, resource){
     result <- fetchCellbase(object=object, file=NULL, meta=meta, categ=categ,
                             subcateg=subcateg,
                             ids=ids, resource=resource, param=NULL)
-    data <- lapply(result, function(x)as.data.frame(x))
-    result <- rbind_pages(data)
-    return(result)
+    #data <- lapply(result, function(x)as.data.frame(x))
+    #result <- rbind_pages(data)
+    return(result[,c(1:4)])
 })
