@@ -18,10 +18,11 @@ Depends: R(>= 3.4)
 Imports: methods, jsonlite, httr, data.table, pbapply, tidyr, R.utils,
         Rsamtools, BiocParallel, foreach, utils, parallel, doParallel
 Suggests: BiocStyle, knitr, rmarkdown, Gviz, VariantAnnotation
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 biocViews: Annotation, VariantAnnotation
 Lazy: TRUE
 LazyData: TRUE
+Encoding: UTF-8
 Collate: 'commons.R' 'AllClasses.R' 'AllGenerics.R'
         'AnnotateVcf-methods.R' 'CellBaseParam-methods.R'
         'CellBaseR-methods.R' 'cellbase.R' 'getCellbase-methods.R'

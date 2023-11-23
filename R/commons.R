@@ -15,7 +15,7 @@ fetchCellbase <- function(object=object, file=NULL, meta=meta,
     
   }else{
     batch_size <- 50
-    version <- "v4/"
+    version <- "v5/"
   }
     
   num_threads <- num_threads
@@ -173,20 +173,20 @@ parseResponse <- function(content, parallel=FALSE, num_threads=num_threads){
 
      } else{
     js <- lapply(content, function(x)fromJSON(x))
-    ares <- lapply(js, function(x)x$response$result)
+    ares <- js[[1]]$responses$results[[1]]
     
-    nums <- lapply(js, function(x)x$response$numResults)
+    nums <-js[[1]]$responses$numResults
     
     if (class(ares[[1]][[1]])=="data.frame"){
       if(requireNamespace("pbapply", quietly = TRUE)){
         ds <- pbapply::pblapply(ares,function(x)rbind_pages(x))
         }
       ### Important to get correct vertical binding of dataframes
-      names(ds) <- NULL
+      #names(ds) <- NULL
       ds <- rbind_pages(ds)
     }else{
       ds <-ares
-      names(ds) <- NULL
+      names(ds)
       
     }
     

@@ -44,11 +44,11 @@ Annovcf <- function(object, file, batch_size, num_threads, BPPARAM=bpparam(),...
     content <- pblapply(resp, function(x) content(x, as="text",
                                                   encoding = "utf-8"))
     js <- bplapply(content, function(x)fromJSON(x),BPPARAM = p)
-    res <- bplapply(js, function(x)x$response$result, BPPARAM = p)
+    res <- lapply(js, function(x)x$responses$results)
     names(res) <- NULL
     ind <- sapply(res, function(x)length(x)!=1)
     res <- res[ind]
-    ds <- bplapply(res, function(x)rbind_pages(x), BPPARAM = p)
+    ds <- lapply(res, function(x)rbind_pages(x))
     container[[i]] <- ds
     i=i+1
   }
@@ -95,8 +95,8 @@ createGeneModel <- function(object, region=NULL){
     resource <- "gene"
     data <- fetchCellbase(object=object, file=NULL, meta=NULL, categ=categ, 
                           subcateg=subcateg,
-                          ids=ids, resource=resource, param=NULL)
-    rt4 <- data[,c(1,2,11)]
+                          ids=ids, resource=resource)
+    rt4 <- data[,c(1,2,12)]
     rt4 <- as.data.table(rt4)
     #rt4 <- as.data.table(rt4)
     setnames(rt4,  c("id", "name"), c("gene", "symbol"))

@@ -5,8 +5,8 @@
 \title{CellBaseR}
 \usage{
 CellBaseR(
-  host = "https://ws.opencb.org/cellbase-4.8.2/webservices/rest/",
-  version = "v4",
+  host = "https://ws.zettagenomics.com/cellbase/webservices/rest/",
+  version = "v5",
   species = "hsapiens",
   batch_size = 200L,
   num_threads = 8L

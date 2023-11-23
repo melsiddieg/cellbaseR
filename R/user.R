@@ -1,12 +1,4 @@
-#' getClinicalByGene
-#' 
-#' A convienice method to fetch clinical variants for specific gene/s
 
-#' @export
-getClinicalByGene <- function(){
- .Deprecated("getClinical")
-  ## use getClinical instead
-}
 ##############################################################################
 #' getTranscriptByGene
 #' 
@@ -80,23 +72,7 @@ getProteinInfo <- function(object, id, param=NULL){
   res
 }
 ##############################################################################
-#' getClinicalByRegion
-#' 
-#' A convienice method to fetch clinical variants for specific region/s
-#' @param object an object of class CellBaseR
-#' @param id a charcter vector of genomic regions, eg 17:1000000-1100000
-#' @param param an object of class CellBaseParam
-#' @return a dataframe of the query result
-#' @examples 
-#' cb <- CellBaseR()
-#' res <- getClinicalByRegion(cb, "17:1000000-1189811")
-#' @export
-getClinicalByRegion <- function(object, id, param=NULL){
- 
-  res <- getRegion(object = object, ids = id, resource = "clinical",
-                   param = param)
-  res
-}
+
 ##############################################################################
 #' getConservationByRegion
 #' 
@@ -134,41 +110,7 @@ getRegulatoryByRegion <- function(object, id, param=NULL){
   res
 }
 ##############################################################################
-#' getTfbsByRegion
-#' 
-#' A convienice method to fetch Transcription facrots data for specific region/s
-#' @param id a charcter vector of genomic regions, eg 17:1000000-1100000
-#' @param object an object of class CellBaseR
-#' @param param an object of class CellBaseParam
-#' @return a dataframe of the query result
-#' @examples 
-#' cb <- CellBaseR()
-#' res <- getTfbsByRegion(cb, "17:1000000-1189811")
-#' @export
-getTfbsByRegion <- function(object, id, param=NULL){
 
-  res <- getRegion(object = object, ids = id, resource = "tfbs",
-                   param = param)
-  res
-}
-##############################################################################
-#' getCaddScores
-#' 
-#' A convienice method to fetch Cadd scores for specific variant/s
-#' @param object an object of class CellBaseR
-#' @param id a charcter vector of genomic variants, eg 19:45411941:T:C
-#' @param param an object of class CellBaseParam
-#' @return a dataframe of the query result
-#' @examples 
-#' cb <- CellBaseR()
-#' res <- getCaddScores(cb, "19:45411941:T:C")
-#' @export
-getCaddScores <- function(object, id, param=NULL){
-  
-  res <- getVariant(object = object, ids = id, resource = "cadd",
-                    param = param)
-  res
-}
 ##############################################################################
 #' getVariantAnnotation
 #' 
