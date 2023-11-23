@@ -23,12 +23,25 @@ biocViews: Annotation, VariantAnnotation
 Lazy: TRUE
 LazyData: TRUE
 Encoding: UTF-8
-Collate: 'commons.R' 'AllClasses.R' 'AllGenerics.R'
-        'AnnotateVcf-methods.R' 'CellBaseParam-methods.R'
-        'CellBaseR-methods.R' 'cellbase.R' 'getCellbase-methods.R'
-        'getChromosomeInfo-methods.R' 'getClinical-methods.R'
-        'getGene-methods.R' 'getMeta-methods.R' 'getProtein-methods.R'
-        'getRegion-methods.R' 'getSnp-methods.R' 'getTf-methods.R'
-        'getTranscript-methods.R' 'getVariant-methods.R'
-        'getXref-methods.R' 'show-methods.R' 'tools.R' 'user.R'
+Collate: 
+    'commons.R'
+    'AllClasses.R'
+    'AllGenerics.R'
+    'AnnotateVcf-methods.R'
+    'CellBaseParam-methods.R'
+    'CellBaseR-methods.R'
+    'cellbase.R'
+    'getCellbase-methods.R'
+    'getChromosomeInfo-methods.R'
+    'getClinical-methods.R'
+    'getGene-methods.R'
+    'getMeta-methods.R'
+    'getProtein-methods.R'
+    'getRegion-methods.R'
+    'getTranscript-methods.R'
+    'getVariant-methods.R'
+    'getXref-methods.R'
+    'show-methods.R'
+    'tools.R'
+    'user.R'
 VignetteBuilder: knitr
