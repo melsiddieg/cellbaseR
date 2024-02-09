@@ -35,8 +35,8 @@ setMethod("getGene", "CellBaseR", definition = function(object, ids,
                  clinsig_labels=param@clinsig_labels, 
                  alleleOrigin=param@alleleOrigin, 
                  consistency_labels=param@consistency_labels,
-                 limit=param@limit, include=param@include,
-                 exclude=param@exclude, limit=param@limit)
+                 include=param@include, exclude=param@exclude,
+                 limit=param@limit)
         param <- paste(param, collapse = "&")
     }
     # TODO: param are not enabled
