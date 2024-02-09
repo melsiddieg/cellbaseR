@@ -31,7 +31,7 @@ setMethod("getRegion", "CellBaseR", definition = function(object, ids, resource,
     if (!is.null(param)){
       param <- c(genome=param@genome, gene=param@gene,
                    region=param@region, rs=param@rs,so=param@so,
-                   phenotype=param@phenotype, limit=param@limit, 
+                   phenotype=param@phenotype,
                    include=param@include, exclude=param@exclude,
                    limit=param@limit)
       param <- paste(param, collapse = "&")
